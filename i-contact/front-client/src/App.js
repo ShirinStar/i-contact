@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import './App.css';
 import axios from 'axios';
 import fetchMap from './services/api-helper';
-import MapContainer from './components/MapContainer'
+import TriggerMap from './components/TriggerMap';
+import { Link, Route } from 'react-router-dom';
+import { withRouter } from 'react-router';
 
 class App extends Component {
 constructor() {
@@ -12,17 +14,22 @@ constructor() {
   }
 }
 
+
 async componentDidMount(){
 }
 
   render() {
     return (
       <div className="App">
+      <div>
+      <Link to='/' />
         <h1>i.contact app</h1>
-        <MapContainer />
+
+        <TriggerMap  />
+        </div>
       </div>
     );
   }
 }
 
-export default App;
+export default withRouter(App);

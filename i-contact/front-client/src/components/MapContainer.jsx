@@ -13,6 +13,7 @@ export class MapContainer extends Component {
       },
       showingInfoWindow: false,
       activeMarker: {},
+      //selectplaces here function as users
       selectedPlace: {},
     }
   }
@@ -34,8 +35,8 @@ export class MapContainer extends Component {
 };
 
 //updating location every 5sec
-    componentDidMount() {
-        setInterval(() => {
+  async componentDidMount() {
+      await setInterval(() => {
         navigator.geolocation.getCurrentPosition(
           position => {
             this.setState({
@@ -67,7 +68,7 @@ export class MapContainer extends Component {
           position={this.state.currentPosition}
           onClick={this.onMarkerClick}
       //change here to the name of the user later + location
-          name={'User name'}
+          name={'User name and user ratings'}
           icon={icon}/>
 
         <InfoWindow
