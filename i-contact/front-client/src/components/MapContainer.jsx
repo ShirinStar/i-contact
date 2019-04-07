@@ -9,12 +9,31 @@ export class MapContainer extends Component {
       showingInfoWindow: false,
       activeMarker: {},
       selectedPlace: {},
+      currentLatLng: {
+            lat: 0,
+            lng: 0
+      },
     }
   }
 
+    componentWillMount() {
+        navigator.geolocation.getCurrentPosition(
+          position => {
+            this.setState({
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            });
+          },
+          error => console.log(error)
+        );
+      }
+
   render() {
     return (
-      <Map google={this.props.google} zoom={14}>
+      <Map google={this.props.google}
+          initialCenter={this.state.currentLatLng}
+          zoom={12}
+          onClick={this.onMapClicked} >
 
         <Marker onClick={this.onMarkerClick}
                 name={'Current location'} />
