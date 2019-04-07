@@ -9,19 +9,22 @@ export class MapContainer extends Component {
       showingInfoWindow: false,
       activeMarker: {},
       selectedPlace: {},
-      currentLatLng: {
-            lat: 0,
-            lng: 0
-      },
+      currentPosition: {
+        lat: '',
+        lng: '',
+      }
     }
   }
 
     componentWillMount() {
         navigator.geolocation.getCurrentPosition(
           position => {
+          console.log(position)
             this.setState({
-              lat: position.coords.latitude,
-              lng: position.coords.longitude
+              currentPosition: {
+                lat: position.coords.latitude,
+                lng: position.coords.longitude
+              }
             });
           },
           error => console.log(error)
@@ -31,8 +34,8 @@ export class MapContainer extends Component {
   render() {
     return (
       <Map google={this.props.google}
-          initialCenter={this.state.currentLatLng}
-          zoom={12}
+          center={this.state.currentPosition}
+          zoom={16}
           onClick={this.onMapClicked} >
 
         <Marker onClick={this.onMarkerClick}
