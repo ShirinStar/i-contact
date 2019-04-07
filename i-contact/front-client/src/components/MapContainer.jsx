@@ -58,9 +58,7 @@ export class MapContainer extends Component {
       //i need to check how to add a bounds to center multi positions
           center={this.state.currentPosition}
           zoom={16}
-          defaultOptions={{
-          styles: styles
-          }}
+          styles={styles}
           onClick={this.onMapClicked} >
 
         <Marker
