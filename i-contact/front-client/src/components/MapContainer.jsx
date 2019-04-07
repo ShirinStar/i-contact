@@ -33,8 +33,9 @@ export class MapContainer extends Component {
   }
 };
 
-//i need to add to this setInterval to update position every 30sec or so.
+//updating location every 5sec
     componentDidMount() {
+        setInterval(() => {
         navigator.geolocation.getCurrentPosition(
           position => {
             this.setState({
@@ -46,11 +47,12 @@ export class MapContainer extends Component {
           },
           error => console.log(error)
         );
-      }
+      }, 5000);
+    }
 
   render() {
     let icon = {
-        url: "https://i.imgur.com/Wt5NZiA.png", // url
+        url: "https://i.imgur.com/Wt5NZiA.png",
         scaledSize: new this.props.google.maps.Size(80, 80), // scaled size
         };
     return (
@@ -64,7 +66,7 @@ export class MapContainer extends Component {
         <Marker
           position={this.state.currentPosition}
           onClick={this.onMarkerClick}
-      //change here to the name of the user later + location ?
+      //change here to the name of the user later + location
           name={'User name'}
           icon={icon}/>
 
