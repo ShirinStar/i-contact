@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
 const GOOGLE_API_KEY= process.env.REACT_APP_GOOGLE_API_KEY;
+const styles = require('./mapStyle.json')
 
 export class MapContainer extends Component {
   constructor(){
@@ -53,10 +54,13 @@ export class MapContainer extends Component {
         scaledSize: new this.props.google.maps.Size(80, 80), // scaled size
         };
     return (
-      <Map google={this.props.google}
+      <Map className='map' google={this.props.google}
       //i need to check how to add a bounds to center multi positions
           center={this.state.currentPosition}
           zoom={16}
+          defaultOptions={{
+          styles: styles
+          }}
           onClick={this.onMapClicked} >
 
         <Marker
