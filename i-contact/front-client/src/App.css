@@ -1,0 +1,19 @@
+/*background-color: #feaeb0;
+inside-eye: #ffff95;
+type of red: #fe1f20;
+type of grey: #e7e7e7;
+type of purple: #cb9ff6;
+*/
+
+body {
+  background: #feaeb0;
+}
+
+.aroundPerson {
+  display: flex;
+}
+
+.imgPerson {
+  width: 620px;
+  height: 800px;
+}
