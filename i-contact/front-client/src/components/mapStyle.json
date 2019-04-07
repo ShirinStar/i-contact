@@ -4,10 +4,13 @@
         "elementType": "geometry",
         "stylers": [
             {
-                "color": "#feaeb0"
+                "color": "#f7b7b9"
             },
             {
                 "visibility": "simplified"
+            },
+            {
+                "lightness": "34"
             }
         ]
     },
@@ -91,7 +94,55 @@
         "elementType": "labels.text",
         "stylers": [
             {
-                "visibility": "off"
+                "visibility": "simplified"
+            },
+            {
+                "lightness": "41"
+            },
+            {
+                "gamma": "2.27"
+            },
+            {
+                "weight": "6.54"
+            },
+            {
+                "saturation": "24"
+            }
+        ]
+    },
+    {
+        "featureType": "administrative",
+        "elementType": "labels.text.fill",
+        "stylers": [
+            {
+                "lightness": "-72"
+            },
+            {
+                "visibility": "simplified"
+            },
+            {
+                "gamma": "7.32"
+            },
+            {
+                "saturation": "76"
+            }
+        ]
+    },
+    {
+        "featureType": "administrative",
+        "elementType": "labels.text.stroke",
+        "stylers": [
+            {
+                "saturation": "39"
+            },
+            {
+                "lightness": "-68"
+            },
+            {
+                "gamma": "7.84"
+            },
+            {
+                "visibility": "simplified"
             }
         ]
     },
@@ -100,10 +151,22 @@
         "elementType": "geometry",
         "stylers": [
             {
-                "lightness": 30
+                "lightness": "74"
             },
             {
-                "saturation": 30
+                "saturation": "67"
+            },
+            {
+                "visibility": "on"
+            }
+        ]
+    },
+    {
+        "featureType": "landscape",
+        "elementType": "labels.text",
+        "stylers": [
+            {
+                "visibility": "off"
             }
         ]
     },
@@ -139,13 +202,40 @@
     },
     {
         "featureType": "poi",
+        "elementType": "labels",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "poi",
         "elementType": "labels.text",
         "stylers": [
             {
-                "visibility": "simplified"
+                "visibility": "on"
             },
             {
-                "lightness": "41"
+                "lightness": "12"
+            },
+            {
+                "saturation": "-91"
+            },
+            {
+                "gamma": "5.32"
+            },
+            {
+                "weight": "0.54"
+            }
+        ]
+    },
+    {
+        "featureType": "poi.park",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "off"
             }
         ]
     },
@@ -158,6 +248,24 @@
             },
             {
                 "saturation": -20
+            }
+        ]
+    },
+    {
+        "featureType": "poi.park",
+        "elementType": "geometry.fill",
+        "stylers": [
+            {
+                "visibility": "on"
+            }
+        ]
+    },
+    {
+        "featureType": "poi.park",
+        "elementType": "labels.text",
+        "stylers": [
+            {
+                "visibility": "on"
             }
         ]
     },
@@ -210,11 +318,62 @@
         ]
     },
     {
+        "featureType": "transit.line",
+        "elementType": "geometry.fill",
+        "stylers": [
+            {
+                "visibility": "on"
+            }
+        ]
+    },
+    {
+        "featureType": "transit.line",
+        "elementType": "labels.text",
+        "stylers": [
+            {
+                "visibility": "on"
+            }
+        ]
+    },
+    {
+        "featureType": "transit.line",
+        "elementType": "labels.icon",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
         "featureType": "water",
         "elementType": "all",
         "stylers": [
             {
                 "lightness": -20
+            }
+        ]
+    },
+    {
+        "featureType": "water",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "visibility": "simplified"
+            },
+            {
+                "saturation": "-89"
+            },
+            {
+                "lightness": "-74"
+            },
+            {
+                "gamma": "3.23"
+            },
+            {
+                "weight": "1.33"
+            },
+            {
+                "invert_lightness": true
             }
         ]
     },
