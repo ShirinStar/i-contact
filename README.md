@@ -23,8 +23,10 @@ The associations' back-end API is self-referential. There are two tables one for
 - matching users together and calculating the distance between them
 - timing one-minute encounter- aiming to have a unique screen color to each match- so they can identify themselves (or pushing it to post MVP)
 - having a rating system that can scale in post MVP to a more community 'safety' one. 
+- looking into adding JS animations in the searching and encounters 
 
 ## post M.V.P
+- js location animation.
 - working on a more community network. 
 - more interactions. 
 
