@@ -11,10 +11,11 @@ Once the users are logged in they can fire a request to locate a near-by "eye" (
 React with ruby on Rails, Google maps API, Snazzymaps, TBD
 
 ## ERD
-The associations' back-end API is self-referential. There are two tables one for users that has many reviews (the second table) through reviewers/reviewees.
+The associations' back-end API is self-referential. There are two tables one for users that has_many reviews (the second table) through reviewers/reviewees.
 ![has_many](https://i.imgur.com/45IITmF.jpg)
 
 ## Wireframes
+![all_wireframes](https://i.imgur.com/c2TSuQq.jpg)
 
 ## M.V.P
 
