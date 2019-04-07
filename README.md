@@ -12,13 +12,20 @@ React with ruby on Rails, Google maps API, Snazzymaps, TBD
 
 ## ERD
 The associations' back-end API is self-referential. There are two tables one for users that has_many reviews (the second table) through reviewers/reviewees.
-![has_many](https://i.imgur.com/45IITmF.jpg)
+![has_many](https://i.imgur.com/LRGQmWD.jpg)
 
 ## Wireframes
 ![all_wireframes](https://i.imgur.com/c2TSuQq.jpg)
 
 ## M.V.P
+- mobile responsive
+- multi-user platform.
+- matching users together and calculating the distance between them
+- timing one-minute encounter- aiming to have a unique screen color to each match- so they can identify themselves (or pushing it to post MVP)
+- having a rating system that can scale in post MVP to a more community 'safety' one. 
 
 ## post M.V.P
+- working on a more community network. 
+- more interactions. 
 
 ## Code Snippet
