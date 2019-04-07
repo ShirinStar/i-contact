@@ -12,6 +12,7 @@ React with ruby on Rails, Google maps API, Snazzymaps, TBD
 
 ## ERD
 The associations' back-end API is self-referential. There are two tables one for users that has many reviews (the second table) through reviewers/reviewees.
+![has_many] (https://i.imgur.com/45IITmF.jpg)
 
 ## Wireframes
 
