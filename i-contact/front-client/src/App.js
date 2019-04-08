@@ -9,6 +9,7 @@ import HomeScreen from './components/HomeScreen';
 import LoginForm from './components/LoginForm';
 import UpdateForm from './components/UpdateForm';
 import RegisterForm from './components/RegisterForm';
+import MapContainer from './components/MapContainer';
 
 class App extends Component {
 constructor() {
@@ -35,6 +36,7 @@ constructor() {
   this.handleUpdate = this.handleUpdate.bind(this)
   this.handleUpdateChange = this.handleUpdateChange.bind(this)
   this.handleDelete = this.handleDelete.bind(this)
+  this.handleLogout = this.handleLogout.bind(this)
 }
 
   onEdit(currentUser){
@@ -62,6 +64,10 @@ constructor() {
   e.preventDefault();
   const {currentUser} = this.state
   await deleteUser(currentUser.id);
+  this.props.history.push(`/`)
+}
+
+async handleLogout(){
   this.props.history.push(`/`)
 }
 
@@ -133,20 +139,27 @@ async componentDidMount(){
   render() {
     return (
       <div className="App">
+
       <div>
         <nav>
           <h3>i.contact app</h3>
           <Link to='/login'> returning eye </Link>
           <Link to='/register'> new eye </Link>
+        </nav>
+
+      <Route exact path='/' component={HomeScreen} />
+
+        <div className='secondNav'>
+          <h3>i.contact app</h3>
           {this.state.isEdit ?
             <UpdateForm handleChange={this.handleUpdateChange}
               currentUser={this.state.currentUser} handleUpdate={this.handleUpdate}/>
                 : <h2>hey {this.state.currentUser.name}</h2>}
             <button onClick={() => this.onEdit(this.state.currentUser)}>Edit profile </button>
             <button onClick={this.handleDelete}>Delete profile </button>
-        </nav>
+            <button onClick={this.handleLogout}>Logout</button>
+        </div>
 
-        <HomeScreen />
 
         <Route exact path='/login' render={(props) => (
           <LoginForm
@@ -172,9 +185,11 @@ async componentDidMount(){
         />
       )}/>
 
-        <TriggerMap
-        triggerMap={this.triggerMap}
-        />
+        <Route exact path='/trigger' component={() => < TriggerMap
+        triggerMap={this.triggerMap} />
+        }/>
+
+        <Route exact path='/map' component={MapContainer}/>
         </div>
       </div>
     );

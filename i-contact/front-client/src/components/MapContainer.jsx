@@ -39,6 +39,7 @@ export class MapContainer extends Component {
       await setInterval(() => {
         navigator.geolocation.getCurrentPosition(
           position => {
+            console.log(position);
             this.setState({
               currentPosition: {
                 lat: position.coords.latitude,
