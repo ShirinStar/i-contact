@@ -15,40 +15,33 @@ constructor() {
   super();
   this.state = {
     mapData: '',
-    registerFormData: {
+    formData: {
         email: '',
         password: '',
         name: ''
-      },
-    loginData: {
-      email: '',
-      password: ''
-    },
+      }
   }
   this.handleLogin = this.handleLogin.bind(this)
   this.handleChange = this.handleChange.bind(this)
   this.handleRegister = this.handleRegister.bind(this)
+  this.triggerMap = this.triggerMap.bind(this)
 }
 
 handleChange(e) {
     const { name, value } = e.target;
     this.setState(prevState => ({
-      registerFormData: {
-        ...prevState.registerFormData,
+      formData: {
+        ...prevState.formData,
         [name]: value
       },
-      loginData: {
-        ...prevState.loginData,
-        [name]: value
-      }
     }));
   }
 
   async handleRegister(e) {
     e.preventDefault();
-    // const data = await registerUser(this.state.registerFormData)
+    // const data = await registerUser(this.state.formData)
     // this.setState({
-    //   registerFormData: {
+    //   formData: {
     //     email: '',
     //     password: '',
     //     name: ''
@@ -59,11 +52,11 @@ handleChange(e) {
 
   async handleLogin(e) {
     e.preventDefault();
-    // const data = await loginUser(this.state.loginData)
+    // const data = await loginUser(this.state.formData)
     // console.log(data)
     // data === '' ? alert('Invalid Email or Password- try again') :
     //   this.setState(prevState => ({
-    //   loginData: {
+    //   formData: {
     //     email: '',
     //     password: '',
     //   },
@@ -71,6 +64,10 @@ handleChange(e) {
     this.props.history.push('/trigger');
   }
 
+  triggerMap(e){
+  e.preventDefault();
+  this.props.history.push('/map')
+  }
 
 async componentDidMount(){
 }
@@ -92,8 +89,8 @@ async componentDidMount(){
           {...props}
           buttonText="start humanizing"
           handleChange={this.handleChange}
-          email={this.state.loginData.email}
-          password={this.state.loginData.password}
+          email={this.state.formData.email}
+          password={this.state.formData.password}
           handleSubmit={this.handleLogin}
           onSubmit={this.handleLogin}
           />
@@ -104,14 +101,16 @@ async componentDidMount(){
           {...props}
           buttonText="start humanizing"
           handleChange={this.handleChange}
-          email={this.state.registerFormData.email}
-          password={this.state.registerFormData.password}
-          name={this.state.registerFormData.name}
+          email={this.state.formData.email}
+          password={this.state.formData.password}
+          name={this.state.formData.name}
           handleSubmit={this.handleRegister}
         />
       )}/>
 
-        <TriggerMap/>
+        <TriggerMap
+        triggerMap={this.triggerMap}
+        />
         </div>
       </div>
     );
