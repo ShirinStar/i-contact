@@ -36,7 +36,22 @@ const loginUser = async (data) => {
   }
 }
 
+const getUser = async (id) => {
+  const resp = await axios.get(`${BASE_URL}/users/${id}`)
+  console.log(resp.data);
+  return resp.data
+}
+
+const updateUser = async (id, data) => {
+  console.log(id, data);
+  const resp = await api.put(`/users/${id}/`, data);
+  return resp.data;
+}
+
+
 export  {
   registerUser,
-  loginUser
+  loginUser,
+  updateUser,
+  getUser
   }

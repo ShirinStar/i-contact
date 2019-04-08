@@ -38,7 +38,6 @@ class LoginForm extends Component {
           type="submit">
           {this.props.buttonText}
           </button>
-
           </form>
       </div>
     )
