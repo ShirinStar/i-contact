@@ -11,8 +11,11 @@ Once the users are logged in they can fire a request to locate a near-by "eye" (
 React with ruby on Rails, Google maps API, Snazzymaps, TBD
 
 ## ERD
-The associations' back-end API is self-referential. There are two tables one for users that has_many reviews (the second table) through reviewers/reviewees.
-![has_many](https://i.imgur.com/LRGQmWD.jpg)
+not sure if the association tables are many to many or self-referential. **i need help here** 
+There are two tables one for users that has_many reviews (the second table), and the reviews are links to the users through reviewers/reviewees...
+currently i wrote the review table as such: 
+Review rating:integer written_reviews: references received_reviews: references 
+![has_many](https://i.imgur.com/XSSSPnV.jpg)
 
 ## Wireframes
 ![all_wireframes](https://i.imgur.com/c2TSuQq.jpg)
