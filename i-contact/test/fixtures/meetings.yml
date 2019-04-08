@@ -3,9 +3,9 @@
 one:
   is_occur: false
   user: one
-  reviewer: one
+  review: one
 
 two:
   is_occur: false
   user: two
-  reviewer: two
+  review: two

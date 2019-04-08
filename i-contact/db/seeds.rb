@@ -4,6 +4,7 @@
 # Examples:
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-bart = Human.create!(name:'Bart Simpson', email:'bart@gmail.com', password_diagest: '123')
-think = Rate.create!(rating: 4)
-Encounter.create!(is_occuer: true, human: bart, rate: think)
+
+bart = User.create!(name:'Bart Simpson', email:'bart@gmail.com', password_diagest: '123')
+think = Review.create!(rating: 4)
+Meeting.create!(is_occur: true, user: bart, review: think)

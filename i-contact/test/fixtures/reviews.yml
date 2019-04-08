@@ -2,14 +2,6 @@
 
 one:
   rating: 1
-  written_reviews: MyString
-  references: MyString
-  received_reviews: MyString
-  references: MyString
 
 two:
   rating: 1
-  written_reviews: MyString
-  references: MyString
-  received_reviews: MyString
-  references: MyString

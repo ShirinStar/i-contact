@@ -10,35 +10,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_08_171917) do
+ActiveRecord::Schema.define(version: 2019_04_08_183922) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "encounters", force: :cascade do |t|
-    t.boolean "is_occuer"
-    t.bigint "human_id"
-    t.bigint "rate_id"
+  create_table "meetings", force: :cascade do |t|
+    t.boolean "is_occur"
+    t.bigint "user_id"
+    t.bigint "review_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["human_id"], name: "index_encounters_on_human_id"
-    t.index ["rate_id"], name: "index_encounters_on_rate_id"
+    t.index ["review_id"], name: "index_meetings_on_review_id"
+    t.index ["user_id"], name: "index_meetings_on_user_id"
   end
 
-  create_table "humen", force: :cascade do |t|
-    t.string "name", null: false
-    t.string "email", null: false
-    t.string "password_diagest", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "rates", force: :cascade do |t|
+  create_table "reviews", force: :cascade do |t|
     t.integer "rating"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "encounters", "humen"
-  add_foreign_key "encounters", "rates"
+  create_table "users", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "password_diagest"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "meetings", "reviews"
+  add_foreign_key "meetings", "users"
 end
