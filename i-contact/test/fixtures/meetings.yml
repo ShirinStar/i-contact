@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  is_occur: false
+  user: one
+  reviewer: one
+
+two:
+  is_occur: false
+  user: two
+  reviewer: two

@@ -12,6 +12,10 @@ class UsersController < ApplicationController
     render json: @user
   end
 
+  def new
+    @use = User.new
+  end
+
   # POST /users
   def create
     @user = User.new(user_params)
@@ -34,6 +38,7 @@ class UsersController < ApplicationController
 
   # DELETE /users/1
   def destroy
+    @user = User.find(params[:id])
     @user.destroy
   end
 
