@@ -3,7 +3,7 @@ import './App.css';
 import axios from 'axios';
 import { Link, Route } from 'react-router-dom';
 import { withRouter } from 'react-router';
-import fetchMap from './services/api-helper';
+import { loginUser, registerUser} from './services/api-helper';
 import TriggerMap from './components/TriggerMap';
 import HomeScreen from './components/HomeScreen';
 import LoginForm from './components/LoginForm';
@@ -54,8 +54,6 @@ handleChange(e) {
     //     name: ''
     //   }
     // })
-    // await localStorage.setItem('token', data.token);
-    // await localStorage.setItem('id', data.id);
     this.props.history.push('/trigger');
   };
 
@@ -70,8 +68,6 @@ handleChange(e) {
     //     password: '',
     //   },
     // }))
-    // await localStorage.setItem('token', data.token);
-    // await localStorage.setItem('id', data.id);
     this.props.history.push('/trigger');
   }
 
@@ -83,7 +79,6 @@ async componentDidMount(){
     return (
       <div className="App">
       <div>
-      <Link to='/' />
         <nav>
           <h1>i.contact app</h1>
           <Link to='/login'> returning eye </Link>
@@ -92,8 +87,7 @@ async componentDidMount(){
 
         <HomeScreen />
 
-        <Route exact path="/login" render={(props) => (
-          <div>
+        <Route exact path='/login' render={(props) => (
           <LoginForm
           {...props}
           buttonText="start humanizing"
@@ -103,7 +97,6 @@ async componentDidMount(){
           handleSubmit={this.handleLogin}
           onSubmit={this.handleLogin}
           />
-          </div>
         )}/>
 
         <Route exact path='/register' render={(props) => (
@@ -118,7 +111,7 @@ async componentDidMount(){
         />
       )}/>
 
-        <Route exact path='/trigger' render={TriggerMap} />
+        <TriggerMap/>
         </div>
       </div>
     );

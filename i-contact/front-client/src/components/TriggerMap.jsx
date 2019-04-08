@@ -12,7 +12,7 @@ function TriggerMap(){
             <img src='https://i.imgur.com/yXLZt4q.png' width='480' height='600' alt=''/>
           </div>
         </Link>
-        <Route exact path='/map' render={(props) => (
+        <Route exact path='/map' component={(props) => (
           <MapContainer/> )}
           />
     </div>

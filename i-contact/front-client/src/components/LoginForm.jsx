@@ -40,8 +40,6 @@ class LoginForm extends Component {
           </button>
 
           </form>
-
-        <Link className='newEye' to="/register">new eye</Link>
       </div>
     )
   }
