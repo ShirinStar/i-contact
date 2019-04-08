@@ -7,8 +7,8 @@ import { loginUser, registerUser, updateUser, getUser} from './services/api-help
 import TriggerMap from './components/TriggerMap';
 import HomeScreen from './components/HomeScreen';
 import LoginForm from './components/LoginForm';
+import UpdateForm from './components/UpdateForm';
 import RegisterForm from './components/RegisterForm';
-
 
 class App extends Component {
 constructor() {
@@ -16,17 +16,46 @@ constructor() {
   this.state = {
     mapData: '',
     formData: {
-        email: '',
-        password_diagest: '',
-        name: ''
+      email: '',
+      password_diagest: '',
+      name: ''
       },
-    currentUser: ''
+    currentUser: {
+      email:'',
+      name:'',
+      id:''
+    },
+    isEdit: false
   }
   this.handleLogin = this.handleLogin.bind(this)
   this.handleChange = this.handleChange.bind(this)
   this.handleRegister = this.handleRegister.bind(this)
   this.triggerMap = this.triggerMap.bind(this)
+  this.onEdit = this.onEdit.bind(this)
+  this.handleUpdate = this.handleUpdate.bind(this)
+  this.handleUpdateChange = this.handleUpdateChange.bind(this)
 }
+
+  onEdit(currentUser){
+    this.setState({
+      isEdit: !this.state.isEdit,
+      currentUser: {
+        email: currentUser.email,
+        name: currentUser.name,
+        id: currentUser.id
+      }
+    })
+  }
+
+  async handleUpdate(e){
+    e.preventDefault();
+    const {currentUser} = this.state
+    const data = currentUser
+    await updateUser(currentUser.id, data);
+    this.setState({
+      isEdit: false
+    })
+  }
 
 async handleChange(e) {
     const { name, value } = e.target;
@@ -37,6 +66,16 @@ async handleChange(e) {
       },
     }));
   }
+
+  async handleUpdateChange(e) {
+      const { name, value } = e.target;
+      this.setState(prevState => ({
+        currentUser: {
+          ...prevState.currentUser,
+          [name]: value
+        },
+      }));
+    }
 
   async handleRegister(e) {
     e.preventDefault();
@@ -88,9 +127,11 @@ async componentDidMount(){
       <div className="App">
       <div>
         <nav>
-          <h1>i.contact app</h1>
+          <h3>i.contact app</h3>
           <Link to='/login'> returning eye </Link>
           <Link to='/register'> new eye </Link>
+          {this.state.isEdit ? <UpdateForm handleChange={this.handleUpdateChange} currentUser={this.state.currentUser} handleUpdate={this.handleUpdate}/> : <h2>hey {this.state.currentUser.name}</h2>}
+          <button onClick={() => this.onEdit(this.state.currentUser)}>Edit profile </button>
         </nav>
 
         <HomeScreen />
