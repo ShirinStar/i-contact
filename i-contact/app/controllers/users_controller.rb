@@ -9,7 +9,8 @@ class UsersController < ApplicationController
 
   # GET /users/1
   def show
-    render json: @user
+    @user = User.find(params[:id])
+    render json: @user, status: :ok
   end
 
   def new
@@ -29,6 +30,7 @@ class UsersController < ApplicationController
 
   # PATCH/PUT /users/1
   def update
+    @user = User.find(params[:id])
     if @user.update(user_params)
       render json: @user
     else

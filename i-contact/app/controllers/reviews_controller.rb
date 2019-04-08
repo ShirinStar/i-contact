@@ -1,20 +1,20 @@
-class ReviewersController < ApplicationController
+class ReviewsController < ApplicationController
   # before_action :authenticate_user!
 
   def index
     @user = User.find(params[:user_id])
-    @reviewers = Reviewer.where(user_id: @user.id)
+    @reviews = Review.where(user_id: @user.id)
   end
 
   def show
     @user = User.find(params[:user_id])
-    @reviewers = Reviewer.find(params[:id])
+    @reviews = Review.find(params[:id])
   end
 
 
     private
 
     def reviewer_params
-      params.require(:reviewer).permit(:rating)
+      params.require(:review).permit(:rating)
     end
   end

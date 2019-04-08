@@ -25,11 +25,11 @@ class LoginForm extends Component {
           <input
           autoComplete="off"
           className="input-login"
-          type="password"
+          type="password_diagest"
           onChange={this.props.handleChange}
-          id="password"
-          name="password"
-          value={this.props.password}
+          id="password_diagest"
+          name="password_diagest"
+          value={this.props.password_diagest}
           placeholder="Password"/>
 
           <button

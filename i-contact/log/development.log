@@ -3243,3 +3243,196 @@ FOREIGN KEY ("review_id")
   ↳ db/seeds.rb:10
   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "Bart Simpson"], ["LIMIT", 1]]
   [1m[36mReview Load (0.5ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" INNER JOIN "meetings" ON "reviews"."id" = "meetings"."review_id" WHERE "meetings"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 11]]
+Started GET "/" for ::1 at 2019-04-08 14:52:04 -0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Library/Ruby/Gems/2.3.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Library/Ruby/Gems/2.3.0/gems/railties-5.2.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Library/Ruby/Gems/2.3.0/gems/railties-5.2.3/lib/rails/templates/rails/welcome/index.html.erb (3.4ms)
+Completed 200 OK in 11ms (Views: 8.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users" for ::1 at 2019-04-08 14:52:06 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:7
+Completed 200 OK in 24ms (Views: 15.1ms | ActiveRecord: 4.2ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2019-04-08 15:10:42 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"name"=>"bruno", "email"=>"bruno@gmail.com", "password_diagest"=>"[FILTERED]", "user"=>{"name"=>"bruno", "email"=>"bruno@gmail.com", "password_diagest"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:24
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_diagest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "bruno"], ["email", "bruno@gmail.com"], ["password_diagest", "gaga"], ["created_at", "2019-04-08 19:10:42.611205"], ["updated_at", "2019-04-08 19:10:42.611205"]]
+  ↳ app/controllers/users_controller.rb:24
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:24
+Completed 201 Created in 15ms (Views: 1.1ms | ActiveRecord: 6.6ms)
+
+
+Started GET "/users" for ::1 at 2019-04-08 15:10:49 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:7
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.4ms)
+
+
+Started PUT "/users/3" for 127.0.0.1 at 2019-04-08 15:11:11 -0400
+Processing by UsersController#update as HTML
+  Parameters: {"name"=>"bruno", "email"=>"bruno@gmail.com", "password_diagest"=>"[FILTERED]", "id"=>"3", "user"=>{"name"=>"bruno", "email"=>"bruno@gmail.com", "password_diagest"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:50
+Completed 404 Not Found in 3ms (ActiveRecord: 0.4ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=3):
+  
+app/controllers/users_controller.rb:50:in `set_user'
+Started PUT "/users/3" for 127.0.0.1 at 2019-04-08 15:11:22 -0400
+Processing by UsersController#update as HTML
+  Parameters: {"name"=>"bruno", "email"=>"bruno@gmail.com", "password_diagest"=>"[FILTERED]", "id"=>"3", "user"=>{"name"=>"bruno", "email"=>"bruno@gmail.com", "password_diagest"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:49
+Completed 404 Not Found in 3ms (ActiveRecord: 2.9ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=3):
+  
+app/controllers/users_controller.rb:49:in `set_user'
+Started PUT "/users/2" for 127.0.0.1 at 2019-04-08 15:11:42 -0400
+Processing by UsersController#update as HTML
+  Parameters: {"name"=>"bruno", "email"=>"bruno@gmail.com", "password_diagest"=>"[FILTERED]", "id"=>"2", "user"=>{"name"=>"bruno", "email"=>"bruno@gmail.com", "password_diagest"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:50
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:33
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:34
+  [1m[36mUser Update (1.9ms)[0m  [1m[33mUPDATE "users" SET "password_diagest" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["password_diagest", "ladyGAGA"], ["updated_at", "2019-04-08 19:11:42.944253"], ["id", 2]]
+  ↳ app/controllers/users_controller.rb:34
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:34
+Completed 200 OK in 16ms (Views: 0.4ms | ActiveRecord: 5.1ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2019-04-08 15:12:05 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"name"=>"shirin", "email"=>"shirin@gmail.com", "password_diagest"=>"[FILTERED]", "user"=>{"name"=>"shirin", "email"=>"shirin@gmail.com", "password_diagest"=>"[FILTERED]"}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:24
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_diagest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "shirin"], ["email", "shirin@gmail.com"], ["password_diagest", "gaga"], ["created_at", "2019-04-08 19:12:05.184020"], ["updated_at", "2019-04-08 19:12:05.184020"]]
+  ↳ app/controllers/users_controller.rb:24
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:24
+Completed 201 Created in 3ms (Views: 0.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users" for ::1 at 2019-04-08 15:12:09 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:7
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/users/2" for 127.0.0.1 at 2019-04-08 15:12:28 -0400
+Processing by UsersController#destroy as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:50
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:43
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:44
+  [1m[36mUser Destroy (0.6ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 2]]
+  ↳ app/controllers/users_controller.rb:44
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:44
+Completed 204 No Content in 3ms (ActiveRecord: 1.2ms)
+
+
+Started GET "/users" for ::1 at 2019-04-08 15:12:33 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:7
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/users" for ::1 at 2019-04-08 15:18:49 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"email"=>"test", "password"=>"[FILTERED]", "name"=>"test", "user"=>{"name"=>"test", "email"=>"test"}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:24
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "test"], ["email", "test"], ["created_at", "2019-04-08 19:18:49.671200"], ["updated_at", "2019-04-08 19:18:49.671200"]]
+  ↳ app/controllers/users_controller.rb:24
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:24
+Completed 201 Created in 4ms (Views: 0.4ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/users" for ::1 at 2019-04-08 15:19:14 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:7
+Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/users" for ::1 at 2019-04-08 15:20:56 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"email"=>"what", "password"=>"[FILTERED]", "name"=>"what", "user"=>{"name"=>"what", "email"=>"what"}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:24
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "what"], ["email", "what"], ["created_at", "2019-04-08 19:20:56.026993"], ["updated_at", "2019-04-08 19:20:56.026993"]]
+  ↳ app/controllers/users_controller.rb:24
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:24
+Completed 201 Created in 4ms (Views: 0.5ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/users" for ::1 at 2019-04-08 15:21:23 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:7
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/users" for ::1 at 2019-04-08 15:23:38 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"email"=>"yes", "password_diagest"=>"[FILTERED]", "name"=>"yes", "user"=>{"name"=>"yes", "email"=>"yes", "password_diagest"=>"[FILTERED]"}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:24
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_diagest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "yes"], ["email", "yes"], ["password_diagest", "yes"], ["created_at", "2019-04-08 19:23:38.042262"], ["updated_at", "2019-04-08 19:23:38.042262"]]
+  ↳ app/controllers/users_controller.rb:24
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:24
+Completed 201 Created in 4ms (Views: 0.5ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/users" for ::1 at 2019-04-08 15:23:40 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:7
+Completed 200 OK in 2ms (Views: 1.7ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/users" for ::1 at 2019-04-08 15:26:04 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"email"=>"yes", "password_diagest"=>"[FILTERED]", "name"=>"", "user"=>{"name"=>"", "email"=>"yes", "password_diagest"=>"[FILTERED]"}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:24
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_diagest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", ""], ["email", "yes"], ["password_diagest", "no"], ["created_at", "2019-04-08 19:26:04.984712"], ["updated_at", "2019-04-08 19:26:04.984712"]]
+  ↳ app/controllers/users_controller.rb:24
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:24
+Completed 201 Created in 4ms (Views: 0.5ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/users" for ::1 at 2019-04-08 15:26:44 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:7
+Completed 200 OK in 2ms (Views: 1.7ms | ActiveRecord: 0.2ms)
+
+

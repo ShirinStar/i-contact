@@ -17,7 +17,7 @@ constructor() {
     mapData: '',
     formData: {
         email: '',
-        password: '',
+        password_diagest: '',
         name: ''
       }
   }
@@ -27,7 +27,7 @@ constructor() {
   this.triggerMap = this.triggerMap.bind(this)
 }
 
-handleChange(e) {
+async handleChange(e) {
     const { name, value } = e.target;
     this.setState(prevState => ({
       formData: {
@@ -39,28 +39,28 @@ handleChange(e) {
 
   async handleRegister(e) {
     e.preventDefault();
-    // const data = await registerUser(this.state.formData)
-    // this.setState({
-    //   formData: {
-    //     email: '',
-    //     password: '',
-    //     name: ''
-    //   }
-    // })
+    const data = await registerUser(this.state.formData)
+    this.setState({
+      formData: {
+        email: '',
+        password_diagest: '',
+        name: ''
+      }
+    })
     this.props.history.push('/trigger');
   };
 
   async handleLogin(e) {
     e.preventDefault();
-    // const data = await loginUser(this.state.formData)
-    // console.log(data)
-    // data === '' ? alert('Invalid Email or Password- try again') :
-    //   this.setState(prevState => ({
-    //   formData: {
-    //     email: '',
-    //     password: '',
-    //   },
-    // }))
+    const data = await loginUser(this.state.formData)
+    console.log(data)
+    data === '' ? alert('Invalid Email or Password- try again') :
+      this.setState(prevState => ({
+      formData: {
+        email: '',
+        password_diagest: '',
+      },
+    }))
     this.props.history.push('/trigger');
   }
 
@@ -90,7 +90,7 @@ async componentDidMount(){
           buttonText="start humanizing"
           handleChange={this.handleChange}
           email={this.state.formData.email}
-          password={this.state.formData.password}
+          password={this.state.formData.password_diagest}
           handleSubmit={this.handleLogin}
           onSubmit={this.handleLogin}
           />
@@ -102,7 +102,7 @@ async componentDidMount(){
           buttonText="start humanizing"
           handleChange={this.handleChange}
           email={this.state.formData.email}
-          password={this.state.formData.password}
+          password={this.state.formData.password_diagest}
           name={this.state.formData.name}
           handleSubmit={this.handleRegister}
         />
