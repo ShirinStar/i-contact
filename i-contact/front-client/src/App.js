@@ -3,7 +3,7 @@ import './App.css';
 import axios from 'axios';
 import { Link, Route } from 'react-router-dom';
 import { withRouter } from 'react-router';
-import { loginUser, registerUser, updateUser, getUser} from './services/api-helper';
+import { loginUser, registerUser, updateUser, getUser, deleteUser } from './services/api-helper';
 import TriggerMap from './components/TriggerMap';
 import HomeScreen from './components/HomeScreen';
 import LoginForm from './components/LoginForm';
@@ -34,6 +34,7 @@ constructor() {
   this.onEdit = this.onEdit.bind(this)
   this.handleUpdate = this.handleUpdate.bind(this)
   this.handleUpdateChange = this.handleUpdateChange.bind(this)
+  this.handleDelete = this.handleDelete.bind(this)
 }
 
   onEdit(currentUser){
@@ -56,6 +57,13 @@ constructor() {
       isEdit: false
     })
   }
+
+  async handleDelete(e) {
+  e.preventDefault();
+  const {currentUser} = this.state
+  await deleteUser(currentUser.id);
+  this.props.history.push(`/`)
+}
 
 async handleChange(e) {
     const { name, value } = e.target;
@@ -130,21 +138,25 @@ async componentDidMount(){
           <h3>i.contact app</h3>
           <Link to='/login'> returning eye </Link>
           <Link to='/register'> new eye </Link>
-          {this.state.isEdit ? <UpdateForm handleChange={this.handleUpdateChange} currentUser={this.state.currentUser} handleUpdate={this.handleUpdate}/> : <h2>hey {this.state.currentUser.name}</h2>}
-          <button onClick={() => this.onEdit(this.state.currentUser)}>Edit profile </button>
+          {this.state.isEdit ?
+            <UpdateForm handleChange={this.handleUpdateChange}
+              currentUser={this.state.currentUser} handleUpdate={this.handleUpdate}/>
+                : <h2>hey {this.state.currentUser.name}</h2>}
+            <button onClick={() => this.onEdit(this.state.currentUser)}>Edit profile </button>
+            <button onClick={this.handleDelete}>Delete profile </button>
         </nav>
 
         <HomeScreen />
 
         <Route exact path='/login' render={(props) => (
           <LoginForm
-          {...props}
-          buttonText="start humanizing"
-          handleChange={this.handleChange}
-          email={this.state.formData.email}
-          password={this.state.formData.password_diagest}
-          handleSubmit={this.handleLogin}
-          onSubmit={this.handleLogin}
+            {...props}
+            buttonText="start humanizing"
+            handleChange={this.handleChange}
+            email={this.state.formData.email}
+            password={this.state.formData.password_diagest}
+            handleSubmit={this.handleLogin}
+            onSubmit={this.handleLogin}
           />
         )}/>
 

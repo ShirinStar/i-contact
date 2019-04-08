@@ -3,17 +3,17 @@ import React from 'react';
 const RegisterForm = (props) => {
   return(
     <div className="reg-page">
-       <form className="register-form" onSubmit={props.onSubmit}>
+      <form className="register-form" onSubmit={props.onSubmit}>
        <div className="register">
-       <label>Name</label>
-       <input
-       className="input-reg"
-       autoComplete="off"
-       type="text"
-       onChange={props.handleChange}
-       id="name"
-       name="name"
-       value={props.name} />
+         <label>Name</label>
+         <input
+         className="input-reg"
+         autoComplete="off"
+         type="text"
+         onChange={props.handleChange}
+         id="name"
+         name="name"
+         value={props.name} />
        </div>
 
        <div className="register">
@@ -26,9 +26,9 @@ const RegisterForm = (props) => {
         id="email"
         name="email"
         value={props.email} />
-        </div>
+      </div>
 
-        <div className="register">
+      <div className="register">
         <label>Password</label>
         <input
         className="input-reg"
@@ -38,15 +38,14 @@ const RegisterForm = (props) => {
         id="password_diagest"
         name="password_diagest"
         value={props.password_diagest} />
-        </div>
+      </div>
 
-        <button
-        className='button-reg'
+      <button className='button-reg'
         onClick={props.handleSubmit}
         type="submit">
         {props.buttonText}
-        </button>
-       </form>
+      </button>
+      </form>
     </div>
   )
 };

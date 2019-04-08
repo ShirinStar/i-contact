@@ -48,10 +48,15 @@ const updateUser = async (id, data) => {
   return resp.data;
 }
 
-
+const deleteUser = async (id) => {
+  const resp = await axios.delete(`${BASE_URL}/users/${id}`);
+  console.log(resp.data);
+  return resp.data
+}
 export  {
   registerUser,
   loginUser,
   updateUser,
-  getUser
+  getUser,
+  deleteUser
   }
