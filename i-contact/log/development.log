@@ -5754,3 +5754,76 @@ Started GET "/cable" for ::1 at 2019-04-09 16:53:15 -0400
 Started GET "/cable/"[non-WebSocket] for ::1 at 2019-04-09 16:53:15 -0400
 Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, HTTP_UPGRADE: )
 Finished "/cable/"[non-WebSocket] for ::1 at 2019-04-09 16:53:15 -0400
+Started GET "/cable" for ::1 at 2019-04-09 17:28:00 -0400
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Library/Ruby/Gems/2.3.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-09 17:28:00 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Subscription class not found: "meetings"
+Finished "/cable/" [WebSocket] for ::1 at 2019-04-09 17:28:11 -0400
+Started GET "/cable" for ::1 at 2019-04-09 17:28:11 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-09 17:28:11 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Subscription class not found: "meetings"
+Finished "/cable/" [WebSocket] for ::1 at 2019-04-09 17:28:22 -0400
+Started GET "/cable" for ::1 at 2019-04-09 17:28:22 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-09 17:28:22 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Subscription class not found: "meetings"
+Finished "/cable/" [WebSocket] for ::1 at 2019-04-09 17:40:26 -0400
+Started GET "/" for ::1 at 2019-04-09 17:47:17 -0400
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Library/Ruby/Gems/2.3.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Library/Ruby/Gems/2.3.0/gems/railties-5.2.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Library/Ruby/Gems/2.3.0/gems/railties-5.2.3/lib/rails/templates/rails/welcome/index.html.erb (3.6ms)
+Completed 200 OK in 13ms (Views: 9.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/cable" for ::1 at 2019-04-09 17:47:23 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-09 17:47:23 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Subscription class not found: "meetings"
+Finished "/cable/" [WebSocket] for ::1 at 2019-04-09 17:47:50 -0400
+Started GET "/cable" for ::1 at 2019-04-09 17:47:50 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-09 17:47:50 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Subscription class not found: "meetings"
+Started GET "/cable" for ::1 at 2019-04-09 17:50:24 -0400
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Library/Ruby/Gems/2.3.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-09 17:50:24 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Subscription class not found: "meetings"
+Finished "/cable/" [WebSocket] for ::1 at 2019-04-09 17:50:34 -0400
+Started GET "/cable" for ::1 at 2019-04-09 17:50:35 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-09 17:50:35 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Subscription class not found: "meetings"
+Finished "/cable/" [WebSocket] for ::1 at 2019-04-09 17:52:09 -0400
+Started GET "/cable" for ::1 at 2019-04-09 17:52:24 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-09 17:52:24 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Subscription class not found: "meetings"
+Finished "/cable/" [WebSocket] for ::1 at 2019-04-09 17:58:04 -0400
+Started GET "/cable" for ::1 at 2019-04-09 17:58:04 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-09 17:58:04 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Subscription class not found: "Meetings"
+Started GET "/cable" for ::1 at 2019-04-09 17:58:14 -0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Library/Ruby/Gems/2.3.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-09 17:58:15 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Subscription class not found: "Meetings"
+Finished "/cable/" [WebSocket] for ::1 at 2019-04-09 17:58:27 -0400
+Started GET "/cable" for ::1 at 2019-04-09 17:58:27 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-09 17:58:27 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Subscription class not found: "Meetings"
+Finished "/cable/" [WebSocket] for ::1 at 2019-04-09 17:59:38 -0400
+Started GET "/cable" for ::1 at 2019-04-09 17:59:39 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-09 17:59:39 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MeetingsChannel is transmitting the subscription confirmation
+MeetingsChannel is streaming from meetings

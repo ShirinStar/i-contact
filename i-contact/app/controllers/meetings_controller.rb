@@ -4,7 +4,7 @@ class MeetingsController < ApplicationController
     meeting = Meeting.new(meeting_params)
     meeting.user = current_user
     if meeting.save
-      ActionCable.server.broadcast 'meetings',
+      ActionCable.server.broadcast 'meetings_channel',
        meeting: meeting.content,
        user: meeting.user.username
      head :ok
