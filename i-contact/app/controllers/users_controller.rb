@@ -29,6 +29,7 @@ class UsersController < ApplicationController
   end
 
   # PATCH/PUT /users/1
+  # only :current_user
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
@@ -39,6 +40,7 @@ class UsersController < ApplicationController
   end
 
   # DELETE /users/1
+  # only :current_user
   def destroy
     @user = User.find(params[:id])
     @user.destroy

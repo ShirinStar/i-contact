@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import axios from 'axios';
+import ActionCable from 'action-cable-react-jwt'
 import { Link, Route } from 'react-router-dom';
 import { withRouter } from 'react-router';
 import decode from 'jwt-decode';
@@ -46,7 +47,8 @@ constructor() {
       currentUser: {
         email: currentUser.email,
         name: currentUser.name,
-        id: currentUser.id
+        id: currentUser.id,
+        token: currentUser.token
       }
     })
   }
@@ -142,6 +144,22 @@ async handleChange(e) {
   }
 
 async componentDidMount(){
+  this.createSocket()
+}
+
+async createSocket(){
+  // get your JWT token
+  //i need to solve from where the token is coming from
+const token = this.state.currentUser.token
+// this is an example using localStorage
+// const yourToken = localStorage.Token
+let App = {}
+App.cable = ActionCable.createConsumer(`ws://localhost:3000/cable`, token);
+const subscription = App.cable.subscriptions.create({channel: 'meetings'}, {
+  connected: () => { console.log("cable: connected")},
+  disconnected:() => {console.log("cable: disconnected")},
+  received: (data) => { console.log("cable received: ", data); }
+  })
 }
 
   render() {

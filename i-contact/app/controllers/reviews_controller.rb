@@ -9,8 +9,8 @@ class ReviewsController < ApplicationController
   def show
     @user = User.find(params[:user_id])
     @reviews = Review.find(params[:id])
+    @meeting = Meeting.new
   end
-
 
     private
 
