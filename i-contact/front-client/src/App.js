@@ -95,6 +95,7 @@ async handleChange(e) {
   async handleRegister(e) {
     e.preventDefault();
     await registerUser(this.state.formData);
+    //need to solve the the issue that im passing pass_diagest to my db (it's in my backend)
     const token = await loginUser(this.state.formData);
     console.log(token);
     const data = decode(token.jwt);
