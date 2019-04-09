@@ -20,7 +20,7 @@ class UsersController < ApplicationController
   # POST /users
   def create
     @user = User.new(user_params)
-
+# need to solve the the issue that im passing pass_diagest to my db (maybe it's here)
     if @user.save
       render json: @user, status: :created, location: @user
     else
