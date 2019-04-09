@@ -20,7 +20,7 @@ const api = axios.create({
 
 const registerUser = async (data) => {
   try {
-    const formData = await api.post(`${BASE_URL}/users`, data);
+    const formData = await api.post(`${BASE_URL}/users`, {"user": data});
     return formData.data
   } catch (e) {
     console.log(e);
@@ -29,7 +29,7 @@ const registerUser = async (data) => {
 
 const loginUser = async (data) => {
   try {
-    const formData = await api.post(`${BASE_URL}/users`, data);
+    const formData = await api.post(`${BASE_URL}/user_token/`, {"auth": data});
     return formData.data;
   } catch (e) {
     console.log(e);

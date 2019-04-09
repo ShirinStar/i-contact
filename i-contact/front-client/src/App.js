@@ -3,6 +3,7 @@ import './App.css';
 import axios from 'axios';
 import { Link, Route } from 'react-router-dom';
 import { withRouter } from 'react-router';
+import decode from 'jwt-decode';
 import { loginUser, registerUser, updateUser, getUser, deleteUser } from './services/api-helper';
 import TriggerMap from './components/TriggerMap';
 import HomeScreen from './components/HomeScreen';
@@ -18,7 +19,7 @@ constructor() {
     mapData: '',
     formData: {
       email: '',
-      password_diagest: '',
+      password: '',
       name: ''
       },
     currentUser: {
@@ -93,11 +94,14 @@ async handleChange(e) {
 
   async handleRegister(e) {
     e.preventDefault();
-    const data = await registerUser(this.state.formData)
+    await registerUser(this.state.formData);
+    const token = await loginUser(this.state.formData);
+    console.log(token);
+    const data = decode(token.jwt);
     this.setState({
       formData: {
         email: '',
-        password_diagest: '',
+        password: '',
         name: ''
       }
     })
@@ -111,13 +115,15 @@ async handleChange(e) {
 
   async handleLogin(e) {
     e.preventDefault();
-    const data = await loginUser(this.state.formData)
+    const token = await loginUser(this.state.formData);
+    console.log(token);
+    const data = decode(token.jwt);
     console.log(data)
     // data === '' ? alert('Invalid Email or Password- try again') :
       this.setState(prevState => ({
       formData: {
         email: '',
-        password_diagest: ''
+        password: ''
       },
     }))
     const id = data.id;
@@ -167,7 +173,7 @@ async componentDidMount(){
             buttonText="start humanizing"
             handleChange={this.handleChange}
             email={this.state.formData.email}
-            password={this.state.formData.password_diagest}
+            password={this.state.formData.password}
             handleSubmit={this.handleLogin}
             onSubmit={this.handleLogin}
           />
@@ -179,7 +185,7 @@ async componentDidMount(){
           buttonText="start humanizing"
           handleChange={this.handleChange}
           email={this.state.formData.email}
-          password={this.state.formData.password_diagest}
+          password={this.state.formData.password}
           name={this.state.formData.name}
           handleSubmit={this.handleRegister}
         />

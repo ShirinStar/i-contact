@@ -35,9 +35,9 @@ const RegisterForm = (props) => {
         autoComplete="off"
         type="password"
         onChange={props.handleChange}
-        id="password_diagest"
-        name="password_diagest"
-        value={props.password_diagest} />
+        id="password"
+        name="password"
+        value={props.password} />
       </div>
 
       <button className='button-reg'
