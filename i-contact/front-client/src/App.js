@@ -69,6 +69,7 @@ constructor() {
 }
 
 async handleLogout(){
+  //need to add here clear localstorage
   this.props.history.push(`/`)
 }
 
