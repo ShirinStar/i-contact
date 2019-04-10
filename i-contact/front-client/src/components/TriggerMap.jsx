@@ -10,8 +10,6 @@ function TriggerMap(props){
         <button onClick={props.triggerMap}>
           <div className='triggerEye'>
             <img src='https://i.imgur.com/yXLZt4q.png' width='480' height='600' alt=''/>
-
-            
           </div>
         </button>
 

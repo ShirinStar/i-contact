@@ -54,9 +54,13 @@ const deleteUser = async (id) => {
   return resp.data
 }
 
-const userLocation = async(data) => {
+const userLocation = async(data, userId) => {
   try{
-  const resp = await api.post(`${BASE_URL}/locations/`, {"location": data});
+  const resp = await api.post(`${BASE_URL}/users/${userId}/locations/`, {"location": data}, {
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem('token')}`
+    }
+  });
   return resp.data;
   } catch (e) {
   console.log(e);

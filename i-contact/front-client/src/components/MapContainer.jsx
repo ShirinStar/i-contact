@@ -17,6 +17,7 @@ export class MapContainer extends Component {
       //selectplaces here function as users
       selectedPlace: {},
     }
+    this.showAllLocations = this.showAllLocations.bind(this)
   }
 
   onMarkerClick = (props, marker, e) =>
@@ -35,6 +36,14 @@ export class MapContainer extends Component {
   }
 };
 
+async showAllLocations(){
+  const usersMarkers = await getLocations();
+  this.setState({
+    //i need to find away to show multiple markers..... i have only one although im sending few
+    activeMarker: usersMarkers
+  })
+}
+
 //updating location every 10 sec
   async componentDidMount() {
       await setInterval(() => {
@@ -47,7 +56,7 @@ export class MapContainer extends Component {
                 lng: position.coords.longitude
               }
             });
-            userLocation(this.state.currentPosition)
+            userLocation(this.state.currentPosition, this.props.currentUser.id)
           },
           error => console.log(error)
         );
