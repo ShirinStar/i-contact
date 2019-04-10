@@ -53,10 +53,28 @@ const deleteUser = async (id) => {
   console.log(resp.data);
   return resp.data
 }
+
+const userLocation = async(data) => {
+  try{
+  const resp = await api.post(`${BASE_URL}/locations/`, {"location": data});
+  return resp.data;
+  } catch (e) {
+  console.log(e);
+  }
+}
+
+const getLocations = async() => {
+  const resp = await api.get(`${BASE_URL}/locations/users`);
+  console.log(resp.data);
+  return resp.data
+}
+
 export  {
   registerUser,
   loginUser,
   updateUser,
   getUser,
-  deleteUser
+  deleteUser,
+  userLocation,
+  getLocations
   }

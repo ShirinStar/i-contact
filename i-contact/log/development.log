@@ -6948,3 +6948,533 @@ Processing by LocationsController#show as HTML
 Completed 200 OK in 4ms (Views: 2.8ms | ActiveRecord: 0.7ms)
 
 
+Started GET "/locations/" for ::1 at 2019-04-10 06:00:27 -0400
+Processing by LocationsController#index as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/locations/1" for ::1 at 2019-04-10 06:00:30 -0400
+Processing by LocationsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:11
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.3ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2019-04-10 06:01:22 -0400
+LocationsChannel stopped streaming from locations_channel
+Started GET "/cable" for ::1 at 2019-04-10 06:01:22 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-10 06:01:22 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+LocationsChannel is transmitting the subscription confirmation
+LocationsChannel is streaming from locations_channel
+Started GET "/locations/users" for ::1 at 2019-04-10 06:01:51 -0400
+Processing by LocationsController#show as HTML
+  Parameters: {"id"=>"users"}
+  [1m[36mLocation Load (0.4ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:11
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/locations/users/1" for ::1 at 2019-04-10 06:02:40 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/locations/users/1"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.3) lib/rack/cors.rb:95:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/locations/users/" for ::1 at 2019-04-10 06:02:50 -0400
+Processing by LocationsController#show as HTML
+  Parameters: {"id"=>"users"}
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:11
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.3ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2019-04-10 06:05:46 -0400
+LocationsChannel stopped streaming from locations_channel
+Started GET "/cable" for ::1 at 2019-04-10 06:05:46 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-10 06:05:46 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+LocationsChannel is transmitting the subscription confirmation
+LocationsChannel is streaming from locations_channel
+Finished "/cable/" [WebSocket] for ::1 at 2019-04-10 06:15:09 -0400
+LocationsChannel stopped streaming from locations_channel
+Started GET "/cable" for ::1 at 2019-04-10 06:15:10 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-10 06:15:10 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+LocationsChannel is transmitting the subscription confirmation
+LocationsChannel is streaming from locations_channel
+Finished "/cable/" [WebSocket] for ::1 at 2019-04-10 06:15:15 -0400
+LocationsChannel stopped streaming from locations_channel
+Started GET "/cable" for ::1 at 2019-04-10 06:15:15 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-10 06:15:15 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+LocationsChannel is transmitting the subscription confirmation
+LocationsChannel is streaming from locations_channel
+Started POST "/users" for ::1 at 2019-04-10 06:15:38 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"email"=>"shirin", "password"=>"[FILTERED]", "name"=>"shirin"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:24
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "shirin"], ["email", "shirin"], ["password_digest", "$2a$10$nUZs5cHlSeifZDV.pDz8iuGfLAQnpHBhOsxoVvsehAzoAdsdBblje"], ["created_at", "2019-04-10 10:15:38.275338"], ["updated_at", "2019-04-10 10:15:38.275338"]]
+  ↳ app/controllers/users_controller.rb:24
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:24
+Completed 201 Created in 69ms (Views: 1.0ms | ActiveRecord: 1.7ms)
+
+
+Started POST "/user_token/" for ::1 at 2019-04-10 06:15:38 -0400
+Processing by UserTokenController#create as HTML
+  Parameters: {"auth"=>{"email"=>"shirin", "password"=>"[FILTERED]", "name"=>"shirin"}, "user_token"=>{"auth"=>{"email"=>"shirin", "password"=>"[FILTERED]", "name"=>"shirin"}}}
+Unpermitted parameter: :name
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "shirin"], ["LIMIT", 1]]
+  ↳ /Library/Ruby/Gems/2.3.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Unpermitted parameter: :name
+Completed 201 Created in 68ms (Views: 0.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/4" for ::1 at 2019-04-10 06:15:38 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:52
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.3ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2019-04-10 06:18:07 -0400
+LocationsChannel stopped streaming from locations_channel
+Started GET "/cable" for ::1 at 2019-04-10 06:18:07 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-10 06:18:07 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+LocationsChannel is transmitting the subscription confirmation
+LocationsChannel is streaming from locations_channel
+Finished "/cable/" [WebSocket] for ::1 at 2019-04-10 06:18:26 -0400
+LocationsChannel stopped streaming from locations_channel
+Started GET "/cable" for ::1 at 2019-04-10 06:18:27 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-10 06:18:27 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+LocationsChannel is transmitting the subscription confirmation
+LocationsChannel is streaming from locations_channel
+Started POST "/users" for ::1 at 2019-04-10 06:18:36 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"email"=>"foo", "password"=>"[FILTERED]", "name"=>"foo"}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:24
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "foo"], ["email", "foo"], ["password_digest", "$2a$10$FkfG0PaL4PhAXMD4FrHxEuEl0gBBgWy7HKncKGDw3UsA6Vk.r1Mcu"], ["created_at", "2019-04-10 10:18:36.170446"], ["updated_at", "2019-04-10 10:18:36.170446"]]
+  ↳ app/controllers/users_controller.rb:24
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:24
+Completed 201 Created in 68ms (Views: 1.2ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/user_token/" for ::1 at 2019-04-10 06:18:36 -0400
+Processing by UserTokenController#create as HTML
+  Parameters: {"auth"=>{"email"=>"foo", "password"=>"[FILTERED]", "name"=>"foo"}, "user_token"=>{"auth"=>{"email"=>"foo", "password"=>"[FILTERED]", "name"=>"foo"}}}
+Unpermitted parameter: :name
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "foo"], ["LIMIT", 1]]
+  ↳ /Library/Ruby/Gems/2.3.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Unpermitted parameter: :name
+Completed 201 Created in 64ms (Views: 0.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/5" for ::1 at 2019-04-10 06:18:36 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:52
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12
+Completed 200 OK in 2ms (Views: 0.4ms | ActiveRecord: 0.3ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2019-04-10 06:19:06 -0400
+LocationsChannel stopped streaming from locations_channel
+Started GET "/cable" for ::1 at 2019-04-10 06:19:07 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-10 06:19:07 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+LocationsChannel is transmitting the subscription confirmation
+LocationsChannel is streaming from locations_channel
+Finished "/cable/" [WebSocket] for ::1 at 2019-04-10 06:19:58 -0400
+LocationsChannel stopped streaming from locations_channel
+Started GET "/cable" for ::1 at 2019-04-10 06:19:58 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-10 06:19:58 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+LocationsChannel is transmitting the subscription confirmation
+LocationsChannel is streaming from locations_channel
+Finished "/cable/" [WebSocket] for ::1 at 2019-04-10 06:20:07 -0400
+LocationsChannel stopped streaming from locations_channel
+Started GET "/cable" for ::1 at 2019-04-10 06:20:07 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-10 06:20:07 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+LocationsChannel is transmitting the subscription confirmation
+LocationsChannel is streaming from locations_channel
+Finished "/cable/" [WebSocket] for ::1 at 2019-04-10 06:20:42 -0400
+LocationsChannel stopped streaming from locations_channel
+Started GET "/cable" for ::1 at 2019-04-10 06:20:42 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-10 06:20:42 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+LocationsChannel is transmitting the subscription confirmation
+LocationsChannel is streaming from locations_channel
+Started POST "/user_token/" for ::1 at 2019-04-10 06:20:48 -0400
+Processing by UserTokenController#create as HTML
+  Parameters: {"auth"=>{"email"=>"foo", "password"=>"[FILTERED]", "name"=>""}, "user_token"=>{"auth"=>{"email"=>"foo", "password"=>"[FILTERED]", "name"=>""}}}
+Unpermitted parameter: :name
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "foo"], ["LIMIT", 1]]
+  ↳ /Library/Ruby/Gems/2.3.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Unpermitted parameter: :name
+Completed 201 Created in 65ms (Views: 0.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/5" for ::1 at 2019-04-10 06:20:48 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:52
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12
+Completed 200 OK in 2ms (Views: 0.4ms | ActiveRecord: 0.3ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2019-04-10 06:28:41 -0400
+LocationsChannel stopped streaming from locations_channel
+Started GET "/cable" for ::1 at 2019-04-10 06:28:42 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-10 06:28:42 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+LocationsChannel is transmitting the subscription confirmation
+LocationsChannel is streaming from locations_channel
+Finished "/cable/" [WebSocket] for ::1 at 2019-04-10 06:30:25 -0400
+LocationsChannel stopped streaming from locations_channel
+Started GET "/cable" for ::1 at 2019-04-10 06:30:26 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-10 06:30:26 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+LocationsChannel is transmitting the subscription confirmation
+LocationsChannel is streaming from locations_channel
+Started POST "/user_token/" for ::1 at 2019-04-10 06:30:39 -0400
+Processing by UserTokenController#create as HTML
+  Parameters: {"auth"=>{"email"=>"foo", "password"=>"[FILTERED]", "name"=>""}, "user_token"=>{"auth"=>{"email"=>"foo", "password"=>"[FILTERED]", "name"=>""}}}
+Unpermitted parameter: :name
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "foo"], ["LIMIT", 1]]
+  ↳ /Library/Ruby/Gems/2.3.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Unpermitted parameter: :name
+Completed 201 Created in 67ms (Views: 0.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/5" for ::1 at 2019-04-10 06:30:39 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:52
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12
+Completed 200 OK in 2ms (Views: 0.4ms | ActiveRecord: 0.2ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2019-04-10 06:34:18 -0400
+LocationsChannel stopped streaming from locations_channel
+Started GET "/cable" for ::1 at 2019-04-10 06:34:19 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-10 06:34:19 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+LocationsChannel is transmitting the subscription confirmation
+LocationsChannel is streaming from locations_channel
+Finished "/cable/" [WebSocket] for ::1 at 2019-04-10 06:34:39 -0400
+LocationsChannel stopped streaming from locations_channel
+Started GET "/cable" for ::1 at 2019-04-10 06:34:40 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-10 06:34:40 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+LocationsChannel is transmitting the subscription confirmation
+LocationsChannel is streaming from locations_channel
+Finished "/cable/" [WebSocket] for ::1 at 2019-04-10 06:35:38 -0400
+LocationsChannel stopped streaming from locations_channel
+Started GET "/cable" for ::1 at 2019-04-10 06:35:38 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-10 06:35:38 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+LocationsChannel is transmitting the subscription confirmation
+LocationsChannel is streaming from locations_channel
+Finished "/cable/" [WebSocket] for ::1 at 2019-04-10 06:36:30 -0400
+LocationsChannel stopped streaming from locations_channel
+Started GET "/cable" for ::1 at 2019-04-10 06:36:31 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-10 06:36:31 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+LocationsChannel is transmitting the subscription confirmation
+LocationsChannel is streaming from locations_channel
+Started POST "/user_token/" for ::1 at 2019-04-10 06:36:37 -0400
+Processing by UserTokenController#create as HTML
+  Parameters: {"auth"=>{"email"=>"foo", "password"=>"[FILTERED]", "name"=>""}, "user_token"=>{"auth"=>{"email"=>"foo", "password"=>"[FILTERED]", "name"=>""}}}
+Unpermitted parameter: :name
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "foo"], ["LIMIT", 1]]
+  ↳ /Library/Ruby/Gems/2.3.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Unpermitted parameter: :name
+Completed 201 Created in 66ms (Views: 0.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/5" for ::1 at 2019-04-10 06:36:37 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:52
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.3ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2019-04-10 06:38:20 -0400
+LocationsChannel stopped streaming from locations_channel
+Started GET "/cable" for ::1 at 2019-04-10 06:38:21 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-10 06:38:21 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+LocationsChannel is transmitting the subscription confirmation
+LocationsChannel is streaming from locations_channel
+Finished "/cable/" [WebSocket] for ::1 at 2019-04-10 06:38:22 -0400
+LocationsChannel stopped streaming from locations_channel
+Started GET "/cable" for ::1 at 2019-04-10 06:38:23 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-10 06:38:23 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+LocationsChannel is transmitting the subscription confirmation
+LocationsChannel is streaming from locations_channel
+Finished "/cable/" [WebSocket] for ::1 at 2019-04-10 06:38:51 -0400
+LocationsChannel stopped streaming from locations_channel
+Started GET "/cable" for ::1 at 2019-04-10 06:38:52 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-10 06:38:52 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+LocationsChannel is transmitting the subscription confirmation
+LocationsChannel is streaming from locations_channel
+Finished "/cable/" [WebSocket] for ::1 at 2019-04-10 06:39:40 -0400
+LocationsChannel stopped streaming from locations_channel
+Started GET "/cable" for ::1 at 2019-04-10 06:39:40 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-10 06:39:40 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+LocationsChannel is transmitting the subscription confirmation
+LocationsChannel is streaming from locations_channel
+Finished "/cable/" [WebSocket] for ::1 at 2019-04-10 06:42:03 -0400
+LocationsChannel stopped streaming from locations_channel
+Started GET "/cable" for ::1 at 2019-04-10 06:42:03 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-10 06:42:03 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+LocationsChannel is transmitting the subscription confirmation
+LocationsChannel is streaming from locations_channel
+Finished "/cable/" [WebSocket] for ::1 at 2019-04-10 07:01:38 -0400
+LocationsChannel stopped streaming from locations_channel
+Started GET "/cable" for ::1 at 2019-04-10 07:01:38 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-10 07:01:38 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+LocationsChannel is transmitting the subscription confirmation
+LocationsChannel is streaming from locations_channel
+Started POST "/locations/" for ::1 at 2019-04-10 07:01:49 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922618, "lng"=>-73.95960579999999}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:21
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/locations_controller.rb:23
+  [1m[36mLocation Create (1.7ms)[0m  [1m[32mINSERT INTO "locations" ("user_id", "lat", "lng", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 1], ["lat", "40.6922618"], ["lng", "-73.9596058"], ["created_at", "2019-04-10 11:01:49.150414"], ["updated_at", "2019-04-10 11:01:49.150414"]]
+  ↳ app/controllers/locations_controller.rb:23
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/locations_controller.rb:23
+[ActionCable] Broadcasting to locations_channel: {:lat=>#<BigDecimal:7fbfd90fe538,'0.406922618E2',18(36)>, :lng=>#<BigDecimal:7fbfd90fe510,'-0.739596058E2',18(36)>}
+Completed 200 OK in 10ms (Views: 0.2ms | ActiveRecord: 3.5ms)
+
+
+LocationsChannel transmitting {"lat"=>"40.6922618", "lng"=>"-73.9596058"} (via streamed from locations_channel)
+Started POST "/locations/" for ::1 at 2019-04-10 07:01:59 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922618, "lng"=>-73.95960579999999}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:21
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/locations_controller.rb:23
+  [1m[36mLocation Create (0.5ms)[0m  [1m[32mINSERT INTO "locations" ("user_id", "lat", "lng", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 1], ["lat", "40.6922618"], ["lng", "-73.9596058"], ["created_at", "2019-04-10 11:01:59.133413"], ["updated_at", "2019-04-10 11:01:59.133413"]]
+  ↳ app/controllers/locations_controller.rb:23
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/locations_controller.rb:23
+[ActionCable] Broadcasting to locations_channel: {:lat=>#<BigDecimal:7fbfd86e9598,'0.406922618E2',18(36)>, :lng=>#<BigDecimal:7fbfd86e1b68,'-0.739596058E2',18(36)>}
+Completed 200 OK in 6ms (Views: 0.1ms | ActiveRecord: 1.7ms)
+
+
+LocationsChannel transmitting {"lat"=>"40.6922618", "lng"=>"-73.9596058"} (via streamed from locations_channel)
+Started POST "/locations/" for ::1 at 2019-04-10 07:02:09 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922618, "lng"=>-73.95960579999999}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:21
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/locations_controller.rb:23
+  [1m[36mLocation Create (0.6ms)[0m  [1m[32mINSERT INTO "locations" ("user_id", "lat", "lng", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 1], ["lat", "40.6922618"], ["lng", "-73.9596058"], ["created_at", "2019-04-10 11:02:09.133126"], ["updated_at", "2019-04-10 11:02:09.133126"]]
+  ↳ app/controllers/locations_controller.rb:23
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/locations_controller.rb:23
+[ActionCable] Broadcasting to locations_channel: {:lat=>#<BigDecimal:7fbfe2ab2fd0,'0.406922618E2',18(36)>, :lng=>#<BigDecimal:7fbfe2ab2fa8,'-0.739596058E2',18(36)>}
+Completed 200 OK in 5ms (Views: 0.1ms | ActiveRecord: 1.7ms)
+
+
+LocationsChannel transmitting {"lat"=>"40.6922618", "lng"=>"-73.9596058"} (via streamed from locations_channel)
+Started POST "/locations/" for ::1 at 2019-04-10 07:02:19 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922618, "lng"=>-73.95960579999999}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:21
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/locations_controller.rb:23
+  [1m[36mLocation Create (0.4ms)[0m  [1m[32mINSERT INTO "locations" ("user_id", "lat", "lng", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 1], ["lat", "40.6922618"], ["lng", "-73.9596058"], ["created_at", "2019-04-10 11:02:19.129333"], ["updated_at", "2019-04-10 11:02:19.129333"]]
+  ↳ app/controllers/locations_controller.rb:23
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/locations_controller.rb:23
+[ActionCable] Broadcasting to locations_channel: {:lat=>#<BigDecimal:7fbfe2e42a10,'0.406922618E2',18(36)>, :lng=>#<BigDecimal:7fbfe2e429e8,'-0.739596058E2',18(36)>}
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 1.5ms)
+
+
+LocationsChannel transmitting {"lat"=>"40.6922618", "lng"=>"-73.9596058"} (via streamed from locations_channel)
+Started POST "/locations/" for ::1 at 2019-04-10 07:02:29 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922618, "lng"=>-73.95960579999999}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:21
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/locations_controller.rb:23
+  [1m[36mLocation Create (0.5ms)[0m  [1m[32mINSERT INTO "locations" ("user_id", "lat", "lng", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 1], ["lat", "40.6922618"], ["lng", "-73.9596058"], ["created_at", "2019-04-10 11:02:29.131254"], ["updated_at", "2019-04-10 11:02:29.131254"]]
+  ↳ app/controllers/locations_controller.rb:23
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/locations_controller.rb:23
+[ActionCable] Broadcasting to locations_channel: {:lat=>#<BigDecimal:7fbfe2b8f980,'0.406922618E2',18(36)>, :lng=>#<BigDecimal:7fbfe2b8f958,'-0.739596058E2',18(36)>}
+Completed 200 OK in 5ms (Views: 0.1ms | ActiveRecord: 1.6ms)
+
+
+LocationsChannel transmitting {"lat"=>"40.6922618", "lng"=>"-73.9596058"} (via streamed from locations_channel)
+Finished "/cable/" [WebSocket] for ::1 at 2019-04-10 07:02:30 -0400
+LocationsChannel stopped streaming from locations_channel
+Started GET "/cable" for ::1 at 2019-04-10 07:02:30 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-10 07:02:30 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+LocationsChannel is transmitting the subscription confirmation
+LocationsChannel is streaming from locations_channel
+Finished "/cable/" [WebSocket] for ::1 at 2019-04-10 07:02:46 -0400
+LocationsChannel stopped streaming from locations_channel
+Started GET "/cable" for ::1 at 2019-04-10 07:02:46 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-10 07:02:46 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+LocationsChannel is transmitting the subscription confirmation
+LocationsChannel is streaming from locations_channel
+Started POST "/locations/" for ::1 at 2019-04-10 07:02:56 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922618, "lng"=>-73.95960579999999}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:21
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/locations_controller.rb:23
+  [1m[36mLocation Create (0.6ms)[0m  [1m[32mINSERT INTO "locations" ("user_id", "lat", "lng", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 1], ["lat", "40.6922618"], ["lng", "-73.9596058"], ["created_at", "2019-04-10 11:02:56.766016"], ["updated_at", "2019-04-10 11:02:56.766016"]]
+  ↳ app/controllers/locations_controller.rb:23
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/locations_controller.rb:23
+[ActionCable] Broadcasting to locations_channel: {:lat=>#<BigDecimal:7fbfdd3830c0,'0.406922618E2',18(36)>, :lng=>#<BigDecimal:7fbfdd383098,'-0.739596058E2',18(36)>}
+Completed 200 OK in 5ms (Views: 0.1ms | ActiveRecord: 1.7ms)
+
+
+LocationsChannel transmitting {"lat"=>"40.6922618", "lng"=>"-73.9596058"} (via streamed from locations_channel)
+Started POST "/locations/" for ::1 at 2019-04-10 07:03:10 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922486, "lng"=>-73.95963300000001}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:21
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/locations_controller.rb:23
+  [1m[36mLocation Create (0.4ms)[0m  [1m[32mINSERT INTO "locations" ("user_id", "lat", "lng", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 1], ["lat", "40.6922486"], ["lng", "-73.959633"], ["created_at", "2019-04-10 11:03:10.929589"], ["updated_at", "2019-04-10 11:03:10.929589"]]
+  ↳ app/controllers/locations_controller.rb:23
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/locations_controller.rb:23
+[ActionCable] Broadcasting to locations_channel: {:lat=>#<BigDecimal:7fbfe2038ff0,'0.406922486E2',18(36)>, :lng=>#<BigDecimal:7fbfe2038fc8,'-0.73959633E2',18(36)>}
+LocationsChannel transmitting {"lat"=>"40.6922486", "lng"=>"-73.959633"} (via streamed from locations_channel)
+Completed 200 OK in 5ms (Views: 0.4ms | ActiveRecord: 1.4ms)
+
+
+Started POST "/locations/" for ::1 at 2019-04-10 07:03:16 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922486, "lng"=>-73.95963300000001}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:21
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/locations_controller.rb:23
+  [1m[36mLocation Create (0.4ms)[0m  [1m[32mINSERT INTO "locations" ("user_id", "lat", "lng", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 1], ["lat", "40.6922486"], ["lng", "-73.959633"], ["created_at", "2019-04-10 11:03:16.747720"], ["updated_at", "2019-04-10 11:03:16.747720"]]
+  ↳ app/controllers/locations_controller.rb:23
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/locations_controller.rb:23
+[ActionCable] Broadcasting to locations_channel: {:lat=>#<BigDecimal:7fbfe2ccfa70,'0.406922486E2',18(36)>, :lng=>#<BigDecimal:7fbfe2ccfa48,'-0.73959633E2',18(36)>}
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 1.5ms)
+
+
+LocationsChannel transmitting {"lat"=>"40.6922486", "lng"=>"-73.959633"} (via streamed from locations_channel)
+Started POST "/locations/" for ::1 at 2019-04-10 07:03:26 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922486, "lng"=>-73.95963300000001}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:21
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/locations_controller.rb:23
+  [1m[36mLocation Create (0.3ms)[0m  [1m[32mINSERT INTO "locations" ("user_id", "lat", "lng", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 1], ["lat", "40.6922486"], ["lng", "-73.959633"], ["created_at", "2019-04-10 11:03:26.746509"], ["updated_at", "2019-04-10 11:03:26.746509"]]
+  ↳ app/controllers/locations_controller.rb:23
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/locations_controller.rb:23
+[ActionCable] Broadcasting to locations_channel: {:lat=>#<BigDecimal:7fbfd9244a00,'0.406922486E2',18(36)>, :lng=>#<BigDecimal:7fbfd92449d8,'-0.73959633E2',18(36)>}
+Completed 200 OK in 12ms (Views: 0.2ms | ActiveRecord: 1.3ms)
+
+
+LocationsChannel transmitting {"lat"=>"40.6922486", "lng"=>"-73.959633"} (via streamed from locations_channel)
+Started POST "/locations/" for ::1 at 2019-04-10 07:03:36 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922486, "lng"=>-73.95963300000001}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:21
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/locations_controller.rb:23
+  [1m[36mLocation Create (0.4ms)[0m  [1m[32mINSERT INTO "locations" ("user_id", "lat", "lng", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 1], ["lat", "40.6922486"], ["lng", "-73.959633"], ["created_at", "2019-04-10 11:03:36.749138"], ["updated_at", "2019-04-10 11:03:36.749138"]]
+  ↳ app/controllers/locations_controller.rb:23
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/locations_controller.rb:23
+[ActionCable] Broadcasting to locations_channel: {:lat=>#<BigDecimal:7fbfe28fee78,'0.406922486E2',18(36)>, :lng=>#<BigDecimal:7fbfe28fee50,'-0.73959633E2',18(36)>}
+Completed 200 OK in 5ms (Views: 0.1ms | ActiveRecord: 1.2ms)
+
+
+LocationsChannel transmitting {"lat"=>"40.6922486", "lng"=>"-73.959633"} (via streamed from locations_channel)
+Started POST "/locations/" for ::1 at 2019-04-10 07:03:46 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922486, "lng"=>-73.95963300000001}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:21
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/locations_controller.rb:23
+  [1m[36mLocation Create (0.4ms)[0m  [1m[32mINSERT INTO "locations" ("user_id", "lat", "lng", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 1], ["lat", "40.6922486"], ["lng", "-73.959633"], ["created_at", "2019-04-10 11:03:46.752889"], ["updated_at", "2019-04-10 11:03:46.752889"]]
+  ↳ app/controllers/locations_controller.rb:23
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/locations_controller.rb:23
+[ActionCable] Broadcasting to locations_channel: {:lat=>#<BigDecimal:7fbfe20815e8,'0.406922486E2',18(36)>, :lng=>#<BigDecimal:7fbfe20815c0,'-0.73959633E2',18(36)>}
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 1.5ms)
+
+
+LocationsChannel transmitting {"lat"=>"40.6922486", "lng"=>"-73.959633"} (via streamed from locations_channel)
+Finished "/cable/" [WebSocket] for ::1 at 2019-04-10 07:03:50 -0400
+LocationsChannel stopped streaming from locations_channel
+Started GET "/cable" for ::1 at 2019-04-10 07:03:50 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-10 07:03:50 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+LocationsChannel is transmitting the subscription confirmation
+LocationsChannel is streaming from locations_channel

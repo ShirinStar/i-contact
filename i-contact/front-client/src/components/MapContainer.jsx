@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
+import { userLocation, getLocations } from '../services/api-helper';
 const GOOGLE_API_KEY= process.env.REACT_APP_GOOGLE_API_KEY;
 const styles = require('./mapStyle.json')
 
@@ -34,7 +35,7 @@ export class MapContainer extends Component {
   }
 };
 
-//updating location every 5sec
+//updating location every 10 sec
   async componentDidMount() {
       await setInterval(() => {
         navigator.geolocation.getCurrentPosition(
@@ -46,10 +47,11 @@ export class MapContainer extends Component {
                 lng: position.coords.longitude
               }
             });
+            userLocation(this.state.currentPosition)
           },
           error => console.log(error)
         );
-      }, 5000);
+      }, 10000);
     }
 
   render() {
