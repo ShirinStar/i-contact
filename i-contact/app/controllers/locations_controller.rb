@@ -18,11 +18,8 @@ end
 
   def create
     location = Location.new(location_params)
-    # currenly hardcoding for testing
     location.user = User.find(params[:user_id])
-    # p current_user
-    # location.user = User.find(1)
-    # location.user = User.find(params[:user_id])
+    
     if location.save
       ActionCable.server.broadcast 'locations_channel',
        lat: location.lat,
@@ -38,13 +35,6 @@ end
     # end
 
   private
-
-  # def current_user
-  #   # currenly hardcoding for testing
-  #   # User.find(1)
-  #   User.find(params[:user_id])
-  #   # User.find(params[:user_id])
-  # end
 
     def location_params
       params.require(:location).permit(:lat, :lng, :user_id)

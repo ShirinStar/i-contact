@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "action-cable-react-jwt": "0.0.5",
+    "actioncable": "^5.2.3",
     "axios": "^0.18.0",
     "google-maps-react": "^2.0.2",
     "jwt-decode": "^2.2.0",

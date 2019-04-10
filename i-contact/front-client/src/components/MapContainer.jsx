@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
+import { Link, Route} from 'react-router-dom';
 import { userLocation, getLocations } from '../services/api-helper';
+import LocationShowPage from './LocationShowPage';
 const GOOGLE_API_KEY= process.env.REACT_APP_GOOGLE_API_KEY;
 const styles = require('./mapStyle.json')
 
@@ -8,16 +10,31 @@ export class MapContainer extends Component {
   constructor(){
     super();
     this.state = {
+      //currentuser.id
       currentPosition: {
         lat: '',
         lng: '',
+      },
+      location:{
+        location:{},
+        users:[]
       },
       showingInfoWindow: false,
       activeMarker: {},
       //selectplaces here function as users
       selectedPlace: {},
     }
-    this.showAllLocations = this.showAllLocations.bind(this)
+  }
+
+  // Callback function to setState in App from Line Action Cable
+  updateAppStateLocation = (newLocation) => {
+    console.log('updateAppStateLocation: ', this.state.location)
+    this.setState({
+      location: {
+        location: newLocation.location,
+        users: newLocation.users
+      }
+    })
   }
 
   onMarkerClick = (props, marker, e) =>
@@ -36,13 +53,6 @@ export class MapContainer extends Component {
   }
 };
 
-async showAllLocations(){
-  const usersMarkers = await getLocations();
-  this.setState({
-    //i need to find away to show multiple markers..... i have only one although im sending few
-    activeMarker: usersMarkers
-  })
-}
 
 //updating location every 10 sec
   async componentDidMount() {
@@ -56,7 +66,8 @@ async showAllLocations(){
                 lng: position.coords.longitude
               }
             });
-            userLocation(this.state.currentPosition, this.props.currentUser.id)
+            const data = userLocation(this.state.currentPosition, this.props.currentUser.id)
+            console.log(data);
           },
           error => console.log(error)
         );
@@ -69,12 +80,13 @@ async showAllLocations(){
         scaledSize: new this.props.google.maps.Size(80, 80), // scaled size
         };
     return (
+      <div>
       <Map className='map' google={this.props.google}
       //i need to check how to add a bounds to center multi positions
           center={this.state.currentPosition}
           zoom={16}
           styles={styles}
-          onClick={this.onMapClicked} >
+          onClick={this.onMapClicked}>
 
         <Marker
           position={this.state.currentPosition}
@@ -93,6 +105,19 @@ async showAllLocations(){
             </div>
         </InfoWindow>
       </Map>
+
+      <Route path="/locations" render={(props)=>(
+      <LocationShowPage
+      {...props}
+      data-cableApp={this.props.cableApp}
+      data-updateApp={this.updateAppStateLine}
+      data-locationData={this.state.locationData}
+      data-getLocationData={this.getLocationData}
+      getLocationData={this.getLocationData}
+      locationData={this.state.location}
+      />
+      )}/>
+      </div>
     );
   }
 }

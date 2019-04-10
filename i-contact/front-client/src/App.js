@@ -251,14 +251,14 @@ class App extends Component {
             />
           )}
         />
-        <
-        Route exact path = '/trigger'
+        <Route exact path = '/trigger'
         component = {() =>
-          < TriggerMap triggerMap = {this.triggerMap}/>}
+          <TriggerMap triggerMap = {this.triggerMap}/>}
         />
         <Route exact path = '/map'
             component = {() =>
-           < MapContainer currentUser={this.state.loggedInUser}/>
+           <MapContainer
+           currentUser={this.state.loggedInUser}/>
           }/>
           </div>
         </div>
