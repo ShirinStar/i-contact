@@ -2,52 +2,34 @@ import React from 'react';
 
 const MeetingForm = (props) => {
   return(
-    <div className="reg-page">
-      <form className="register-form" onSubmit={props.onSubmit}>
-       <div className="register">
-         <label>Name</label>
+    <div>
+    <p>{currentUser.name}</p>
+    //here i need to add location info.... ?
+    <p>are you meeting?</p>
+
+      <form onSubmit={props.onSubmit}>
+       <div>
          <input
-         className="input-reg"
-         autoComplete="off"
-         type="text"
+         type="radio"
          onChange={props.handleChange}
-         id="name"
+         id="yes"
          name="name"
-         value={props.name} />
+         value="yes" />
+         <label for="yes"> yes</label>
        </div>
 
-       <div className="register">
-        <label>Email</label>
-        <input
-        className="input-reg"
-        autoComplete="off"
-        type="text"
-        onChange={props.handleChange}
-        id="email"
-        name="email"
-        value={props.email} />
-      </div>
-
-      <div className="register">
-        <label>Password</label>
-        <input
-        className="input-reg"
-        autoComplete="off"
-        type="password"
-        onChange={props.handleChange}
-        id="password"
-        name="password"
-        value={props.password} />
-      </div>
-
-      <button className='button-reg'
-        onClick={props.handleSubmit}
-        type="submit">
-        {props.buttonText}
-      </button>
+      <div>
+       <input
+       type="radio"
+       onChange={props.handleChange}
+       id="no"
+       name="name"
+       value="no" />
+       <label for="no"> no</label>
+     </div>
       </form>
     </div>
   )
 };
 
-export default RegisterForm;
+export default MeetingForm;

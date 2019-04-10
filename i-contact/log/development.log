@@ -5827,3 +5827,807 @@ Started GET "/cable/" [WebSocket] for ::1 at 2019-04-09 17:59:39 -0400
 Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
 MeetingsChannel is transmitting the subscription confirmation
 MeetingsChannel is streaming from meetings
+Started GET "/cable" for ::1 at 2019-04-09 18:01:49 -0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Library/Ruby/Gems/2.3.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-09 18:01:50 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MeetingsChannel is transmitting the subscription confirmation
+MeetingsChannel is streaming from meetings_channel
+Finished "/cable/" [WebSocket] for ::1 at 2019-04-09 18:02:18 -0400
+MeetingsChannel stopped streaming from meetings_channel
+Started GET "/cable" for ::1 at 2019-04-09 18:02:19 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-09 18:02:19 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MeetingsChannel is transmitting the subscription confirmation
+MeetingsChannel is streaming from meetings_channel
+Started GET "/cable" for ::1 at 2019-04-09 18:02:51 -0400
+Started GET "/cable/"[non-WebSocket] for ::1 at 2019-04-09 18:02:51 -0400
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, HTTP_UPGRADE: )
+Finished "/cable/"[non-WebSocket] for ::1 at 2019-04-09 18:02:51 -0400
+Started GET "/" for ::1 at 2019-04-09 18:06:27 -0400
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Library/Ruby/Gems/2.3.0/gems/railties-5.2.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Library/Ruby/Gems/2.3.0/gems/railties-5.2.3/lib/rails/templates/rails/welcome/index.html.erb (3.8ms)
+Completed 200 OK in 12ms (Views: 9.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/meetings" for ::1 at 2019-04-09 18:06:29 -0400
+  
+SyntaxError (/Users/shirin/wdi/project4/i-contact/i-contact/app/controllers/meetings_controller.rb:17: syntax error, unexpected keyword_end, expecting end-of-input):
+  
+app/controllers/meetings_controller.rb:17: syntax error, unexpected keyword_end, expecting end-of-input
+Started GET "/cable" for ::1 at 2019-04-09 18:06:36 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-09 18:06:36 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MeetingsChannel is transmitting the subscription confirmation
+MeetingsChannel is streaming from meetings_channel
+Started GET "/meetings" for ::1 at 2019-04-09 18:06:49 -0400
+  
+ActionController::RoutingError (undefined local variable or method `reviews_path' for MeetingsController:Class):
+  
+app/controllers/meetings_controller.rb:15:in `<class:MeetingsController>'
+app/controllers/meetings_controller.rb:1:in `<main>'
+Started GET "/cable" for ::1 at 2019-04-09 18:06:58 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-09 18:06:58 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MeetingsChannel is transmitting the subscription confirmation
+MeetingsChannel is streaming from meetings_channel
+Started GET "/meetings" for ::1 at 2019-04-09 18:07:26 -0400
+  
+SyntaxError (/Users/shirin/wdi/project4/i-contact/i-contact/app/controllers/meetings_controller.rb:22: syntax error, unexpected end-of-input, expecting keyword_end):
+  
+app/controllers/meetings_controller.rb:22: syntax error, unexpected end-of-input, expecting keyword_end
+Started GET "/cable" for ::1 at 2019-04-09 18:07:35 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-09 18:07:35 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MeetingsChannel is transmitting the subscription confirmation
+MeetingsChannel is streaming from meetings_channel
+Started GET "/meetings" for ::1 at 2019-04-09 18:07:41 -0400
+  
+AbstractController::ActionNotFound (The action 'index' could not be found for MeetingsController):
+  
+actionpack (5.2.3) lib/abstract_controller/base.rb:129:in `process'
+actionpack (5.2.3) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (5.2.3) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:52:in `dispatch'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:34:in `serve'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:840:in `call'
+rack (2.0.7) lib/rack/etag.rb:25:in `call'
+rack (2.0.7) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.7) lib/rack/head.rb:12:in `call'
+activerecord (5.2.3) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.3) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.3) lib/rack/cors.rb:95:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/cable" for ::1 at 2019-04-09 18:07:50 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-09 18:07:50 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MeetingsChannel is transmitting the subscription confirmation
+MeetingsChannel is streaming from meetings_channel
+Started GET "/meetings" for ::1 at 2019-04-09 18:08:32 -0400
+Processing by MeetingsController#index as HTML
+  [1m[36mMeeting Load (3.9ms)[0m  [1m[34mSELECT "meetings".* FROM "meetings"[0m
+  ↳ app/controllers/meetings_controller.rb:5
+Completed 200 OK in 15ms (Views: 1.9ms | ActiveRecord: 6.0ms)
+
+
+Started GET "/cable" for ::1 at 2019-04-09 18:08:39 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-09 18:08:39 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MeetingsChannel is transmitting the subscription confirmation
+MeetingsChannel is streaming from meetings_channel
+Started GET "/users/1/meetings" for ::1 at 2019-04-09 18:08:44 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/users/1/meetings"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.3) lib/rack/cors.rb:95:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started POST "/meetings" for 127.0.0.1 at 2019-04-09 18:16:55 -0400
+Processing by MeetingsController#create as HTML
+  Parameters: {"is_occur"=>false, "meeting"=>{"is_occur"=>false}}
+Unpermitted parameter: :is_occur
+Completed 500 Internal Server Error in 86ms (ActiveRecord: 3.9ms)
+
+
+  
+NameError (undefined local variable or method `current_user' for #<MeetingsController:0x00007fe354e54a68>):
+  
+app/controllers/meetings_controller.rb:10:in `create'
+Started POST "/meetings" for 127.0.0.1 at 2019-04-09 18:17:38 -0400
+Processing by MeetingsController#create as HTML
+  Parameters: {"user_id"=>2, "meeting"=>{"user_id"=>2}}
+Completed 500 Internal Server Error in 79ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `current_user' for #<MeetingsController:0x00007fe359922040>):
+  
+app/controllers/meetings_controller.rb:10:in `create'
+Started POST "/meetings" for 127.0.0.1 at 2019-04-09 18:19:06 -0400
+Processing by MeetingsController#create as HTML
+  Parameters: {"is_occur"=>false, "user_id"=>2, "review_id"=>1, "meeting"=>{"is_occur"=>false, "user_id"=>2, "review_id"=>1}}
+Unpermitted parameters: :is_occur, :review_id
+Completed 500 Internal Server Error in 85ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `current_user' for #<MeetingsController:0x00007fe359878478>):
+  
+app/controllers/meetings_controller.rb:10:in `create'
+Started POST "/meetings" for 127.0.0.1 at 2019-04-09 18:27:20 -0400
+Processing by MeetingsController#create as HTML
+  Parameters: {"is_occur"=>false, "meeting"=>{"is_occur"=>false}}
+Unpermitted parameter: :is_occur
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/meetings_controller.rb:11
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/meetings_controller.rb:11
+Completed 204 No Content in 39ms (ActiveRecord: 7.4ms)
+
+
+Started GET "/cable" for ::1 at 2019-04-09 18:27:28 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-09 18:27:28 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MeetingsChannel is transmitting the subscription confirmation
+MeetingsChannel is streaming from meetings_channel
+Started GET "/users" for ::1 at 2019-04-09 18:27:46 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:7
+Completed 200 OK in 13ms (Views: 8.1ms | ActiveRecord: 4.3ms)
+
+
+Started GET "/meetings" for ::1 at 2019-04-09 18:27:48 -0400
+Processing by MeetingsController#index as HTML
+  [1m[36mMeeting Load (0.4ms)[0m  [1m[34mSELECT "meetings".* FROM "meetings"[0m
+  ↳ app/controllers/meetings_controller.rb:5
+Completed 200 OK in 1ms (Views: 0.7ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/meetings" for 127.0.0.1 at 2019-04-09 18:30:06 -0400
+Processing by MeetingsController#create as HTML
+  Parameters: {"is_occur"=>false, "user_id"=>2, "review_id"=>nil, "meeting"=>{"is_occur"=>false, "user_id"=>2, "review_id"=>nil}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/meetings_controller.rb:11
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/meetings_controller.rb:11
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/meetings_controller.rb:11
+Completed 204 No Content in 30ms (ActiveRecord: 6.0ms)
+
+
+Started GET "/cable" for ::1 at 2019-04-09 18:30:15 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-09 18:30:15 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MeetingsChannel is transmitting the subscription confirmation
+MeetingsChannel is streaming from meetings_channel
+Started POST "/meetings" for 127.0.0.1 at 2019-04-09 18:33:27 -0400
+Processing by MeetingsController#create as HTML
+  Parameters: {"is_occur"=>false, "user_id"=>2, "review_id"=>nil, "meeting"=>{"is_occur"=>false, "user_id"=>2, "review_id"=>nil}}
+Unpermitted parameter: :review_id
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/meetings_controller.rb:11
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/meetings_controller.rb:11
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/meetings_controller.rb:11
+Completed 204 No Content in 24ms (ActiveRecord: 5.3ms)
+
+
+Started GET "/cable" for ::1 at 2019-04-09 18:33:37 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-09 18:33:37 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MeetingsChannel is transmitting the subscription confirmation
+MeetingsChannel is streaming from meetings_channel
+Started GET "/meetings" for ::1 at 2019-04-09 18:35:29 -0400
+Processing by MeetingsController#index as HTML
+  [1m[36mMeeting Load (0.4ms)[0m  [1m[34mSELECT "meetings".* FROM "meetings"[0m
+  ↳ app/controllers/meetings_controller.rb:5
+Completed 200 OK in 1ms (Views: 0.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/meetings/1" for ::1 at 2019-04-09 18:35:36 -0400
+  
+AbstractController::ActionNotFound (The action 'show' could not be found for MeetingsController):
+  
+actionpack (5.2.3) lib/abstract_controller/base.rb:129:in `process'
+actionpack (5.2.3) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (5.2.3) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:52:in `dispatch'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:34:in `serve'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:840:in `call'
+rack (2.0.7) lib/rack/etag.rb:25:in `call'
+rack (2.0.7) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.7) lib/rack/head.rb:12:in `call'
+activerecord (5.2.3) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.3) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.3) lib/rack/cors.rb:95:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/meetings/" for ::1 at 2019-04-09 18:35:40 -0400
+Processing by MeetingsController#index as HTML
+  [1m[36mMeeting Load (0.4ms)[0m  [1m[34mSELECT "meetings".* FROM "meetings"[0m
+  ↳ app/controllers/meetings_controller.rb:5
+Completed 200 OK in 1ms (Views: 0.6ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/meetings" for 127.0.0.1 at 2019-04-09 18:37:20 -0400
+Processing by MeetingsController#create as HTML
+  Parameters: {"user_id"=>2, "is_occur"=>true, "meeting"=>{"is_occur"=>true, "user_id"=>2}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/meetings_controller.rb:11
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/meetings_controller.rb:11
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/meetings_controller.rb:11
+Completed 204 No Content in 10ms (ActiveRecord: 0.5ms)
+
+
+Started POST "/meetings" for 127.0.0.1 at 2019-04-09 18:38:54 -0400
+  
+SyntaxError (/Users/shirin/wdi/project4/i-contact/i-contact/app/controllers/meetings_controller.rb:15: syntax error, unexpected tSYMBEG, expecting keyword_do or '{' or '('
+     head :ok
+           ^):
+  
+app/controllers/meetings_controller.rb:15: syntax error, unexpected tSYMBEG, expecting keyword_do or '{' or '('
+Started GET "/cable" for ::1 at 2019-04-09 18:39:02 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-09 18:39:02 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MeetingsChannel is transmitting the subscription confirmation
+MeetingsChannel is streaming from meetings_channel
+Started POST "/meetings" for 127.0.0.1 at 2019-04-09 18:39:42 -0400
+Processing by MeetingsController#create as HTML
+  Parameters: {"user_id"=>2, "is_occur"=>true, "meeting"=>{"is_occur"=>true, "user_id"=>2}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/meetings_controller.rb:11
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/meetings_controller.rb:11
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/meetings_controller.rb:11
+Completed 204 No Content in 22ms (ActiveRecord: 5.7ms)
+
+
+Started GET "/cable" for ::1 at 2019-04-09 18:39:51 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-09 18:39:51 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MeetingsChannel is transmitting the subscription confirmation
+MeetingsChannel is streaming from meetings_channel
+Started POST "/meetings" for 127.0.0.1 at 2019-04-09 18:39:53 -0400
+Processing by MeetingsController#create as HTML
+  Parameters: {"user_id"=>2, "is_occur"=>true, "meeting"=>{"is_occur"=>true, "user_id"=>2}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/meetings_controller.rb:11
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/meetings_controller.rb:11
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/meetings_controller.rb:11
+Completed 204 No Content in 18ms (ActiveRecord: 4.4ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2019-04-09 18:58:15 -0400
+MeetingsChannel stopped streaming from meetings_channel
+Started GET "/cable" for ::1 at 2019-04-09 18:58:16 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-09 18:58:16 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MeetingsChannel is transmitting the subscription confirmation
+MeetingsChannel is streaming from meetings_channel
+Finished "/cable/" [WebSocket] for ::1 at 2019-04-09 19:01:49 -0400
+MeetingsChannel stopped streaming from meetings_channel
+Started GET "/cable" for ::1 at 2019-04-09 19:01:50 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-09 19:01:50 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MeetingsChannel is transmitting the subscription confirmation
+MeetingsChannel is streaming from meetings_channel
+Finished "/cable/" [WebSocket] for ::1 at 2019-04-09 19:11:03 -0400
+MeetingsChannel stopped streaming from meetings_channel
+Started GET "/cable" for ::1 at 2019-04-09 19:11:04 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-09 19:11:04 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MeetingsChannel is transmitting the subscription confirmation
+MeetingsChannel is streaming from meetings_channel
+Started POST "/meetings" for 127.0.0.1 at 2019-04-09 19:24:47 -0400
+Processing by MeetingsController#create as HTML
+  Parameters: {"user_id"=>2, "is_occur"=>true, "meeting"=>{"is_occur"=>true, "user_id"=>2}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/meetings_controller.rb:26
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/meetings_controller.rb:11
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/meetings_controller.rb:11
+Completed 204 No Content in 35ms (ActiveRecord: 8.4ms)
+
+
+Started GET "/cable" for ::1 at 2019-04-09 19:24:54 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-09 19:24:54 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MeetingsChannel is transmitting the subscription confirmation
+MeetingsChannel is streaming from meetings_channel
+Started POST "/meetings" for 127.0.0.1 at 2019-04-09 19:25:07 -0400
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Library/Ruby/Gems/2.3.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by MeetingsController#create as HTML
+  Parameters: {"user_id"=>2, "is_occur"=>true, "meeting"=>{"is_occur"=>true, "user_id"=>2}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/meetings_controller.rb:26
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/meetings_controller.rb:11
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/meetings_controller.rb:11
+Completed 204 No Content in 50ms (ActiveRecord: 6.3ms)
+
+
+Started GET "/cable" for ::1 at 2019-04-09 19:25:09 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-09 19:25:09 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MeetingsChannel is transmitting the subscription confirmation
+MeetingsChannel is streaming from meetings_channel
+Started GET "/cable" for ::1 at 2019-04-09 19:26:52 -0400
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Library/Ruby/Gems/2.3.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-09 19:26:53 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MeetingsChannel is transmitting the subscription confirmation
+MeetingsChannel is streaming from meetings_channel
+Started POST "/meetings" for 127.0.0.1 at 2019-04-09 19:28:38 -0400
+  
+SyntaxError (/Users/shirin/wdi/project4/i-contact/i-contact/app/controllers/meetings_controller.rb:15: syntax error, unexpected tSYMBEG, expecting keyword_do or '{' or '('
+     head :ok
+           ^):
+  
+app/controllers/meetings_controller.rb:15: syntax error, unexpected tSYMBEG, expecting keyword_do or '{' or '('
+Started GET "/cable" for ::1 at 2019-04-09 19:28:44 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-09 19:28:44 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MeetingsChannel is transmitting the subscription confirmation
+MeetingsChannel is streaming from meetings_channel
+Started POST "/meetings" for 127.0.0.1 at 2019-04-09 19:29:27 -0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Library/Ruby/Gems/2.3.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by MeetingsController#create as HTML
+  Parameters: {"user_id"=>2, "is_occur"=>true, "meeting"=>{"is_occur"=>true, "user_id"=>2}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/meetings_controller.rb:26
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/meetings_controller.rb:11
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/meetings_controller.rb:11
+Completed 204 No Content in 59ms (ActiveRecord: 6.7ms)
+
+
+Started GET "/cable" for ::1 at 2019-04-09 19:29:28 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-09 19:29:28 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MeetingsChannel is transmitting the subscription confirmation
+MeetingsChannel is streaming from meetings_channel
+Started POST "/meetings" for 127.0.0.1 at 2019-04-09 19:32:14 -0400
+  
+SyntaxError (/Users/shirin/wdi/project4/i-contact/i-contact/app/controllers/meetings_controller.rb:17: syntax error, unexpected tSYMBEG, expecting keyword_do or '{' or '('
+     head :ok
+           ^):
+  
+app/controllers/meetings_controller.rb:17: syntax error, unexpected tSYMBEG, expecting keyword_do or '{' or '('
+Started GET "/cable" for ::1 at 2019-04-09 19:32:23 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-09 19:32:23 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MeetingsChannel is transmitting the subscription confirmation
+MeetingsChannel is streaming from meetings_channel
+Started POST "/meetings" for 127.0.0.1 at 2019-04-09 19:32:31 -0400
+Processing by MeetingsController#create as HTML
+  Parameters: {"is_occur"=>true, "meeting"=>{"is_occur"=>true}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/meetings_controller.rb:10
+  [1m[36mReview Load (1.6ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/meetings_controller.rb:11
+Completed 404 Not Found in 26ms (ActiveRecord: 8.7ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Review with 'id'=1):
+  
+app/controllers/meetings_controller.rb:11:in `create'
+Started GET "/cable" for ::1 at 2019-04-09 19:32:40 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-09 19:32:40 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MeetingsChannel is transmitting the subscription confirmation
+MeetingsChannel is streaming from meetings_channel
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (3.8ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (236.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "i-contact_development"[0m
+  ↳ bin/rails:9
+  [1m[35m (219.3ms)[0m  [1m[35mDROP DATABASE IF EXISTS "i-contact_test"[0m
+  ↳ bin/rails:9
+  [1m[35m (512.1ms)[0m  [1m[35mCREATE DATABASE "i-contact_development" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (496.6ms)[0m  [1m[35mCREATE DATABASE "i-contact_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35mSQL (0.9ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  ↳ db/schema.rb:16
+  [1m[35m (1.7ms)[0m  [1m[35mDROP TABLE IF EXISTS "meetings" CASCADE[0m
+  ↳ db/schema.rb:18
+  [1m[35m (14.0ms)[0m  [1m[35mCREATE TABLE "meetings" ("id" bigserial primary key, "is_occur" boolean, "user_id" bigint, "review_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:18
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE  INDEX  "index_meetings_on_review_id" ON "meetings"  ("review_id")[0m
+  ↳ db/schema.rb:18
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE  INDEX  "index_meetings_on_user_id" ON "meetings"  ("user_id")[0m
+  ↳ db/schema.rb:18
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "reviews" CASCADE[0m
+  ↳ db/schema.rb:28
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE TABLE "reviews" ("id" bigserial primary key, "rating" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:28
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  ↳ db/schema.rb:34
+  [1m[35m (3.7ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "email" character varying, "password_digest" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:34
+  [1m[35m (5.0ms)[0m  [1m[35mALTER TABLE "meetings" ADD CONSTRAINT "fk_rails_1001b87b38"
+FOREIGN KEY ("review_id")
+  REFERENCES "reviews" ("id")
+[0m
+  ↳ db/schema.rb:42
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE "meetings" ADD CONSTRAINT "fk_rails_400671c98f"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  ↳ db/schema.rb:43
+  [1m[35m (5.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20190408183922)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20190408183758),
+(20190408183752);
+
+[0m
+  ↳ db/schema.rb:13
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-04-09 23:33:52.937777"], ["updated_at", "2019-04-09 23:33:52.937777"]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35mSQL (0.4ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  ↳ db/schema.rb:16
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "meetings" CASCADE[0m
+  ↳ db/schema.rb:18
+  [1m[35m (6.6ms)[0m  [1m[35mCREATE TABLE "meetings" ("id" bigserial primary key, "is_occur" boolean, "user_id" bigint, "review_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:18
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE  INDEX  "index_meetings_on_review_id" ON "meetings"  ("review_id")[0m
+  ↳ db/schema.rb:18
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE  INDEX  "index_meetings_on_user_id" ON "meetings"  ("user_id")[0m
+  ↳ db/schema.rb:18
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "reviews" CASCADE[0m
+  ↳ db/schema.rb:28
+  [1m[35m (3.3ms)[0m  [1m[35mCREATE TABLE "reviews" ("id" bigserial primary key, "rating" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:28
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  ↳ db/schema.rb:34
+  [1m[35m (5.0ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "email" character varying, "password_digest" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:34
+  [1m[35m (3.0ms)[0m  [1m[35mALTER TABLE "meetings" ADD CONSTRAINT "fk_rails_1001b87b38"
+FOREIGN KEY ("review_id")
+  REFERENCES "reviews" ("id")
+[0m
+  ↳ db/schema.rb:42
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE "meetings" ADD CONSTRAINT "fk_rails_400671c98f"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  ↳ db/schema.rb:43
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20190408183922)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20190408183758),
+(20190408183752);
+
+[0m
+  ↳ db/schema.rb:13
+  [1m[35m (3.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Create (0.8ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-04-09 23:33:53.008740"], ["updated_at", "2019-04-09 23:33:53.008740"]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Update (1.0ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2019-04-09 23:33:53.014722"], ["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Bart Simpson"], ["email", "bart@gmail.com"], ["password_digest", "123"], ["created_at", "2019-04-09 23:34:28.775865"], ["updated_at", "2019-04-09 23:34:28.775865"]]
+  ↳ db/seeds.rb:8
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mReview Create (1.5ms)[0m  [1m[32mINSERT INTO "reviews" ("rating", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["rating", 4], ["created_at", "2019-04-09 23:34:28.801347"], ["updated_at", "2019-04-09 23:34:28.801347"]]
+  ↳ db/seeds.rb:9
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:10
+  [1m[36mMeeting Create (2.3ms)[0m  [1m[32mINSERT INTO "meetings" ("is_occur", "user_id", "review_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["is_occur", true], ["user_id", 1], ["review_id", 1], ["created_at", "2019-04-09 23:34:28.820637"], ["updated_at", "2019-04-09 23:34:28.820637"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:10
+Started POST "/meetings" for 127.0.0.1 at 2019-04-09 19:34:47 -0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Library/Ruby/Gems/2.3.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by MeetingsController#create as HTML
+  Parameters: {"is_occur"=>true, "meeting"=>{"is_occur"=>true}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/meetings_controller.rb:10
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/meetings_controller.rb:11
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/meetings_controller.rb:13
+  [1m[36mMeeting Create (0.9ms)[0m  [1m[32mINSERT INTO "meetings" ("is_occur", "user_id", "review_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["is_occur", true], ["user_id", 1], ["review_id", 1], ["created_at", "2019-04-09 23:34:47.623271"], ["updated_at", "2019-04-09 23:34:47.623271"]]
+  ↳ app/controllers/meetings_controller.rb:13
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/meetings_controller.rb:13
+[ActionCable] Broadcasting to meetings_channel: {:is_occur=>true}
+Completed 200 OK in 65ms (ActiveRecord: 10.3ms)
+
+
+Started GET "/cable" for ::1 at 2019-04-09 19:34:50 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-09 19:34:50 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MeetingsChannel is transmitting the subscription confirmation
+MeetingsChannel is streaming from meetings_channel
+Finished "/cable/" [WebSocket] for ::1 at 2019-04-09 19:35:21 -0400
+MeetingsChannel stopped streaming from meetings_channel
+Started GET "/cable" for ::1 at 2019-04-09 19:35:21 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-09 19:35:21 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MeetingsChannel is transmitting the subscription confirmation
+MeetingsChannel is streaming from meetings_channel
+Started POST "/meetings" for 127.0.0.1 at 2019-04-09 19:36:01 -0400
+Processing by MeetingsController#create as HTML
+  Parameters: {"is_occur"=>true, "meeting"=>{"is_occur"=>true}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/meetings_controller.rb:10
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/meetings_controller.rb:11
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/meetings_controller.rb:13
+  [1m[36mMeeting Create (0.4ms)[0m  [1m[32mINSERT INTO "meetings" ("is_occur", "user_id", "review_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["is_occur", true], ["user_id", 1], ["review_id", 1], ["created_at", "2019-04-09 23:36:01.842639"], ["updated_at", "2019-04-09 23:36:01.842639"]]
+  ↳ app/controllers/meetings_controller.rb:13
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/meetings_controller.rb:13
+[ActionCable] Broadcasting to meetings_channel: {:is_occur=>true}
+Completed 200 OK in 5ms (ActiveRecord: 1.2ms)
+
+
+MeetingsChannel transmitting {"is_occur"=>true} (via streamed from meetings_channel)
+Finished "/cable/" [WebSocket] for ::1 at 2019-04-09 19:49:33 -0400
+MeetingsChannel stopped streaming from meetings_channel
+Started GET "/cable" for ::1 at 2019-04-09 19:49:34 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-09 19:49:34 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MeetingsChannel is transmitting the subscription confirmation
+MeetingsChannel is streaming from meetings_channel
+Started PUT "/users//" for ::1 at 2019-04-09 19:54:59 -0400
+  
+ActionController::RoutingError (No route matches [PUT] "/users"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.3) lib/rack/cors.rb:95:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started PUT "/users//" for ::1 at 2019-04-09 19:55:02 -0400
+  
+ActionController::RoutingError (No route matches [PUT] "/users"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.3) lib/rack/cors.rb:95:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Finished "/cable/" [WebSocket] for ::1 at 2019-04-09 20:01:18 -0400
+MeetingsChannel stopped streaming from meetings_channel
+Started GET "/cable" for ::1 at 2019-04-09 20:01:18 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-09 20:01:18 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MeetingsChannel is transmitting the subscription confirmation
+MeetingsChannel is streaming from meetings_channel
+Started POST "/users" for ::1 at 2019-04-09 20:01:26 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"email"=>"dan", "password"=>"[FILTERED]", "name"=>"dan"}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:24
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "dan"], ["email", "dan"], ["password_digest", "$2a$10$xjbZyI2/Cz3K6abAPtn2auy2sNTrFLxqugZVzLyKHFV9Kg7ZzGuQ."], ["created_at", "2019-04-10 00:01:26.244298"], ["updated_at", "2019-04-10 00:01:26.244298"]]
+  ↳ app/controllers/users_controller.rb:24
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:24
+Completed 201 Created in 68ms (Views: 1.0ms | ActiveRecord: 1.7ms)
+
+
+Started POST "/user_token/" for ::1 at 2019-04-09 20:01:26 -0400
+Processing by UserTokenController#create as HTML
+  Parameters: {"auth"=>{"email"=>"dan", "password"=>"[FILTERED]", "name"=>"dan"}, "user_token"=>{"auth"=>{"email"=>"dan", "password"=>"[FILTERED]", "name"=>"dan"}}}
+Unpermitted parameter: :name
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "dan"], ["LIMIT", 1]]
+  ↳ /Library/Ruby/Gems/2.3.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Unpermitted parameter: :name
+Completed 201 Created in 61ms (Views: 0.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/2" for ::1 at 2019-04-09 20:01:26 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:52
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12
+Completed 200 OK in 2ms (Views: 0.4ms | ActiveRecord: 0.3ms)
+
+
+Started PUT "/users/2/" for ::1 at 2019-04-09 20:01:40 -0400
+Processing by UsersController#update as HTML
+  Parameters: {"email"=>"dan@gmail.com", "name"=>"dannnnna", "id"=>"2", "user"=>{"id"=>"2", "name"=>"dannnnna", "email"=>"dan@gmail.com"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:52
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:34
+Unpermitted parameter: :id
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:35
+  [1m[36mUser Update (1.2ms)[0m  [1m[33mUPDATE "users" SET "name" = $1, "email" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["name", "dannnnna"], ["email", "dan@gmail.com"], ["updated_at", "2019-04-10 00:01:40.592305"], ["id", 2]]
+  ↳ app/controllers/users_controller.rb:35
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:35
+Completed 200 OK in 6ms (Views: 0.6ms | ActiveRecord: 1.9ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2019-04-09 20:02:38 -0400
+MeetingsChannel stopped streaming from meetings_channel
+Started GET "/cable" for ::1 at 2019-04-09 20:02:38 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-09 20:02:38 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MeetingsChannel is transmitting the subscription confirmation
+MeetingsChannel is streaming from meetings_channel
