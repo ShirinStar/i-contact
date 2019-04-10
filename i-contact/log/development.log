@@ -6631,3 +6631,100 @@ Started GET "/cable/" [WebSocket] for ::1 at 2019-04-09 20:02:38 -0400
 Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
 MeetingsChannel is transmitting the subscription confirmation
 MeetingsChannel is streaming from meetings_channel
+Started GET "/cable" for ::1 at 2019-04-09 20:31:13 -0400
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Library/Ruby/Gems/2.3.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-09 20:31:13 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MeetingsChannel is transmitting the subscription confirmation
+MeetingsChannel is streaming from meetings_channel
+Finished "/cable/" [WebSocket] for ::1 at 2019-04-09 20:34:16 -0400
+MeetingsChannel stopped streaming from meetings_channel
+Started GET "/cable" for ::1 at 2019-04-09 20:34:16 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-09 20:34:16 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MeetingsChannel is transmitting the subscription confirmation
+MeetingsChannel is streaming from meetings_channel
+Finished "/cable/" [WebSocket] for ::1 at 2019-04-09 23:45:53 -0400
+MeetingsChannel stopped streaming from meetings_channel
+Started GET "/cable" for ::1 at 2019-04-09 23:45:54 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-09 23:45:54 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MeetingsChannel is transmitting the subscription confirmation
+MeetingsChannel is streaming from meetings_channel
+Finished "/cable/" [WebSocket] for ::1 at 2019-04-10 04:30:36 -0400
+MeetingsChannel stopped streaming from meetings_channel
+Started GET "/cable" for ::1 at 2019-04-10 04:30:37 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-10 04:30:37 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MeetingsChannel is transmitting the subscription confirmation
+MeetingsChannel is streaming from meetings_channel
+Finished "/cable/" [WebSocket] for ::1 at 2019-04-10 04:31:24 -0400
+MeetingsChannel stopped streaming from meetings_channel
+Started GET "/cable" for ::1 at 2019-04-10 04:31:25 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-10 04:31:25 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MeetingsChannel is transmitting the subscription confirmation
+MeetingsChannel is streaming from meetings_channel
+  [1m[35m (5.6ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2234246475562893435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateLocations (20190410090850)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (19.3ms)[0m  [1m[35mCREATE TABLE "locations" ("id" bigserial primary key, "user_id" bigint, "lat" decimal, "lng" decimal, "message" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_5e107925c6"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  ↳ db/migrate/20190410090850_create_locations.rb:3
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE  INDEX  "index_locations_on_user_id" ON "locations"  ("user_id")[0m
+  ↳ db/migrate/20190410090850_create_locations.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190410090850"]]
+  ↳ bin/rails:9
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (3.7ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(2234246475562893435)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mUser Create (1.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Bart Simpson"], ["email", "bart@gmail.com"], ["password_digest", "123"], ["created_at", "2019-04-10 09:24:34.494636"], ["updated_at", "2019-04-10 09:24:34.494636"]]
+  ↳ db/seeds.rb:8
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mReview Create (0.4ms)[0m  [1m[32mINSERT INTO "reviews" ("rating", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["rating", 4], ["created_at", "2019-04-10 09:24:34.514246"], ["updated_at", "2019-04-10 09:24:34.514246"]]
+  ↳ db/seeds.rb:9
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:10
+  [1m[36mMeeting Create (0.8ms)[0m  [1m[32mINSERT INTO "meetings" ("is_occur", "user_id", "review_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["is_occur", true], ["user_id", 3], ["review_id", 2], ["created_at", "2019-04-10 09:24:34.532050"], ["updated_at", "2019-04-10 09:24:34.532050"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:11
+  [1m[36mLocation Create (1.5ms)[0m  [1m[32mINSERT INTO "locations" ("user_id", "lat", "lng", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 3], ["lat", "40.0"], ["lng", "-70.0"], ["created_at", "2019-04-10 09:24:34.545511"], ["updated_at", "2019-04-10 09:24:34.545511"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:11
+  [1m[36mLocation Load (0.4ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" LIMIT $1[0m  [["LIMIT", 11]]
+Started GET "/cable" for ::1 at 2019-04-10 05:29:52 -0400
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Library/Ruby/Gems/2.3.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-10 05:29:53 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+LocationsChannel is transmitting the subscription confirmation
+LocationsChannel is streaming from locations_channel

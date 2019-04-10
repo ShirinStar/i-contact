@@ -6,5 +6,7 @@ Rails.application.routes.draw do
   mount ActionCable.server => '/cable'
   resources :reviews, param: :id  #maybe need to change to slug here and in controllers
   resources :meetings
+  resources :locations
+  resources :users
 
 end

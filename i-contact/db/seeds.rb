@@ -8,3 +8,4 @@
 bart = User.create!(name:'Bart Simpson', email:'bart@gmail.com', password_digest: '123')
 think = Review.create!(rating: 4)
 Meeting.create!(is_occur: true, user: bart, review: think)
+Location.create!(lat: 40.00000, lng: -70.0000, user: bart)
