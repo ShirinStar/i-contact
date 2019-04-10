@@ -7478,3 +7478,2060 @@ Started GET "/cable/" [WebSocket] for ::1 at 2019-04-10 07:03:50 -0400
 Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
 LocationsChannel is transmitting the subscription confirmation
 LocationsChannel is streaming from locations_channel
+Started GET "/cable" for ::1 at 2019-04-10 07:05:02 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-10 07:05:02 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+LocationsChannel is transmitting the subscription confirmation
+LocationsChannel is streaming from locations_channel
+Started POST "/user_token/" for ::1 at 2019-04-10 07:05:33 -0400
+Processing by UserTokenController#create as HTML
+  Parameters: {"auth"=>{"email"=>"foo", "password"=>"[FILTERED]", "name"=>""}, "user_token"=>{"auth"=>{"email"=>"foo", "password"=>"[FILTERED]", "name"=>""}}}
+Unpermitted parameter: :name
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "foo"], ["LIMIT", 1]]
+  ↳ /Library/Ruby/Gems/2.3.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Unpermitted parameter: :name
+Completed 201 Created in 66ms (Views: 0.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/5" for ::1 at 2019-04-10 07:05:33 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:52
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12
+Completed 200 OK in 2ms (Views: 0.4ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/locations/" for ::1 at 2019-04-10 07:05:51 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922658, "lng"=>-73.9596025}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:21
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/locations_controller.rb:23
+  [1m[36mLocation Create (0.5ms)[0m  [1m[32mINSERT INTO "locations" ("user_id", "lat", "lng", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 1], ["lat", "40.6922658"], ["lng", "-73.9596025"], ["created_at", "2019-04-10 11:05:51.487752"], ["updated_at", "2019-04-10 11:05:51.487752"]]
+  ↳ app/controllers/locations_controller.rb:23
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/locations_controller.rb:23
+[ActionCable] Broadcasting to locations_channel: {:lat=>#<BigDecimal:7fbfe2c2d900,'0.406922658E2',18(36)>, :lng=>#<BigDecimal:7fbfe2c2d8d8,'-0.739596025E2',18(36)>}
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 1.2ms)
+
+
+LocationsChannel transmitting {"lat"=>"40.6922658", "lng"=>"-73.9596025"} (via streamed from locations_channel)
+LocationsChannel transmitting {"lat"=>"40.6922658", "lng"=>"-73.9596025"} (via streamed from locations_channel)
+Started POST "/locations/" for ::1 at 2019-04-10 07:05:57 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922658, "lng"=>-73.9596025}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:21
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/locations_controller.rb:23
+  [1m[36mLocation Create (0.5ms)[0m  [1m[32mINSERT INTO "locations" ("user_id", "lat", "lng", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 1], ["lat", "40.6922658"], ["lng", "-73.9596025"], ["created_at", "2019-04-10 11:05:57.352154"], ["updated_at", "2019-04-10 11:05:57.352154"]]
+  ↳ app/controllers/locations_controller.rb:23
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/locations_controller.rb:23
+[ActionCable] Broadcasting to locations_channel: {:lat=>#<BigDecimal:7fbfe2058620,'0.406922658E2',18(36)>, :lng=>#<BigDecimal:7fbfe20585f8,'-0.739596025E2',18(36)>}
+LocationsChannel transmitting {"lat"=>"40.6922658", "lng"=>"-73.9596025"} (via streamed from locations_channel)
+Completed 200 OK in 5ms (Views: 0.1ms | ActiveRecord: 1.5ms)
+
+
+LocationsChannel transmitting {"lat"=>"40.6922658", "lng"=>"-73.9596025"} (via streamed from locations_channel)
+Started POST "/users" for ::1 at 2019-04-10 07:06:04 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"email"=>"ba", "password"=>"[FILTERED]", "name"=>"ba"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:24
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "ba"], ["email", "ba"], ["password_digest", "$2a$10$t2DveXX6xH/tkaVh3gmuZOuJf3e28uM4/HGTFPQ68AtCysXenBDrW"], ["created_at", "2019-04-10 11:06:04.925864"], ["updated_at", "2019-04-10 11:06:04.925864"]]
+  ↳ app/controllers/users_controller.rb:24
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:24
+Completed 201 Created in 66ms (Views: 0.4ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/user_token/" for ::1 at 2019-04-10 07:06:04 -0400
+Processing by UserTokenController#create as HTML
+  Parameters: {"auth"=>{"email"=>"ba", "password"=>"[FILTERED]", "name"=>"ba"}, "user_token"=>{"auth"=>{"email"=>"ba", "password"=>"[FILTERED]", "name"=>"ba"}}}
+Unpermitted parameter: :name
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ba"], ["LIMIT", 1]]
+  ↳ /Library/Ruby/Gems/2.3.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Unpermitted parameter: :name
+Completed 201 Created in 61ms (Views: 0.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/6" for ::1 at 2019-04-10 07:06:05 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:52
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/locations/" for ::1 at 2019-04-10 07:06:07 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922658, "lng"=>-73.9596025}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:21
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/locations_controller.rb:23
+  [1m[36mLocation Create (0.3ms)[0m  [1m[32mINSERT INTO "locations" ("user_id", "lat", "lng", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 1], ["lat", "40.6922658"], ["lng", "-73.9596025"], ["created_at", "2019-04-10 11:06:07.353907"], ["updated_at", "2019-04-10 11:06:07.353907"]]
+  ↳ app/controllers/locations_controller.rb:23
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/locations_controller.rb:23
+[ActionCable] Broadcasting to locations_channel: {:lat=>#<BigDecimal:7fbfdd341f58,'0.406922658E2',18(36)>, :lng=>#<BigDecimal:7fbfdd341f30,'-0.739596025E2',18(36)>}
+LocationsChannel transmitting {"lat"=>"40.6922658", "lng"=>"-73.9596025"} (via streamed from locations_channel)
+Completed 200 OK in 5ms (Views: 0.5ms | ActiveRecord: 1.1ms)
+
+
+LocationsChannel transmitting {"lat"=>"40.6922658", "lng"=>"-73.9596025"} (via streamed from locations_channel)
+Started POST "/locations/" for ::1 at 2019-04-10 07:06:17 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922658, "lng"=>-73.9596025}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:21
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/locations_controller.rb:23
+  [1m[36mLocation Create (0.3ms)[0m  [1m[32mINSERT INTO "locations" ("user_id", "lat", "lng", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 1], ["lat", "40.6922658"], ["lng", "-73.9596025"], ["created_at", "2019-04-10 11:06:17.345667"], ["updated_at", "2019-04-10 11:06:17.345667"]]
+  ↳ app/controllers/locations_controller.rb:23
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/locations_controller.rb:23
+[ActionCable] Broadcasting to locations_channel: {:lat=>#<BigDecimal:7fbfe2da8f00,'0.406922658E2',18(36)>, :lng=>#<BigDecimal:7fbfe2da8ed8,'-0.739596025E2',18(36)>}
+Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 1.2ms)
+
+
+LocationsChannel transmitting {"lat"=>"40.6922658", "lng"=>"-73.9596025"} (via streamed from locations_channel)
+LocationsChannel transmitting {"lat"=>"40.6922658", "lng"=>"-73.9596025"} (via streamed from locations_channel)
+Started POST "/locations/" for ::1 at 2019-04-10 07:06:22 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922658, "lng"=>-73.9596025}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:21
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/locations_controller.rb:23
+  [1m[36mLocation Create (0.3ms)[0m  [1m[32mINSERT INTO "locations" ("user_id", "lat", "lng", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 1], ["lat", "40.6922658"], ["lng", "-73.9596025"], ["created_at", "2019-04-10 11:06:22.538586"], ["updated_at", "2019-04-10 11:06:22.538586"]]
+  ↳ app/controllers/locations_controller.rb:23
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/locations_controller.rb:23
+[ActionCable] Broadcasting to locations_channel: {:lat=>#<BigDecimal:7fbfe2dbd8b0,'0.406922658E2',18(36)>, :lng=>#<BigDecimal:7fbfe2dbd888,'-0.739596025E2',18(36)>}
+Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 1.0ms)
+
+
+LocationsChannel transmitting {"lat"=>"40.6922658", "lng"=>"-73.9596025"} (via streamed from locations_channel)
+LocationsChannel transmitting {"lat"=>"40.6922658", "lng"=>"-73.9596025"} (via streamed from locations_channel)
+Started POST "/locations/" for ::1 at 2019-04-10 07:06:27 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922658, "lng"=>-73.9596025}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:21
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/locations_controller.rb:23
+  [1m[36mLocation Create (0.3ms)[0m  [1m[32mINSERT INTO "locations" ("user_id", "lat", "lng", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 1], ["lat", "40.6922658"], ["lng", "-73.9596025"], ["created_at", "2019-04-10 11:06:27.352265"], ["updated_at", "2019-04-10 11:06:27.352265"]]
+  ↳ app/controllers/locations_controller.rb:23
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/locations_controller.rb:23
+[ActionCable] Broadcasting to locations_channel: {:lat=>#<BigDecimal:7fbfd89151a0,'0.406922658E2',18(36)>, :lng=>#<BigDecimal:7fbfd8915178,'-0.739596025E2',18(36)>}
+Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 0.9ms)
+
+
+LocationsChannel transmitting {"lat"=>"40.6922658", "lng"=>"-73.9596025"} (via streamed from locations_channel)
+LocationsChannel transmitting {"lat"=>"40.6922658", "lng"=>"-73.9596025"} (via streamed from locations_channel)
+Started POST "/locations/" for ::1 at 2019-04-10 07:06:30 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922658, "lng"=>-73.9596025}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:21
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/locations_controller.rb:23
+  [1m[36mLocation Create (0.3ms)[0m  [1m[32mINSERT INTO "locations" ("user_id", "lat", "lng", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 1], ["lat", "40.6922658"], ["lng", "-73.9596025"], ["created_at", "2019-04-10 11:06:30.319117"], ["updated_at", "2019-04-10 11:06:30.319117"]]
+  ↳ app/controllers/locations_controller.rb:23
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/locations_controller.rb:23
+[ActionCable] Broadcasting to locations_channel: {:lat=>#<BigDecimal:7fbfe2b95ad8,'0.406922658E2',18(36)>, :lng=>#<BigDecimal:7fbfe2b95ab0,'-0.739596025E2',18(36)>}
+Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 1.1ms)
+
+
+LocationsChannel transmitting {"lat"=>"40.6922658", "lng"=>"-73.9596025"} (via streamed from locations_channel)
+LocationsChannel transmitting {"lat"=>"40.6922658", "lng"=>"-73.9596025"} (via streamed from locations_channel)
+Started POST "/locations/" for ::1 at 2019-04-10 07:06:37 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922658, "lng"=>-73.9596025}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:21
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/locations_controller.rb:23
+  [1m[36mLocation Create (0.3ms)[0m  [1m[32mINSERT INTO "locations" ("user_id", "lat", "lng", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 1], ["lat", "40.6922658"], ["lng", "-73.9596025"], ["created_at", "2019-04-10 11:06:37.348045"], ["updated_at", "2019-04-10 11:06:37.348045"]]
+  ↳ app/controllers/locations_controller.rb:23
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/locations_controller.rb:23
+[ActionCable] Broadcasting to locations_channel: {:lat=>#<BigDecimal:7fbfe2a74410,'0.406922658E2',18(36)>, :lng=>#<BigDecimal:7fbfe2a743e8,'-0.739596025E2',18(36)>}
+Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 1.0ms)
+
+
+LocationsChannel transmitting {"lat"=>"40.6922658", "lng"=>"-73.9596025"} (via streamed from locations_channel)
+LocationsChannel transmitting {"lat"=>"40.6922658", "lng"=>"-73.9596025"} (via streamed from locations_channel)
+Started POST "/locations/" for ::1 at 2019-04-10 07:06:40 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922658, "lng"=>-73.9596025}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:21
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/locations_controller.rb:23
+  [1m[36mLocation Create (0.3ms)[0m  [1m[32mINSERT INTO "locations" ("user_id", "lat", "lng", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 1], ["lat", "40.6922658"], ["lng", "-73.9596025"], ["created_at", "2019-04-10 11:06:40.315901"], ["updated_at", "2019-04-10 11:06:40.315901"]]
+  ↳ app/controllers/locations_controller.rb:23
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/locations_controller.rb:23
+[ActionCable] Broadcasting to locations_channel: {:lat=>#<BigDecimal:7fbfdab48920,'0.406922658E2',18(36)>, :lng=>#<BigDecimal:7fbfdab488f8,'-0.739596025E2',18(36)>}
+LocationsChannel transmitting {"lat"=>"40.6922658", "lng"=>"-73.9596025"} (via streamed from locations_channel)
+Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 1.2ms)
+
+
+LocationsChannel transmitting {"lat"=>"40.6922658", "lng"=>"-73.9596025"} (via streamed from locations_channel)
+Started POST "/locations/" for ::1 at 2019-04-10 07:06:47 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922658, "lng"=>-73.9596025}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:21
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/locations_controller.rb:23
+  [1m[36mLocation Create (0.3ms)[0m  [1m[32mINSERT INTO "locations" ("user_id", "lat", "lng", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 1], ["lat", "40.6922658"], ["lng", "-73.9596025"], ["created_at", "2019-04-10 11:06:47.349919"], ["updated_at", "2019-04-10 11:06:47.349919"]]
+  ↳ app/controllers/locations_controller.rb:23
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/locations_controller.rb:23
+[ActionCable] Broadcasting to locations_channel: {:lat=>#<BigDecimal:7fbfdacb5718,'0.406922658E2',18(36)>, :lng=>#<BigDecimal:7fbfdacb56f0,'-0.739596025E2',18(36)>}
+Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 1.3ms)
+
+
+LocationsChannel transmitting {"lat"=>"40.6922658", "lng"=>"-73.9596025"} (via streamed from locations_channel)
+LocationsChannel transmitting {"lat"=>"40.6922658", "lng"=>"-73.9596025"} (via streamed from locations_channel)
+Started POST "/locations/" for ::1 at 2019-04-10 07:06:50 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922658, "lng"=>-73.9596025}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:21
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/locations_controller.rb:23
+  [1m[36mLocation Create (0.3ms)[0m  [1m[32mINSERT INTO "locations" ("user_id", "lat", "lng", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 1], ["lat", "40.6922658"], ["lng", "-73.9596025"], ["created_at", "2019-04-10 11:06:50.316952"], ["updated_at", "2019-04-10 11:06:50.316952"]]
+  ↳ app/controllers/locations_controller.rb:23
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/locations_controller.rb:23
+[ActionCable] Broadcasting to locations_channel: {:lat=>#<BigDecimal:7fbfd8975028,'0.406922658E2',18(36)>, :lng=>#<BigDecimal:7fbfd8975000,'-0.739596025E2',18(36)>}
+Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 1.2ms)
+
+
+LocationsChannel transmitting {"lat"=>"40.6922658", "lng"=>"-73.9596025"} (via streamed from locations_channel)
+LocationsChannel transmitting {"lat"=>"40.6922658", "lng"=>"-73.9596025"} (via streamed from locations_channel)
+Started POST "/locations/" for ::1 at 2019-04-10 07:06:57 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922658, "lng"=>-73.9596025}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:21
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/locations_controller.rb:23
+  [1m[36mLocation Create (0.3ms)[0m  [1m[32mINSERT INTO "locations" ("user_id", "lat", "lng", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 1], ["lat", "40.6922658"], ["lng", "-73.9596025"], ["created_at", "2019-04-10 11:06:57.345367"], ["updated_at", "2019-04-10 11:06:57.345367"]]
+  ↳ app/controllers/locations_controller.rb:23
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/locations_controller.rb:23
+[ActionCable] Broadcasting to locations_channel: {:lat=>#<BigDecimal:7fbfdac9b430,'0.406922658E2',18(36)>, :lng=>#<BigDecimal:7fbfdac9b408,'-0.739596025E2',18(36)>}
+Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 1.2ms)
+
+
+LocationsChannel transmitting {"lat"=>"40.6922658", "lng"=>"-73.9596025"} (via streamed from locations_channel)
+LocationsChannel transmitting {"lat"=>"40.6922658", "lng"=>"-73.9596025"} (via streamed from locations_channel)
+Started POST "/locations/" for ::1 at 2019-04-10 07:07:00 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922658, "lng"=>-73.9596025}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:21
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/locations_controller.rb:23
+  [1m[36mLocation Create (0.3ms)[0m  [1m[32mINSERT INTO "locations" ("user_id", "lat", "lng", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 1], ["lat", "40.6922658"], ["lng", "-73.9596025"], ["created_at", "2019-04-10 11:07:00.318693"], ["updated_at", "2019-04-10 11:07:00.318693"]]
+  ↳ app/controllers/locations_controller.rb:23
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/locations_controller.rb:23
+[ActionCable] Broadcasting to locations_channel: {:lat=>#<BigDecimal:7fbfdd1f1e28,'0.406922658E2',18(36)>, :lng=>#<BigDecimal:7fbfdd1f1e00,'-0.739596025E2',18(36)>}
+Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 1.2ms)
+
+
+LocationsChannel transmitting {"lat"=>"40.6922658", "lng"=>"-73.9596025"} (via streamed from locations_channel)
+LocationsChannel transmitting {"lat"=>"40.6922658", "lng"=>"-73.9596025"} (via streamed from locations_channel)
+Started POST "/locations/" for ::1 at 2019-04-10 07:07:07 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922658, "lng"=>-73.9596025}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:21
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/locations_controller.rb:23
+  [1m[36mLocation Create (0.3ms)[0m  [1m[32mINSERT INTO "locations" ("user_id", "lat", "lng", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 1], ["lat", "40.6922658"], ["lng", "-73.9596025"], ["created_at", "2019-04-10 11:07:07.347600"], ["updated_at", "2019-04-10 11:07:07.347600"]]
+  ↳ app/controllers/locations_controller.rb:23
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/locations_controller.rb:23
+[ActionCable] Broadcasting to locations_channel: {:lat=>#<BigDecimal:7fbfd91ea280,'0.406922658E2',18(36)>, :lng=>#<BigDecimal:7fbfd91ea258,'-0.739596025E2',18(36)>}
+Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 1.0ms)
+
+
+LocationsChannel transmitting {"lat"=>"40.6922658", "lng"=>"-73.9596025"} (via streamed from locations_channel)
+LocationsChannel transmitting {"lat"=>"40.6922658", "lng"=>"-73.9596025"} (via streamed from locations_channel)
+Started POST "/locations/" for ::1 at 2019-04-10 07:07:10 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922658, "lng"=>-73.9596025}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:21
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/locations_controller.rb:23
+  [1m[36mLocation Create (0.3ms)[0m  [1m[32mINSERT INTO "locations" ("user_id", "lat", "lng", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 1], ["lat", "40.6922658"], ["lng", "-73.9596025"], ["created_at", "2019-04-10 11:07:10.318913"], ["updated_at", "2019-04-10 11:07:10.318913"]]
+  ↳ app/controllers/locations_controller.rb:23
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/locations_controller.rb:23
+[ActionCable] Broadcasting to locations_channel: {:lat=>#<BigDecimal:7fbfd88954f0,'0.406922658E2',18(36)>, :lng=>#<BigDecimal:7fbfd88954c8,'-0.739596025E2',18(36)>}
+Completed 200 OK in 5ms (Views: 0.3ms | ActiveRecord: 1.2ms)
+
+
+LocationsChannel transmitting {"lat"=>"40.6922658", "lng"=>"-73.9596025"} (via streamed from locations_channel)
+LocationsChannel transmitting {"lat"=>"40.6922658", "lng"=>"-73.9596025"} (via streamed from locations_channel)
+Started POST "/locations/" for ::1 at 2019-04-10 07:07:17 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922658, "lng"=>-73.9596025}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:21
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/locations_controller.rb:23
+  [1m[36mLocation Create (0.3ms)[0m  [1m[32mINSERT INTO "locations" ("user_id", "lat", "lng", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 1], ["lat", "40.6922658"], ["lng", "-73.9596025"], ["created_at", "2019-04-10 11:07:17.344865"], ["updated_at", "2019-04-10 11:07:17.344865"]]
+  ↳ app/controllers/locations_controller.rb:23
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/locations_controller.rb:23
+[ActionCable] Broadcasting to locations_channel: {:lat=>#<BigDecimal:7fbfdbef4320,'0.406922658E2',18(36)>, :lng=>#<BigDecimal:7fbfdbef42d0,'-0.739596025E2',18(36)>}
+LocationsChannel transmitting {"lat"=>"40.6922658", "lng"=>"-73.9596025"} (via streamed from locations_channel)
+Completed 200 OK in 5ms (Views: 0.1ms | ActiveRecord: 1.3ms)
+
+
+LocationsChannel transmitting {"lat"=>"40.6922658", "lng"=>"-73.9596025"} (via streamed from locations_channel)
+Started POST "/locations/" for ::1 at 2019-04-10 07:07:20 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922658, "lng"=>-73.9596025}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:21
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/locations_controller.rb:23
+  [1m[36mLocation Create (0.3ms)[0m  [1m[32mINSERT INTO "locations" ("user_id", "lat", "lng", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 1], ["lat", "40.6922658"], ["lng", "-73.9596025"], ["created_at", "2019-04-10 11:07:20.314855"], ["updated_at", "2019-04-10 11:07:20.314855"]]
+  ↳ app/controllers/locations_controller.rb:23
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/locations_controller.rb:23
+[ActionCable] Broadcasting to locations_channel: {:lat=>#<BigDecimal:7fbfdaa3b000,'0.406922658E2',18(36)>, :lng=>#<BigDecimal:7fbfdaa3afd8,'-0.739596025E2',18(36)>}
+LocationsChannel transmitting {"lat"=>"40.6922658", "lng"=>"-73.9596025"} (via streamed from locations_channel)
+LocationsChannel transmitting {"lat"=>"40.6922658", "lng"=>"-73.9596025"} (via streamed from locations_channel)
+Completed 200 OK in 5ms (Views: 0.7ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/locations/" for ::1 at 2019-04-10 07:07:27 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922658, "lng"=>-73.9596025}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:21
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/locations_controller.rb:23
+  [1m[36mLocation Create (0.3ms)[0m  [1m[32mINSERT INTO "locations" ("user_id", "lat", "lng", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 1], ["lat", "40.6922658"], ["lng", "-73.9596025"], ["created_at", "2019-04-10 11:07:27.346617"], ["updated_at", "2019-04-10 11:07:27.346617"]]
+  ↳ app/controllers/locations_controller.rb:23
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/locations_controller.rb:23
+[ActionCable] Broadcasting to locations_channel: {:lat=>#<BigDecimal:7fbfdbd743d8,'0.406922658E2',18(36)>, :lng=>#<BigDecimal:7fbfdbd6ff40,'-0.739596025E2',18(36)>}
+Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 1.3ms)
+
+
+LocationsChannel transmitting {"lat"=>"40.6922658", "lng"=>"-73.9596025"} (via streamed from locations_channel)
+LocationsChannel transmitting {"lat"=>"40.6922658", "lng"=>"-73.9596025"} (via streamed from locations_channel)
+Started POST "/locations/" for ::1 at 2019-04-10 07:07:30 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922658, "lng"=>-73.9596025}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:21
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/locations_controller.rb:23
+  [1m[36mLocation Create (0.3ms)[0m  [1m[32mINSERT INTO "locations" ("user_id", "lat", "lng", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 1], ["lat", "40.6922658"], ["lng", "-73.9596025"], ["created_at", "2019-04-10 11:07:30.313200"], ["updated_at", "2019-04-10 11:07:30.313200"]]
+  ↳ app/controllers/locations_controller.rb:23
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/locations_controller.rb:23
+[ActionCable] Broadcasting to locations_channel: {:lat=>#<BigDecimal:7fbfd844eea0,'0.406922658E2',18(36)>, :lng=>#<BigDecimal:7fbfd844ee00,'-0.739596025E2',18(36)>}
+Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 1.3ms)
+
+
+LocationsChannel transmitting {"lat"=>"40.6922658", "lng"=>"-73.9596025"} (via streamed from locations_channel)
+LocationsChannel transmitting {"lat"=>"40.6922658", "lng"=>"-73.9596025"} (via streamed from locations_channel)
+Started POST "/locations/" for ::1 at 2019-04-10 07:07:37 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922658, "lng"=>-73.9596025}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:21
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/locations_controller.rb:23
+  [1m[36mLocation Create (0.3ms)[0m  [1m[32mINSERT INTO "locations" ("user_id", "lat", "lng", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 1], ["lat", "40.6922658"], ["lng", "-73.9596025"], ["created_at", "2019-04-10 11:07:37.349924"], ["updated_at", "2019-04-10 11:07:37.349924"]]
+  ↳ app/controllers/locations_controller.rb:23
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/locations_controller.rb:23
+[ActionCable] Broadcasting to locations_channel: {:lat=>#<BigDecimal:7fbfe29798d0,'0.406922658E2',18(36)>, :lng=>#<BigDecimal:7fbfe29798a8,'-0.739596025E2',18(36)>}
+Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 1.0ms)
+
+
+LocationsChannel transmitting {"lat"=>"40.6922658", "lng"=>"-73.9596025"} (via streamed from locations_channel)
+LocationsChannel transmitting {"lat"=>"40.6922658", "lng"=>"-73.9596025"} (via streamed from locations_channel)
+Started POST "/locations/" for ::1 at 2019-04-10 07:07:40 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922658, "lng"=>-73.9596025}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:21
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/locations_controller.rb:23
+  [1m[36mLocation Create (0.3ms)[0m  [1m[32mINSERT INTO "locations" ("user_id", "lat", "lng", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 1], ["lat", "40.6922658"], ["lng", "-73.9596025"], ["created_at", "2019-04-10 11:07:40.315254"], ["updated_at", "2019-04-10 11:07:40.315254"]]
+  ↳ app/controllers/locations_controller.rb:23
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/locations_controller.rb:23
+[ActionCable] Broadcasting to locations_channel: {:lat=>#<BigDecimal:7fbfe2e33588,'0.406922658E2',18(36)>, :lng=>#<BigDecimal:7fbfe2e33560,'-0.739596025E2',18(36)>}
+Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 1.2ms)
+
+
+LocationsChannel transmitting {"lat"=>"40.6922658", "lng"=>"-73.9596025"} (via streamed from locations_channel)
+LocationsChannel transmitting {"lat"=>"40.6922658", "lng"=>"-73.9596025"} (via streamed from locations_channel)
+Started POST "/locations/" for ::1 at 2019-04-10 07:07:51 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922658, "lng"=>-73.9596025}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:21
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/locations_controller.rb:23
+  [1m[36mLocation Create (0.5ms)[0m  [1m[32mINSERT INTO "locations" ("user_id", "lat", "lng", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 1], ["lat", "40.6922658"], ["lng", "-73.9596025"], ["created_at", "2019-04-10 11:07:51.331482"], ["updated_at", "2019-04-10 11:07:51.331482"]]
+  ↳ app/controllers/locations_controller.rb:23
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/locations_controller.rb:23
+[ActionCable] Broadcasting to locations_channel: {:lat=>#<BigDecimal:7fbfdac9fbc0,'0.406922658E2',18(36)>, :lng=>#<BigDecimal:7fbfdac9fb98,'-0.739596025E2',18(36)>}
+Completed 200 OK in 7ms (Views: 0.4ms | ActiveRecord: 1.8ms)
+
+
+LocationsChannel transmitting {"lat"=>"40.6922658", "lng"=>"-73.9596025"} (via streamed from locations_channel)
+Started POST "/locations/" for ::1 at 2019-04-10 07:07:51 -0400
+LocationsChannel transmitting {"lat"=>"40.6922658", "lng"=>"-73.9596025"} (via streamed from locations_channel)
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922658, "lng"=>-73.9596025}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:21
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/locations_controller.rb:23
+  [1m[36mLocation Create (0.3ms)[0m  [1m[32mINSERT INTO "locations" ("user_id", "lat", "lng", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 1], ["lat", "40.6922658"], ["lng", "-73.9596025"], ["created_at", "2019-04-10 11:07:51.341120"], ["updated_at", "2019-04-10 11:07:51.341120"]]
+  ↳ app/controllers/locations_controller.rb:23
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/locations_controller.rb:23
+[ActionCable] Broadcasting to locations_channel: {:lat=>#<BigDecimal:7fbfe2093d88,'0.406922658E2',18(36)>, :lng=>#<BigDecimal:7fbfe2093d60,'-0.739596025E2',18(36)>}
+Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 1.0ms)
+
+
+LocationsChannel transmitting {"lat"=>"40.6922658", "lng"=>"-73.9596025"} (via streamed from locations_channel)
+LocationsChannel transmitting {"lat"=>"40.6922658", "lng"=>"-73.9596025"} (via streamed from locations_channel)
+Finished "/cable/" [WebSocket] for ::1 at 2019-04-10 07:07:51 -0400
+LocationsChannel stopped streaming from locations_channel
+Started GET "/cable" for ::1 at 2019-04-10 07:07:51 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-10 07:07:51 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+LocationsChannel is transmitting the subscription confirmation
+LocationsChannel is streaming from locations_channel
+Finished "/cable/" [WebSocket] for ::1 at 2019-04-10 07:07:56 -0400
+LocationsChannel stopped streaming from locations_channel
+Started GET "/cable" for ::1 at 2019-04-10 07:07:57 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-10 07:07:57 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+LocationsChannel is transmitting the subscription confirmation
+LocationsChannel is streaming from locations_channel
+Started GET "/locations/users/" for ::1 at 2019-04-10 07:09:05 -0400
+Processing by LocationsController#show as HTML
+  Parameters: {"id"=>"users"}
+  [1m[36mLocation Load (0.6ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:11
+Completed 200 OK in 11ms (Views: 9.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/" for ::1 at 2019-04-10 07:09:22 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:7
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/user_token/" for ::1 at 2019-04-10 07:11:40 -0400
+Processing by UserTokenController#create as HTML
+  Parameters: {"auth"=>{"email"=>"foo", "password"=>"[FILTERED]", "name"=>""}, "user_token"=>{"auth"=>{"email"=>"foo", "password"=>"[FILTERED]", "name"=>""}}}
+Unpermitted parameter: :name
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "foo"], ["LIMIT", 1]]
+  ↳ /Library/Ruby/Gems/2.3.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Unpermitted parameter: :name
+Completed 201 Created in 81ms (Views: 0.3ms | ActiveRecord: 6.5ms)
+
+
+Started GET "/users/5" for ::1 at 2019-04-10 07:11:40 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:52
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12
+Completed 200 OK in 2ms (Views: 0.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/cable" for ::1 at 2019-04-10 07:11:48 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-10 07:11:48 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+LocationsChannel is transmitting the subscription confirmation
+LocationsChannel is streaming from locations_channel
+Started GET "/cable" for ::1 at 2019-04-10 07:11:49 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-10 07:11:49 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+LocationsChannel is transmitting the subscription confirmation
+LocationsChannel is streaming from locations_channel
+Started POST "/locations/" for ::1 at 2019-04-10 07:12:08 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922661, "lng"=>-73.9595784}}
+Completed 404 Not Found in 13ms (ActiveRecord: 4.5ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/locations_controller.rb:42:in `current_user'
+app/controllers/locations_controller.rb:22:in `create'
+Started POST "/locations/" for ::1 at 2019-04-10 07:12:13 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922661, "lng"=>-73.9595784}}
+Completed 404 Not Found in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/locations_controller.rb:42:in `current_user'
+app/controllers/locations_controller.rb:22:in `create'
+Started POST "/locations/" for ::1 at 2019-04-10 07:12:23 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922661, "lng"=>-73.9595784}}
+Completed 404 Not Found in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/locations_controller.rb:42:in `current_user'
+app/controllers/locations_controller.rb:22:in `create'
+Started POST "/locations/" for ::1 at 2019-04-10 07:12:33 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922661, "lng"=>-73.9595784}}
+Completed 404 Not Found in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/locations_controller.rb:42:in `current_user'
+app/controllers/locations_controller.rb:22:in `create'
+Started POST "/locations/" for ::1 at 2019-04-10 07:12:43 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922661, "lng"=>-73.9595784}}
+Completed 404 Not Found in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/locations_controller.rb:42:in `current_user'
+app/controllers/locations_controller.rb:22:in `create'
+Started POST "/locations/" for ::1 at 2019-04-10 07:12:53 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922661, "lng"=>-73.9595784}}
+Completed 404 Not Found in 0ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/locations_controller.rb:42:in `current_user'
+app/controllers/locations_controller.rb:22:in `create'
+Started POST "/locations/" for ::1 at 2019-04-10 07:13:03 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922661, "lng"=>-73.9595784}}
+Completed 404 Not Found in 18ms (ActiveRecord: 6.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/locations_controller.rb:42:in `current_user'
+app/controllers/locations_controller.rb:22:in `create'
+Started GET "/cable" for ::1 at 2019-04-10 07:13:09 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-10 07:13:09 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+LocationsChannel is transmitting the subscription confirmation
+LocationsChannel is streaming from locations_channel
+Started POST "/locations/" for ::1 at 2019-04-10 07:13:13 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922661, "lng"=>-73.9595784}}
+Completed 404 Not Found in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/locations_controller.rb:42:in `current_user'
+app/controllers/locations_controller.rb:22:in `create'
+Started GET "/cable" for ::1 at 2019-04-10 07:13:14 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-10 07:13:14 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+LocationsChannel is transmitting the subscription confirmation
+LocationsChannel is streaming from locations_channel
+Started POST "/locations/" for ::1 at 2019-04-10 07:13:23 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922661, "lng"=>-73.9595784}}
+Completed 404 Not Found in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/locations_controller.rb:42:in `current_user'
+app/controllers/locations_controller.rb:22:in `create'
+Started POST "/locations/" for ::1 at 2019-04-10 07:13:33 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922661, "lng"=>-73.9595784}}
+Completed 404 Not Found in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/locations_controller.rb:42:in `current_user'
+app/controllers/locations_controller.rb:22:in `create'
+Started POST "/locations/" for ::1 at 2019-04-10 07:13:43 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922661, "lng"=>-73.9595784}}
+Completed 404 Not Found in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/locations_controller.rb:42:in `current_user'
+app/controllers/locations_controller.rb:22:in `create'
+Started POST "/locations/" for ::1 at 2019-04-10 07:13:53 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922661, "lng"=>-73.9595784}}
+Completed 404 Not Found in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/locations_controller.rb:42:in `current_user'
+app/controllers/locations_controller.rb:22:in `create'
+Started POST "/locations/" for ::1 at 2019-04-10 07:14:12 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.69222, "lng"=>-73.95966489999999}}
+Completed 404 Not Found in 463ms (ActiveRecord: 4.6ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/locations_controller.rb:42:in `current_user'
+app/controllers/locations_controller.rb:22:in `create'
+Started POST "/locations/" for ::1 at 2019-04-10 07:14:13 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.69222, "lng"=>-73.95966489999999}}
+Completed 404 Not Found in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/locations_controller.rb:42:in `current_user'
+app/controllers/locations_controller.rb:22:in `create'
+Started GET "/cable" for ::1 at 2019-04-10 07:14:19 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-10 07:14:19 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+LocationsChannel is transmitting the subscription confirmation
+LocationsChannel is streaming from locations_channel
+Started GET "/cable" for ::1 at 2019-04-10 07:14:21 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-10 07:14:21 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+LocationsChannel is transmitting the subscription confirmation
+LocationsChannel is streaming from locations_channel
+Started POST "/locations/" for ::1 at 2019-04-10 07:14:23 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.69222, "lng"=>-73.95966489999999}}
+Completed 404 Not Found in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/locations_controller.rb:42:in `current_user'
+app/controllers/locations_controller.rb:22:in `create'
+Started POST "/locations/" for ::1 at 2019-04-10 07:14:33 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.69222, "lng"=>-73.95966489999999}}
+Completed 404 Not Found in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/locations_controller.rb:42:in `current_user'
+app/controllers/locations_controller.rb:22:in `create'
+Started POST "/locations/" for ::1 at 2019-04-10 07:14:43 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.69222, "lng"=>-73.95966489999999}}
+Completed 404 Not Found in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/locations_controller.rb:42:in `current_user'
+app/controllers/locations_controller.rb:22:in `create'
+Started POST "/locations/" for ::1 at 2019-04-10 07:14:53 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.69222, "lng"=>-73.95966489999999}}
+Completed 404 Not Found in 16ms (ActiveRecord: 4.8ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/locations_controller.rb:42:in `current_user'
+app/controllers/locations_controller.rb:22:in `create'
+Started GET "/cable" for ::1 at 2019-04-10 07:15:01 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-10 07:15:01 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+LocationsChannel is transmitting the subscription confirmation
+LocationsChannel is streaming from locations_channel
+Started POST "/locations/" for ::1 at 2019-04-10 07:15:03 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.69222, "lng"=>-73.95966489999999}}
+Completed 404 Not Found in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/locations_controller.rb:42:in `current_user'
+app/controllers/locations_controller.rb:22:in `create'
+Started GET "/cable" for ::1 at 2019-04-10 07:15:04 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-10 07:15:04 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+LocationsChannel is transmitting the subscription confirmation
+LocationsChannel is streaming from locations_channel
+Started POST "/locations/" for ::1 at 2019-04-10 07:15:13 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.69222, "lng"=>-73.95966489999999}}
+Completed 404 Not Found in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/locations_controller.rb:42:in `current_user'
+app/controllers/locations_controller.rb:22:in `create'
+Started POST "/locations/" for ::1 at 2019-04-10 07:15:23 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.69222, "lng"=>-73.95966489999999}}
+Completed 404 Not Found in 0ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/locations_controller.rb:42:in `current_user'
+app/controllers/locations_controller.rb:22:in `create'
+Started POST "/locations/" for ::1 at 2019-04-10 07:15:33 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.69222, "lng"=>-73.95966489999999}}
+Completed 404 Not Found in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/locations_controller.rb:42:in `current_user'
+app/controllers/locations_controller.rb:22:in `create'
+Started POST "/locations/" for ::1 at 2019-04-10 07:15:43 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.69222, "lng"=>-73.95966489999999}}
+Completed 404 Not Found in 0ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/locations_controller.rb:42:in `current_user'
+app/controllers/locations_controller.rb:22:in `create'
+Started POST "/locations/" for ::1 at 2019-04-10 07:15:53 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.69222, "lng"=>-73.95966489999999}}
+Completed 404 Not Found in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/locations_controller.rb:42:in `current_user'
+app/controllers/locations_controller.rb:22:in `create'
+Started POST "/locations/" for ::1 at 2019-04-10 07:16:07 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922322, "lng"=>-73.9596426}}
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 3.2ms)
+
+
+  
+ArgumentError (wrong number of arguments (given 1, expected 0)):
+  
+app/controllers/locations_controller.rb:22:in `create'
+Started POST "/locations/" for ::1 at 2019-04-10 07:16:13 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922322, "lng"=>-73.9596426}}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ArgumentError (wrong number of arguments (given 1, expected 0)):
+  
+app/controllers/locations_controller.rb:22:in `create'
+Started GET "/cable" for ::1 at 2019-04-10 07:16:16 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-10 07:16:16 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+LocationsChannel is transmitting the subscription confirmation
+LocationsChannel is streaming from locations_channel
+Started GET "/cable" for ::1 at 2019-04-10 07:16:17 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-10 07:16:17 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+LocationsChannel is transmitting the subscription confirmation
+LocationsChannel is streaming from locations_channel
+Started POST "/locations/" for ::1 at 2019-04-10 07:16:23 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922322, "lng"=>-73.9596426}}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ArgumentError (wrong number of arguments (given 1, expected 0)):
+  
+app/controllers/locations_controller.rb:22:in `create'
+Started POST "/locations/" for ::1 at 2019-04-10 07:16:33 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922322, "lng"=>-73.9596426}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/locations_controller.rb:23
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/locations_controller.rb:23
+Completed 204 No Content in 20ms (ActiveRecord: 3.4ms)
+
+
+Started GET "/cable" for ::1 at 2019-04-10 07:16:40 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-10 07:16:40 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+LocationsChannel is transmitting the subscription confirmation
+LocationsChannel is streaming from locations_channel
+Started GET "/cable" for ::1 at 2019-04-10 07:16:41 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-10 07:16:41 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+LocationsChannel is transmitting the subscription confirmation
+LocationsChannel is streaming from locations_channel
+Started POST "/locations/" for ::1 at 2019-04-10 07:16:43 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922322, "lng"=>-73.9596426}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/locations_controller.rb:23
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/locations_controller.rb:23
+Completed 204 No Content in 2ms (ActiveRecord: 0.3ms)
+
+
+Started POST "/locations/" for ::1 at 2019-04-10 07:16:53 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922322, "lng"=>-73.9596426}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/locations_controller.rb:23
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/locations_controller.rb:23
+Completed 204 No Content in 2ms (ActiveRecord: 0.4ms)
+
+
+Started POST "/locations/" for ::1 at 2019-04-10 07:17:03 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922322, "lng"=>-73.9596426}}
+Completed 404 Not Found in 16ms (ActiveRecord: 5.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/locations_controller.rb:22:in `create'
+Started GET "/cable" for ::1 at 2019-04-10 07:17:10 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-10 07:17:10 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+LocationsChannel is transmitting the subscription confirmation
+LocationsChannel is streaming from locations_channel
+Started GET "/cable" for ::1 at 2019-04-10 07:17:12 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-10 07:17:12 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+LocationsChannel is transmitting the subscription confirmation
+LocationsChannel is streaming from locations_channel
+Started POST "/locations/" for ::1 at 2019-04-10 07:17:13 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922322, "lng"=>-73.9596426}}
+Completed 404 Not Found in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/locations_controller.rb:22:in `create'
+Started POST "/locations/" for ::1 at 2019-04-10 07:17:23 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922322, "lng"=>-73.9596426}}
+Completed 404 Not Found in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/locations_controller.rb:22:in `create'
+Started POST "/locations/" for ::1 at 2019-04-10 07:17:33 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922322, "lng"=>-73.9596426}}
+Completed 404 Not Found in 16ms (ActiveRecord: 4.8ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/locations_controller.rb:22:in `create'
+Started GET "/cable" for ::1 at 2019-04-10 07:17:40 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-10 07:17:40 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+LocationsChannel is transmitting the subscription confirmation
+LocationsChannel is streaming from locations_channel
+Started GET "/cable" for ::1 at 2019-04-10 07:17:42 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-10 07:17:42 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+LocationsChannel is transmitting the subscription confirmation
+LocationsChannel is streaming from locations_channel
+Started POST "/locations/" for ::1 at 2019-04-10 07:17:43 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922322, "lng"=>-73.9596426}}
+Completed 404 Not Found in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/locations_controller.rb:22:in `create'
+Started POST "/locations/" for ::1 at 2019-04-10 07:17:53 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922322, "lng"=>-73.9596426}}
+Completed 404 Not Found in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/locations_controller.rb:22:in `create'
+Started POST "/locations/" for ::1 at 2019-04-10 07:18:03 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922322, "lng"=>-73.9596426}}
+Completed 404 Not Found in 17ms (ActiveRecord: 5.1ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/locations_controller.rb:22:in `create'
+Started GET "/cable" for ::1 at 2019-04-10 07:18:10 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-10 07:18:10 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+LocationsChannel is transmitting the subscription confirmation
+LocationsChannel is streaming from locations_channel
+Started GET "/cable" for ::1 at 2019-04-10 07:18:10 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-10 07:18:10 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+LocationsChannel is transmitting the subscription confirmation
+LocationsChannel is streaming from locations_channel
+Started POST "/locations/" for ::1 at 2019-04-10 07:18:13 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922322, "lng"=>-73.9596426}}
+Completed 404 Not Found in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/locations_controller.rb:22:in `create'
+Started POST "/locations/" for ::1 at 2019-04-10 07:18:23 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922322, "lng"=>-73.9596426}}
+Completed 404 Not Found in 15ms (ActiveRecord: 4.8ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/locations_controller.rb:22:in `create'
+Started GET "/cable" for ::1 at 2019-04-10 07:18:30 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-10 07:18:30 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+LocationsChannel is transmitting the subscription confirmation
+LocationsChannel is streaming from locations_channel
+Started GET "/cable" for ::1 at 2019-04-10 07:18:31 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-10 07:18:31 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+LocationsChannel is transmitting the subscription confirmation
+LocationsChannel is streaming from locations_channel
+Started POST "/locations/" for ::1 at 2019-04-10 07:18:33 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922322, "lng"=>-73.9596426}}
+Completed 404 Not Found in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/locations_controller.rb:22:in `create'
+Started POST "/locations/" for ::1 at 2019-04-10 07:18:43 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922322, "lng"=>-73.9596426}}
+Completed 404 Not Found in 16ms (ActiveRecord: 5.4ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/locations_controller.rb:22:in `create'
+Started GET "/cable" for ::1 at 2019-04-10 07:18:49 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-10 07:18:49 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+LocationsChannel is transmitting the subscription confirmation
+LocationsChannel is streaming from locations_channel
+Started GET "/cable" for ::1 at 2019-04-10 07:18:52 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-10 07:18:52 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+LocationsChannel is transmitting the subscription confirmation
+LocationsChannel is streaming from locations_channel
+Started POST "/locations/" for ::1 at 2019-04-10 07:18:53 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922322, "lng"=>-73.9596426}}
+Completed 404 Not Found in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/locations_controller.rb:22:in `create'
+Started POST "/locations/" for ::1 at 2019-04-10 07:19:03 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922322, "lng"=>-73.9596426}}
+Completed 404 Not Found in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/locations_controller.rb:22:in `create'
+Started POST "/locations/" for ::1 at 2019-04-10 07:19:13 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922322, "lng"=>-73.9596426}}
+Completed 404 Not Found in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/locations_controller.rb:22:in `create'
+Started POST "/locations/" for ::1 at 2019-04-10 07:19:23 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922322, "lng"=>-73.9596426}}
+Completed 404 Not Found in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/locations_controller.rb:22:in `create'
+Started POST "/locations/" for ::1 at 2019-04-10 07:19:33 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922322, "lng"=>-73.9596426}}
+Completed 404 Not Found in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/locations_controller.rb:22:in `create'
+Started POST "/locations/" for ::1 at 2019-04-10 07:19:43 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922322, "lng"=>-73.9596426}}
+Completed 404 Not Found in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/locations_controller.rb:22:in `create'
+Started POST "/locations/" for ::1 at 2019-04-10 07:19:53 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922322, "lng"=>-73.9596426}}
+Completed 404 Not Found in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/locations_controller.rb:22:in `create'
+Started POST "/locations/" for ::1 at 2019-04-10 07:20:03 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922322, "lng"=>-73.9596426}}
+Completed 404 Not Found in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/locations_controller.rb:22:in `create'
+Started POST "/locations/" for ::1 at 2019-04-10 07:20:17 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922463, "lng"=>-73.9596407}}
+Completed 404 Not Found in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/locations_controller.rb:22:in `create'
+Started POST "/locations/" for ::1 at 2019-04-10 07:20:23 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922463, "lng"=>-73.9596407}}
+Completed 404 Not Found in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/locations_controller.rb:22:in `create'
+Started POST "/locations/" for ::1 at 2019-04-10 07:20:33 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922463, "lng"=>-73.9596407}}
+Completed 500 Internal Server Error in 106ms (ActiveRecord: 2.8ms)
+
+
+  
+NameError (undefined local variable or method `user_params' for #<LocationsController:0x00007fbfdbccb670>
+Did you mean?  user_path):
+  
+app/controllers/locations_controller.rb:22:in `create'
+Started GET "/cable" for ::1 at 2019-04-10 07:20:41 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-10 07:20:41 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+LocationsChannel is transmitting the subscription confirmation
+LocationsChannel is streaming from locations_channel
+Started GET "/cable" for ::1 at 2019-04-10 07:20:41 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-10 07:20:41 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+LocationsChannel is transmitting the subscription confirmation
+LocationsChannel is streaming from locations_channel
+Started POST "/locations/" for ::1 at 2019-04-10 07:20:43 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922463, "lng"=>-73.9596407}}
+Completed 500 Internal Server Error in 102ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `user_params' for #<LocationsController:0x00007fbfda9058c0>
+Did you mean?  user_path):
+  
+app/controllers/locations_controller.rb:22:in `create'
+Started POST "/locations/" for ::1 at 2019-04-10 07:20:53 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922463, "lng"=>-73.9596407}}
+Completed 404 Not Found in 17ms (ActiveRecord: 5.6ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/locations_controller.rb:22:in `create'
+Started GET "/cable" for ::1 at 2019-04-10 07:21:02 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-10 07:21:02 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+LocationsChannel is transmitting the subscription confirmation
+LocationsChannel is streaming from locations_channel
+Started GET "/cable" for ::1 at 2019-04-10 07:21:03 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-10 07:21:03 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+LocationsChannel is transmitting the subscription confirmation
+LocationsChannel is streaming from locations_channel
+Started POST "/locations/" for ::1 at 2019-04-10 07:21:03 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922463, "lng"=>-73.9596407}}
+Completed 404 Not Found in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/locations_controller.rb:22:in `create'
+Started POST "/locations/" for ::1 at 2019-04-10 07:21:13 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922463, "lng"=>-73.9596407}}
+Completed 404 Not Found in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/locations_controller.rb:22:in `create'
+Started POST "/locations/" for ::1 at 2019-04-10 07:21:23 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922463, "lng"=>-73.9596407}}
+Completed 404 Not Found in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/locations_controller.rb:22:in `create'
+Started POST "/locations/" for ::1 at 2019-04-10 07:21:33 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922463, "lng"=>-73.9596407}}
+Completed 404 Not Found in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/locations_controller.rb:22:in `create'
+Started POST "/locations/" for ::1 at 2019-04-10 07:21:43 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922463, "lng"=>-73.9596407}}
+Completed 404 Not Found in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/locations_controller.rb:22:in `create'
+Started POST "/locations/" for ::1 at 2019-04-10 07:21:53 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922463, "lng"=>-73.9596407}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/locations_controller.rb:23
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/locations_controller.rb:23
+Completed 204 No Content in 19ms (ActiveRecord: 3.7ms)
+
+
+Started GET "/cable" for ::1 at 2019-04-10 07:22:02 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-10 07:22:02 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+LocationsChannel is transmitting the subscription confirmation
+LocationsChannel is streaming from locations_channel
+Started GET "/cable" for ::1 at 2019-04-10 07:22:03 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-10 07:22:03 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+LocationsChannel is transmitting the subscription confirmation
+LocationsChannel is streaming from locations_channel
+Started POST "/locations/" for ::1 at 2019-04-10 07:22:03 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922463, "lng"=>-73.9596407}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/locations_controller.rb:23
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/locations_controller.rb:23
+Completed 204 No Content in 2ms (ActiveRecord: 0.3ms)
+
+
+Started POST "/locations/" for ::1 at 2019-04-10 07:22:13 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922463, "lng"=>-73.9596407}}
+Completed 404 Not Found in 22ms (ActiveRecord: 4.9ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/locations_controller.rb:42:in `current_user'
+app/controllers/locations_controller.rb:22:in `create'
+Started GET "/cable" for ::1 at 2019-04-10 07:22:20 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-10 07:22:20 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+LocationsChannel is transmitting the subscription confirmation
+LocationsChannel is streaming from locations_channel
+Started GET "/cable" for ::1 at 2019-04-10 07:22:22 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-10 07:22:22 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+LocationsChannel is transmitting the subscription confirmation
+LocationsChannel is streaming from locations_channel
+Started POST "/locations/" for ::1 at 2019-04-10 07:22:23 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922463, "lng"=>-73.9596407}}
+Completed 404 Not Found in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/locations_controller.rb:42:in `current_user'
+app/controllers/locations_controller.rb:22:in `create'
+Started POST "/locations/" for ::1 at 2019-04-10 07:22:33 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922463, "lng"=>-73.9596407}}
+Completed 404 Not Found in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/locations_controller.rb:42:in `current_user'
+app/controllers/locations_controller.rb:22:in `create'
+Started POST "/locations/" for ::1 at 2019-04-10 07:22:43 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922463, "lng"=>-73.9596407}}
+Completed 404 Not Found in 16ms (ActiveRecord: 4.7ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/locations_controller.rb:42:in `current_user'
+app/controllers/locations_controller.rb:22:in `create'
+Started GET "/cable" for ::1 at 2019-04-10 07:22:50 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-10 07:22:50 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+LocationsChannel is transmitting the subscription confirmation
+LocationsChannel is streaming from locations_channel
+Started GET "/cable" for ::1 at 2019-04-10 07:22:52 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-10 07:22:52 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+LocationsChannel is transmitting the subscription confirmation
+LocationsChannel is streaming from locations_channel
+Started POST "/locations/" for ::1 at 2019-04-10 07:22:53 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922463, "lng"=>-73.9596407}}
+Completed 404 Not Found in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/locations_controller.rb:42:in `current_user'
+app/controllers/locations_controller.rb:22:in `create'
+Started POST "/locations/" for ::1 at 2019-04-10 07:23:03 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922463, "lng"=>-73.9596407}}
+Completed 404 Not Found in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/locations_controller.rb:42:in `current_user'
+app/controllers/locations_controller.rb:22:in `create'
+Started POST "/locations/" for ::1 at 2019-04-10 07:23:13 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922463, "lng"=>-73.9596407}}
+Completed 404 Not Found in 16ms (ActiveRecord: 4.9ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/locations_controller.rb:42:in `current_user'
+app/controllers/locations_controller.rb:22:in `create'
+Started GET "/cable" for ::1 at 2019-04-10 07:23:20 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-10 07:23:20 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+LocationsChannel is transmitting the subscription confirmation
+LocationsChannel is streaming from locations_channel
+Started POST "/locations/" for ::1 at 2019-04-10 07:23:23 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922463, "lng"=>-73.9596407}}
+Completed 404 Not Found in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/locations_controller.rb:42:in `current_user'
+app/controllers/locations_controller.rb:22:in `create'
+Started GET "/cable" for ::1 at 2019-04-10 07:23:23 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-10 07:23:23 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+LocationsChannel is transmitting the subscription confirmation
+LocationsChannel is streaming from locations_channel
+Started POST "/locations/" for ::1 at 2019-04-10 07:23:33 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922463, "lng"=>-73.9596407}}
+Completed 404 Not Found in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/locations_controller.rb:42:in `current_user'
+app/controllers/locations_controller.rb:22:in `create'
+Started POST "/locations/" for ::1 at 2019-04-10 07:23:43 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922463, "lng"=>-73.9596407}}
+Completed 404 Not Found in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/locations_controller.rb:42:in `current_user'
+app/controllers/locations_controller.rb:22:in `create'
+Started POST "/locations/" for ::1 at 2019-04-10 07:23:53 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922463, "lng"=>-73.9596407}}
+Completed 404 Not Found in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/locations_controller.rb:42:in `current_user'
+app/controllers/locations_controller.rb:22:in `create'
+Started GET "/cable" for ::1 at 2019-04-10 07:24:10 -0400
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Library/Ruby/Gems/2.3.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-10 07:24:11 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+LocationsChannel is transmitting the subscription confirmation
+LocationsChannel is streaming from locations_channel
+Started GET "/cable" for ::1 at 2019-04-10 07:24:11 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-10 07:24:11 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+LocationsChannel is transmitting the subscription confirmation
+LocationsChannel is streaming from locations_channel
+Started POST "/locations/" for ::1 at 2019-04-10 07:24:13 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922463, "lng"=>-73.9596407}}
+Completed 404 Not Found in 35ms (ActiveRecord: 6.7ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/locations_controller.rb:42:in `current_user'
+app/controllers/locations_controller.rb:22:in `create'
+Finished "/cable/" [WebSocket] for ::1 at 2019-04-10 07:24:13 -0400
+LocationsChannel stopped streaming from locations_channel
+Started GET "/cable" for ::1 at 2019-04-10 07:24:14 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-10 07:24:14 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+LocationsChannel is transmitting the subscription confirmation
+LocationsChannel is streaming from locations_channel
+Started POST "/user_token/" for ::1 at 2019-04-10 07:24:24 -0400
+Processing by UserTokenController#create as HTML
+  Parameters: {"auth"=>{"email"=>"foo", "password"=>"[FILTERED]", "name"=>""}, "user_token"=>{"auth"=>{"email"=>"foo", "password"=>"[FILTERED]", "name"=>""}}}
+Unpermitted parameter: :name
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "foo"], ["LIMIT", 1]]
+  ↳ /Library/Ruby/Gems/2.3.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Unpermitted parameter: :name
+Completed 201 Created in 73ms (Views: 0.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/5" for ::1 at 2019-04-10 07:24:24 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:52
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12
+Completed 200 OK in 3ms (Views: 0.6ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/locations/" for ::1 at 2019-04-10 07:24:42 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922344, "lng"=>-73.9596614}}
+Completed 404 Not Found in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/locations_controller.rb:42:in `current_user'
+app/controllers/locations_controller.rb:22:in `create'
+Started POST "/locations/" for ::1 at 2019-04-10 07:24:48 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922344, "lng"=>-73.9596614}}
+Completed 404 Not Found in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/locations_controller.rb:42:in `current_user'
+app/controllers/locations_controller.rb:22:in `create'
+Started POST "/locations/" for ::1 at 2019-04-10 07:24:58 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922344, "lng"=>-73.9596614}}
+Completed 404 Not Found in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/locations_controller.rb:42:in `current_user'
+app/controllers/locations_controller.rb:22:in `create'
+Started POST "/locations/" for ::1 at 2019-04-10 07:25:08 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922344, "lng"=>-73.9596614}}
+Completed 404 Not Found in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/locations_controller.rb:42:in `current_user'
+app/controllers/locations_controller.rb:22:in `create'
+Started POST "/locations/" for ::1 at 2019-04-10 07:25:18 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922344, "lng"=>-73.9596614}}
+Completed 404 Not Found in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/locations_controller.rb:42:in `current_user'
+app/controllers/locations_controller.rb:22:in `create'
+Started POST "/locations/" for ::1 at 2019-04-10 07:25:28 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922344, "lng"=>-73.9596614}}
+Completed 404 Not Found in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/locations_controller.rb:42:in `current_user'
+app/controllers/locations_controller.rb:22:in `create'
+Started POST "/locations/" for ::1 at 2019-04-10 07:25:38 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922344, "lng"=>-73.9596614}}
+Completed 404 Not Found in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/locations_controller.rb:42:in `current_user'
+app/controllers/locations_controller.rb:22:in `create'
+Started POST "/locations/" for ::1 at 2019-04-10 07:25:48 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922344, "lng"=>-73.9596614}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/locations_controller.rb:23
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/locations_controller.rb:23
+Completed 204 No Content in 18ms (ActiveRecord: 3.3ms)
+
+
+Started GET "/cable" for ::1 at 2019-04-10 07:25:55 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-10 07:25:55 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+LocationsChannel is transmitting the subscription confirmation
+LocationsChannel is streaming from locations_channel
+Started GET "/cable" for ::1 at 2019-04-10 07:25:56 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-10 07:25:56 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+LocationsChannel is transmitting the subscription confirmation
+LocationsChannel is streaming from locations_channel
+Started POST "/locations/" for ::1 at 2019-04-10 07:25:58 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922344, "lng"=>-73.9596614}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/locations_controller.rb:23
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/locations_controller.rb:23
+Completed 204 No Content in 2ms (ActiveRecord: 0.3ms)
+
+
+Started POST "/locations/" for ::1 at 2019-04-10 07:26:08 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922344, "lng"=>-73.9596614}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/locations_controller.rb:23
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/locations_controller.rb:23
+Completed 204 No Content in 2ms (ActiveRecord: 0.2ms)
+
+
+Started POST "/locations/" for ::1 at 2019-04-10 07:26:18 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922344, "lng"=>-73.9596614}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/locations_controller.rb:23
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/locations_controller.rb:23
+Completed 204 No Content in 2ms (ActiveRecord: 0.3ms)
+
+
+Started POST "/locations/" for ::1 at 2019-04-10 07:26:28 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922344, "lng"=>-73.9596614}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/locations_controller.rb:23
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/locations_controller.rb:23
+Completed 204 No Content in 2ms (ActiveRecord: 0.3ms)
+
+
+Started POST "/locations/" for ::1 at 2019-04-10 07:26:42 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922558, "lng"=>-73.95965079999999}}
+Completed 404 Not Found in 18ms (ActiveRecord: 5.5ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/locations_controller.rb:22:in `create'
+Started POST "/locations/" for ::1 at 2019-04-10 07:26:48 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922558, "lng"=>-73.95965079999999}}
+Completed 404 Not Found in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/locations_controller.rb:22:in `create'
+Started GET "/cable" for ::1 at 2019-04-10 07:26:50 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-10 07:26:50 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+LocationsChannel is transmitting the subscription confirmation
+LocationsChannel is streaming from locations_channel
+Started GET "/cable" for ::1 at 2019-04-10 07:26:50 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-10 07:26:50 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+LocationsChannel is transmitting the subscription confirmation
+LocationsChannel is streaming from locations_channel
+Started POST "/locations/" for ::1 at 2019-04-10 07:26:58 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922558, "lng"=>-73.95965079999999}}
+Completed 404 Not Found in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/locations_controller.rb:22:in `create'
+Started POST "/locations/" for ::1 at 2019-04-10 07:27:08 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922558, "lng"=>-73.95965079999999}}
+Completed 404 Not Found in 0ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/locations_controller.rb:22:in `create'
+Started POST "/locations/" for ::1 at 2019-04-10 07:27:18 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922558, "lng"=>-73.95965079999999}}
+Completed 404 Not Found in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/locations_controller.rb:22:in `create'
+Started POST "/locations/" for ::1 at 2019-04-10 07:27:28 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922558, "lng"=>-73.95965079999999}}
+Completed 404 Not Found in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/locations_controller.rb:22:in `create'
+Started POST "/locations/" for ::1 at 2019-04-10 07:27:38 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922558, "lng"=>-73.95965079999999}}
+Completed 404 Not Found in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/locations_controller.rb:22:in `create'
+Started POST "/locations/" for ::1 at 2019-04-10 07:27:48 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922558, "lng"=>-73.95965079999999}}
+Completed 404 Not Found in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/locations_controller.rb:22:in `create'
+Finished "/cable/" [WebSocket] for ::1 at 2019-04-10 07:27:50 -0400
+LocationsChannel stopped streaming from locations_channel
+Finished "/cable/" [WebSocket] for ::1 at 2019-04-10 07:27:50 -0400
+LocationsChannel stopped streaming from locations_channel
+Started GET "/cable" for ::1 at 2019-04-10 07:27:50 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-10 07:27:50 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+LocationsChannel is transmitting the subscription confirmation
+LocationsChannel is streaming from locations_channel
+Started GET "/cable" for ::1 at 2019-04-10 07:27:50 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-10 07:27:50 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+LocationsChannel is transmitting the subscription confirmation
+LocationsChannel is streaming from locations_channel
+Started POST "/locations/[object%20Object]" for ::1 at 2019-04-10 07:28:00 -0400
+  
+ActionController::RoutingError (No route matches [POST] "/locations/[object%20Object]"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.3) lib/rack/cors.rb:95:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started POST "/locations/[object%20Object]" for ::1 at 2019-04-10 07:28:10 -0400
+  
+ActionController::RoutingError (No route matches [POST] "/locations/[object%20Object]"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.3) lib/rack/cors.rb:95:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started POST "/locations/[object%20Object]" for ::1 at 2019-04-10 07:28:20 -0400
+  
+ActionController::RoutingError (No route matches [POST] "/locations/[object%20Object]"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.3) lib/rack/cors.rb:95:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started POST "/locations/[object%20Object]" for ::1 at 2019-04-10 07:28:30 -0400
+  
+ActionController::RoutingError (No route matches [POST] "/locations/[object%20Object]"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.3) lib/rack/cors.rb:95:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started POST "/locations/[object%20Object]" for ::1 at 2019-04-10 07:28:45 -0400
+  
+ActionController::RoutingError (No route matches [POST] "/locations/[object%20Object]"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.3) lib/rack/cors.rb:95:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Finished "/cable/" [WebSocket] for ::1 at 2019-04-10 07:28:46 -0400
+LocationsChannel stopped streaming from locations_channel
+Finished "/cable/" [WebSocket] for ::1 at 2019-04-10 07:28:46 -0400
+Started GET "/cable" for ::1 at 2019-04-10 07:28:46 -0400
+LocationsChannel stopped streaming from locations_channel
+Started GET "/cable" for ::1 at 2019-04-10 07:28:46 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-10 07:28:47 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-10 07:28:47 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+LocationsChannel is transmitting the subscription confirmation
+LocationsChannel is streaming from locations_channel
+LocationsChannel is transmitting the subscription confirmation
+LocationsChannel is streaming from locations_channel
+Started POST "/locations/users/[object%20Object]" for ::1 at 2019-04-10 07:28:56 -0400
+  
+ActionController::RoutingError (No route matches [POST] "/locations/users/[object%20Object]"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.3) lib/rack/cors.rb:95:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/" for ::1 at 2019-04-10 07:29:06 -0400
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Library/Ruby/Gems/2.3.0/gems/railties-5.2.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Library/Ruby/Gems/2.3.0/gems/railties-5.2.3/lib/rails/templates/rails/welcome/index.html.erb (2.3ms)
+Completed 200 OK in 8ms (Views: 5.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/locations/1" for ::1 at 2019-04-10 07:29:09 -0400
+Processing by LocationsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mLocation Load (1.4ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:11
+Completed 200 OK in 15ms (Views: 12.9ms | ActiveRecord: 1.4ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2019-04-10 07:29:45 -0400
+LocationsChannel stopped streaming from locations_channel
+Finished "/cable/" [WebSocket] for ::1 at 2019-04-10 07:29:45 -0400
+LocationsChannel stopped streaming from locations_channel
+Started GET "/cable" for ::1 at 2019-04-10 07:29:45 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-10 07:29:45 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+LocationsChannel is transmitting the subscription confirmation
+LocationsChannel is streaming from locations_channel
+Started GET "/cable" for ::1 at 2019-04-10 07:29:45 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-10 07:29:45 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+LocationsChannel is transmitting the subscription confirmation
+LocationsChannel is streaming from locations_channel
+Started GET "/l1" for ::1 at 2019-04-10 07:30:03 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/l1"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.3) lib/rack/cors.rb:95:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/locations/1" for ::1 at 2019-04-10 07:30:09 -0400
+Processing by LocationsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mLocation Load (0.9ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:11
+Completed 200 OK in 9ms (Views: 7.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/locations/5" for ::1 at 2019-04-10 07:30:12 -0400
+Processing by LocationsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:11
+Completed 200 OK in 8ms (Views: 7.8ms | ActiveRecord: 0.3ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2019-04-10 07:30:32 -0400
+LocationsChannel stopped streaming from locations_channel
+Finished "/cable/" [WebSocket] for ::1 at 2019-04-10 07:30:32 -0400
+LocationsChannel stopped streaming from locations_channel
+Started GET "/cable" for ::1 at 2019-04-10 07:30:32 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-10 07:30:32 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+LocationsChannel is transmitting the subscription confirmation
+LocationsChannel is streaming from locations_channel
+Started GET "/cable" for ::1 at 2019-04-10 07:30:32 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-10 07:30:32 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+LocationsChannel is transmitting the subscription confirmation
+LocationsChannel is streaming from locations_channel
+Started POST "/locations/" for ::1 at 2019-04-10 07:30:57 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922585, "lng"=>-73.95960889999999}}
+Completed 404 Not Found in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+Started POST "/locations/" for ::1 at 2019-04-10 07:30:57 -0400
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/locations_controller.rb:22:in `create'
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922585, "lng"=>-73.95960889999999}}
+Completed 404 Not Found in 0ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/locations_controller.rb:22:in `create'
+Started POST "/locations/" for ::1 at 2019-04-10 07:31:02 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922585, "lng"=>-73.95960889999999}}
+Completed 404 Not Found in 0ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/locations_controller.rb:22:in `create'
+Started POST "/locations/" for ::1 at 2019-04-10 07:31:12 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922585, "lng"=>-73.95960889999999}}
+Completed 404 Not Found in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/locations_controller.rb:22:in `create'
+Started POST "/locations/" for ::1 at 2019-04-10 07:31:22 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922585, "lng"=>-73.95960889999999}}
+Completed 404 Not Found in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/locations_controller.rb:22:in `create'
+Started POST "/locations/" for ::1 at 2019-04-10 07:31:32 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922585, "lng"=>-73.95960889999999}}
+Completed 404 Not Found in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/locations_controller.rb:22:in `create'
+Started POST "/locations/" for ::1 at 2019-04-10 07:31:42 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922585, "lng"=>-73.95960889999999}}
+Completed 404 Not Found in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/locations_controller.rb:22:in `create'
+Started POST "/locations/" for ::1 at 2019-04-10 07:31:52 -0400
+Processing by LocationsController#create as HTML
+  Parameters: {"location"=>{"lat"=>40.6922585, "lng"=>-73.95960889999999}}
+Completed 404 Not Found in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/locations_controller.rb:22:in `create'
+Finished "/cable/" [WebSocket] for ::1 at 2019-04-10 07:31:53 -0400
+LocationsChannel stopped streaming from locations_channel
+Started GET "/cable" for ::1 at 2019-04-10 07:31:53 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2019-04-10 07:31:53 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+LocationsChannel is transmitting the subscription confirmation
+LocationsChannel is streaming from locations_channel

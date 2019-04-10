@@ -19,7 +19,7 @@ end
     location = Location.new(location_params)
     # currenly hardcoding for testing
     location.user = User.find(1)
-    # location.user = current_user
+    # location.user = User.find(params[:id])
     if location.save
       ActionCable.server.broadcast 'locations_channel',
        lat: location.lat,
@@ -38,7 +38,9 @@ end
 
   def current_user
     # currenly hardcoding for testing
-    User.find(1)
+    # User.find(1)
+    # User.find(params[:user_id])
+    # User.find(params[:user_id])
   end
 
     def location_params
