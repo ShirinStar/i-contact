@@ -6,9 +6,13 @@ def index
 end
 
 def show
-  @user = User.find(params[:id])
-  @location = Location.where(user_id: @user.id)
-  render json: @user, status: :ok
+  # @user = User.find(params[:id])
+  @location = Location.all
+  render json: @location, status: :ok
+end
+
+def new
+  @location = Location.new
 end
 
   def create
@@ -21,6 +25,7 @@ end
        lat: location.lat,
        lng: location.lng
        # user: location.user.name
+       render json: @location, status: :ok
      head :ok
    end
  end
@@ -32,6 +37,7 @@ end
   private
 
   def current_user
+    # currenly hardcoding for testing
     User.find(1)
   end
 
