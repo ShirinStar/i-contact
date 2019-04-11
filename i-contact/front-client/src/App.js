@@ -43,7 +43,8 @@ class App extends Component {
         token: ''
       },
       isEdit: false,
-      loggedInUser: null
+      loggedInUser: null,
+      mapUsers: []
     }
     this.handleLogin = this.handleLogin.bind(this)
     this.handleChange = this.handleChange.bind(this)
@@ -189,15 +190,30 @@ class App extends Component {
       App.cable = ActionCable.createConsumer(`ws://localhost:3000/cable`, socketToken);
       const subscription = App.cable.subscriptions.create({
         channel: 'LocationsChannel'
-      }, {
-        connected: () => {
-          console.log("cable: connected")
-        },
-        disconnected: () => {
-          console.log("cable: disconnected")
-        },
+      },
+      {
+      //   connected: () => {
+      //     console.log("cable: connected")
+      //   },
+      //   disconnected: () => {
+      //     console.log("cable: disconnected")
+      //   },
         received: (data) => {
-          console.log("cable received: ", data);
+          
+          // console.log(data.lat)
+          // if (data.lat == true) {
+            // this.setState(prevState => ({
+            //   mapUsers: {
+            //     ...prevState.mapUsers,
+            //     [data.user.id]: {
+            //       lat: data.lat,
+            //       lng: data.lng
+            //     }
+            //   }
+            // }))
+            console.log("cable received: ", data);
+          // }
+
         }
       })
     }

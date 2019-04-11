@@ -19,12 +19,12 @@ end
   def create
     location = Location.new(location_params)
     location.user = User.find(params[:user_id])
-    
+
     if location.save
       ActionCable.server.broadcast 'locations_channel',
        lat: location.lat,
-       lng: location.lng
-       # user: location.user.name
+       lng: location.lng,
+       user: location.user
        render json: @location, status: :ok
      head :ok
    end

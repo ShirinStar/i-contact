@@ -67,7 +67,6 @@ export class MapContainer extends Component {
               }
             });
             const data = userLocation(this.state.currentPosition, this.props.currentUser.id)
-            console.log(data);
           },
           error => console.log(error)
         );
