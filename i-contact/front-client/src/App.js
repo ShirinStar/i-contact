@@ -44,7 +44,7 @@ class App extends Component {
       },
       isEdit: false,
       loggedInUser: null,
-      shirin: []
+      mapUser: []
     }
     this.handleLogin = this.handleLogin.bind(this)
     this.handleChange = this.handleChange.bind(this)
@@ -55,15 +55,28 @@ class App extends Component {
     this.handleUpdateChange = this.handleUpdateChange.bind(this)
     this.handleDelete = this.handleDelete.bind(this)
     this.handleLogout = this.handleLogout.bind(this)
-    this.handleReceived = this.handleReceived.bind(this);
+    this.grabLocationData = this.grabLocationData.bind(this)
   }
 
-  handleReceived(shirin) {
-   this.setState(state => {
-     return {
-       shirin
-     };
-   });
+ grabLocationData(data){
+   if(data.user.id === this.state.currentUser.id) {
+     this.setState({
+       currentPosition:{
+         lat: data.lat,
+         lng: data.lng
+       }
+     })
+   } else{
+     this.setState(prevState => ({
+       mapUser: {
+         ...prevState.mapUser,
+         [data.user.id]: {
+           lat: data.lat,
+           lng: data.lng
+         }
+       }
+     }))
+   }
  }
 
   onEdit(currentUser) {
@@ -208,19 +221,9 @@ class App extends Component {
           console.log("cable: disconnected")
         },
         received: (data) => {
-          // let shirin = [{
-          //     id: data.user.id,
-          //     lat: data.lat,
-          //     lng: data.lng
-          //   }]
-
-            // this.setState({
-            //    shirin
-            // })
+          this.grabLocationData(data)
             console.log("cable received: ", data);
-          // }
-
-        }
+          }
       })
     }
   }
@@ -290,9 +293,3 @@ class App extends Component {
   }
 
   export default withRouter(App);
-
-  // <ActionCable
-  //   channel="LocationsChannel"
-  //   received={this.handleReceived}>
-  //   <h1>{this.state.shirin}</h1>
-  // </ActionCable>

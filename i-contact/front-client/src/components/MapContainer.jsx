@@ -19,7 +19,7 @@ export class MapContainer extends Component {
         location:{},
         users:[]
       },
-      usersMarkers:[],
+      usersMarkers:[{}],
       showingInfoWindow: false,
       activeMarker: {},
       //selectplaces here function as users
@@ -54,36 +54,31 @@ export class MapContainer extends Component {
   }
 };
 
-componentWillMount(){
-  const usersMarkers = getLocations();
+async componentWillMount(){
+  const usersMarkers = await getLocations();
   this.setState({
     usersMarkers
   })
 }
 
-
 //updating location every 10 sec
-  async componentDidMount() {
-      await setInterval(() => {
-        navigator.geolocation.getCurrentPosition(
-          position => {
-            console.log(position);
-            this.setState({
-              currentPosition: {
-                lat: position.coords.latitude,
-                lng: position.coords.longitude
-              }
-            });
-            //sending my geo to the backend
-            const data = userLocation(this.state.currentPosition, this.props.currentUser.id)
-            console.log(data);
-          },
-          error => console.log(error)
-        );
-      }, 10000);
-    }
+componentDidMount() {
+    const geoUpload = setTimeout(() => {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const data = userLocation({
+            lat: position.coords.latitude,
+            lng: position.coords.longitude
+           }, this.props.currentUser.id)
+        },
+        error => console.log(error)
+      );
+
+    }, 10000);
+  }
 
   render() {
+    const usersOnline = this.state.usersMarkers.filter(userMarker => userMarker.user_id);
     let icon = {
         url: "https://i.imgur.com/Wt5NZiA.png",
         scaledSize: new this.props.google.maps.Size(80, 80), // scaled size

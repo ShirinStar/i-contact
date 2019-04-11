@@ -16,11 +16,20 @@ def new
   @location = Location.new
 end
 
-  def create
-    location = Location.new(location_params)
-    location.user = User.find(params[:user_id])
-    if Location.find(params[:user_id]) == User.find(params[:user_id])
-    location.update
+def create
+  user = User.find(params[:user_id])
+  location = Location.where(user_id: user)
+  if location.length > 0
+    Location.update(location.last.id, location_params)
+      ActionCable.server.broadcast 'locations_channel',
+       lat: location.last.lat,
+       lng: location.last.lng,
+       user: location.last.user
+       render json: @location, status: :ok
+     head :ok
+ else
+   location = Location.new(location_params)
+   user.locations << location
       ActionCable.server.broadcast 'locations_channel',
        lat: location.lat,
        lng: location.lng,
@@ -28,13 +37,6 @@ end
        render json: @location, status: :ok
      head :ok
    end
- else location.save
-      ActionCable.server.broadcast 'locations_channel',
-       lat: location.lat,
-       lng: location.lng,
-       user: location.user
-       render json: @location, status: :ok
-     head :ok
  end
 
     # else
@@ -43,7 +45,7 @@ end
 
   private
 
-    def location_params
+  def location_params
       params.require(:location).permit(:lat, :lng, :user_id)
     end
   end
