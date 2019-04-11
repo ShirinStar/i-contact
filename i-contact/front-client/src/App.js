@@ -192,14 +192,14 @@ class App extends Component {
         channel: 'LocationsChannel'
       },
       {
-      //   connected: () => {
-      //     console.log("cable: connected")
-      //   },
-      //   disconnected: () => {
-      //     console.log("cable: disconnected")
-      //   },
+        connected: () => {
+          console.log("cable: connected")
+        },
+        disconnected: () => {
+          console.log("cable: disconnected")
+        },
         received: (data) => {
-          
+
           // console.log(data.lat)
           // if (data.lat == true) {
             // this.setState(prevState => ({
