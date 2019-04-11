@@ -55,6 +55,7 @@ const deleteUser = async (id) => {
 }
 
 const userLocation = async(data, userId) => {
+  console.log('post from axios:', data);
   try{
   const resp = await api.post(`${BASE_URL}/users/${userId}/locations/`, {"location": data}, {
     headers: {

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
 import { Link, Route} from 'react-router-dom';
 import { userLocation, getLocations } from '../services/api-helper';
-import LocationShowPage from './LocationShowPage';
+// import LocationShowPage from './LocationShowPage';
 const GOOGLE_API_KEY= process.env.REACT_APP_GOOGLE_API_KEY;
 const styles = require('./mapStyle.json')
 
@@ -19,6 +19,7 @@ export class MapContainer extends Component {
         location:{},
         users:[]
       },
+      usersMarkers:[],
       showingInfoWindow: false,
       activeMarker: {},
       //selectplaces here function as users
@@ -53,6 +54,13 @@ export class MapContainer extends Component {
   }
 };
 
+componentWillMount(){
+  const usersMarkers = getLocations();
+  this.setState({
+    usersMarkers
+  })
+}
+
 
 //updating location every 10 sec
   async componentDidMount() {
@@ -66,7 +74,9 @@ export class MapContainer extends Component {
                 lng: position.coords.longitude
               }
             });
+            //sending my geo to the backend
             const data = userLocation(this.state.currentPosition, this.props.currentUser.id)
+            console.log(data);
           },
           error => console.log(error)
         );
@@ -105,17 +115,6 @@ export class MapContainer extends Component {
         </InfoWindow>
       </Map>
 
-      <Route path="/locations" render={(props)=>(
-      <LocationShowPage
-      {...props}
-      data-cableApp={this.props.cableApp}
-      data-updateApp={this.updateAppStateLine}
-      data-locationData={this.state.locationData}
-      data-getLocationData={this.getLocationData}
-      getLocationData={this.getLocationData}
-      locationData={this.state.location}
-      />
-      )}/>
       </div>
     );
   }
@@ -126,3 +125,16 @@ export class MapContainer extends Component {
   export default GoogleApiWrapper({
     apiKey: (GOOGLE_API_KEY)
   })(MapContainer)
+
+
+  // <Route path="/locations" render={(props)=>(
+  // <LocationShowPage
+  // {...props}
+  // data-cableApp={this.props.cableApp}
+  // data-updateApp={this.updateAppStateLine}
+  // data-locationData={this.state.locationData}
+  // data-getLocationData={this.getLocationData}
+  // getLocationData={this.getLocationData}
+  // locationData={this.state.location}
+  // />
+  // )}/>

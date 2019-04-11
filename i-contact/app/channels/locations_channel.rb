@@ -10,6 +10,12 @@ class LocationsChannel < ApplicationCable::Channel
       users: @location.waiting_users})
 end
 
+def speak(data)
+   location = Location.create(body: data['location'])
+   socket = { location: location.body }
+   LocationsChannel.broadcast_to('locations_channel', socket)
+ end
+
   def unsubscribed
  end
 end

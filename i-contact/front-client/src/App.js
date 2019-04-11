@@ -3,7 +3,7 @@ import React, {
 } from 'react';
 import './App.css';
 import axios from 'axios';
-import ActionCable from 'action-cable-react-jwt'
+import ActionCable from 'action-cable-react-jwt';
 import {
   Link,
   Route
@@ -44,7 +44,7 @@ class App extends Component {
       },
       isEdit: false,
       loggedInUser: null,
-      mapUsers: []
+      shirin: []
     }
     this.handleLogin = this.handleLogin.bind(this)
     this.handleChange = this.handleChange.bind(this)
@@ -55,7 +55,16 @@ class App extends Component {
     this.handleUpdateChange = this.handleUpdateChange.bind(this)
     this.handleDelete = this.handleDelete.bind(this)
     this.handleLogout = this.handleLogout.bind(this)
+    this.handleReceived = this.handleReceived.bind(this);
   }
+
+  handleReceived(shirin) {
+   this.setState(state => {
+     return {
+       shirin
+     };
+   });
+ }
 
   onEdit(currentUser) {
     this.setState({
@@ -199,18 +208,15 @@ class App extends Component {
           console.log("cable: disconnected")
         },
         received: (data) => {
+          // let shirin = [{
+          //     id: data.user.id,
+          //     lat: data.lat,
+          //     lng: data.lng
+          //   }]
 
-          // console.log(data.lat)
-          // if (data.lat == true) {
-            // this.setState(prevState => ({
-            //   mapUsers: {
-            //     ...prevState.mapUsers,
-            //     [data.user.id]: {
-            //       lat: data.lat,
-            //       lng: data.lng
-            //     }
-            //   }
-            // }))
+            // this.setState({
+            //    shirin
+            // })
             console.log("cable received: ", data);
           // }
 
@@ -276,6 +282,7 @@ class App extends Component {
            <MapContainer
            currentUser={this.state.loggedInUser}/>
           }/>
+
           </div>
         </div>
       );
@@ -283,3 +290,9 @@ class App extends Component {
   }
 
   export default withRouter(App);
+
+  // <ActionCable
+  //   channel="LocationsChannel"
+  //   received={this.handleReceived}>
+  //   <h1>{this.state.shirin}</h1>
+  // </ActionCable>
