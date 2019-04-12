@@ -45,8 +45,8 @@ class App extends Component {
       isEdit: false,
       loggedInUser: null,
       mapUser: [],
-      currentPosition: {lat: 0, lng: 0}
-      // currentPosition: {lat: 40.7397803, lng: -73.9896464}
+      // currentPosition: {lat: 0, lng: 0}
+      currentPosition: {lat: 40.7397803, lng: -73.9896464}
     }
     this.handleLogin = this.handleLogin.bind(this)
     this.handleChange = this.handleChange.bind(this)
@@ -68,17 +68,16 @@ class App extends Component {
          lng: data.lng
        }
      })
-   } else {
-     this.setState(prevState => ({
-       mapUser: {
-         ...prevState.mapUser,
-         [data.user.id]: {
-           lat: data.lat,
-           lng: data.lng
-         }
-       }
-     }))
    }
+   this.setState(prevState => ({
+     mapUser: {
+       ...prevState.mapUser,
+       [data.user.id]: {
+         lat: data.lat,
+         lng: data.lng
+       }
+     }
+   }))
  }
 
   onEdit(currentUser) {
@@ -286,7 +285,9 @@ class App extends Component {
             component = {() =>
            <MapContainer
            currentUser={this.state.loggedInUser}
-           currentPosition={this.state.currentPosition}/>
+           currentPosition={this.state.currentPosition}
+           mapUser={this.state.mapUser}
+           />
           }/>
 
           </div>

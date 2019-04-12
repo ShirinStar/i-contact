@@ -100,14 +100,17 @@ export class MapContainer extends Component {
           zoom={16}
           styles={styles}
           onClick={this.onMapClicked}>
+        {
+          Object.keys(this.props.mapUser).map(eye => (
+            <Marker
+              position={this.props.mapUser[eye]}
+              onClick={this.onMarkerClick}
+          //change here to the name of the user later + location
+              name={'User name and user ratings'}
+              icon={icon}/>
+          ))
+        }
 
-        <Marker
-          // position={this.usersOnline}
-          position={this.props.currentPosition}
-          onClick={this.onMarkerClick}
-      //change here to the name of the user later + location
-          name={'User name and user ratings'}
-          icon={icon}/>
 
         <InfoWindow
           marker={this.state.activeMarker}
