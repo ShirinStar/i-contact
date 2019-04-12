@@ -11,11 +11,12 @@ class LoginForm extends Component {
 
   render() {
     return(
-      <div className="login">
-        <form onSubmit={this.props.onSubmit}>
+      <div className="reg-page">
+      <img className='blinkingEye' src='https://media.giphy.com/media/W3TaltWPDT5NgrVxOq/giphy.gif' alt='' />
+        <form className="register-form" onSubmit={this.props.onSubmit}>
           <input
           autoComplete="off"
-          className="input-login"
+          className="input-reg"
           type="text"
           onChange={this.props.handleChange}
           id="email"
@@ -24,7 +25,7 @@ class LoginForm extends Component {
           placeholder="Email"/>
           <input
           autoComplete="off"
-          className="input-login"
+          className="input-reg"
           type="password"
           onChange={this.props.handleChange}
           id="password"
@@ -33,7 +34,7 @@ class LoginForm extends Component {
           placeholder="Password"/>
 
           <button
-          className='button-login'
+          className='button-reg'
           onClick={this.props.handleSubmit}
           type="submit">
           {this.props.buttonText}

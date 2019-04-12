@@ -3,12 +3,12 @@ import React from 'react';
 const UpdateForm = (props) => {
   const { name, email } = props.currentUser
   return(
-    <div className="reg-page">
-      <form className="register-form" onSubmit={props.onSubmit}>
-       <div className="register">
+    <div className="edit-page">
+      <form className="edit-form" onSubmit={props.onSubmit}>
+       <div className="edit">
          <label>Name</label>
          <input
-         className="input-reg"
+         className="input-edit"
          autoComplete="off"
          type="text"
          onChange={props.handleChange}
@@ -17,10 +17,10 @@ const UpdateForm = (props) => {
          value={name} />
        </div>
 
-       <div className="register">
+       <div className="edit">
           <label>Email</label>
           <input
-          className="input-reg"
+          className="input-edit"
           autoComplete="off"
           type="text"
           onChange={props.handleChange}
@@ -29,7 +29,7 @@ const UpdateForm = (props) => {
           value={email} />
         </div>
 
-        <button onClick={props.handleUpdate}>Update</button>
+        <button className='updateBtn' onClick={props.handleUpdate}>Update</button>
        </form>
     </div>
   )

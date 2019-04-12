@@ -43,6 +43,7 @@ class App extends Component {
         token: ''
       },
       isEdit: false,
+      isLogin: false,
       loggedInUser: null,
       mapUser: [],
       // currentPosition: {lat: 0, lng: 0}
@@ -106,15 +107,25 @@ class App extends Component {
 
   async handleDelete(e) {
     e.preventDefault();
-    const {
-      currentUser
-    } = this.state
+    const {currentUser} = this.state
     await deleteUser(currentUser.id);
+    this.setState({
+      isLogin: false
+    })
     this.props.history.push(`/`)
   }
 
   async handleLogout() {
-    //need to add here clear localstorage
+    localStorage.removeItem('token');
+    this.setState({
+      currentUser: {
+        email: '',
+        name: '',
+        id: '',
+        token: ''
+      },
+      isLogin: false
+    })
     this.props.history.push(`/`)
   }
 
@@ -155,7 +166,8 @@ class App extends Component {
         email: '',
         password: '',
         name: ''
-      }
+      },
+      isLogin:true
     })
     const id = data.id;
     const dataUser = await getUser(id);
@@ -174,11 +186,13 @@ class App extends Component {
     console.log(data)
     // data === '' ? alert('Invalid Email or Password- try again') :
     this.setState(prevState => ({
+      //i need to check why in login i don't see my name
       loggedInUser: data,
       formData: {
         email: '',
         password: ''
       },
+      isLogin:true
     }))
     this.setState({
       loggedInUser: data
@@ -205,8 +219,6 @@ class App extends Component {
   }
 
   async createSocket() {
-    // get your JWT token
-    //i need to solve from where the token is coming from
     const socketToken = localStorage.getItem('token')
     if (socketToken) {
       let App = {}
@@ -232,24 +244,24 @@ class App extends Component {
   render() {
     return ( <div className = "App">
       <div>
-      <nav>
-      <h3> i.contact app </h3>
-      <Link to='/login'> returning eye </Link>
-      <Link to ='/register'> new eye </Link>
-      </nav>
-      <Route exact path = '/' component = {HomeScreen}/>
-
+      {this.state.isLogin ?
       <div className = 'secondNav'>
-      <h3> i.contact app </h3>
       {this.state.isEdit ?
         <UpdateForm handleChange = {this.handleUpdateChange}
         currentUser = {this.state.currentUser}
         handleUpdate = {this.handleUpdate}/> :
-        <h2> hey {this.state.currentUser.name} </h2>}
-        <button onClick = {() => this.onEdit(this.state.currentUser)}> Edit profile</button>
-        <button onClick = {this.handleDelete}> Delete profile </button>
-        <button onClick = {this.handleLogout}> Logout </button>
-        </div>
+        <h2 className='welcomeUser'> hey {this.state.currentUser.name} </h2>}
+        <button className='editProfile' onClick = {() => this.onEdit(this.state.currentUser)}> Edit profile</button>
+        <button className='deleteProfile' onClick = {this.handleDelete}> Delete profile </button>
+        <button className='logout' onClick = {this.handleLogout}> Logout </button>
+        </div> :
+        <nav className='firstNav'>
+          <h3 className='logo'> i.contact</h3>
+          <Link to='/login' className='returningEye'> returning eye </Link>
+          <Link to ='/register' className='newEye'> new eye </Link>
+          </nav>}
+
+        <Route exact path = '/' component = {HomeScreen}/>
 
         <Route exact path = '/login'
           render = {(props) => (
