@@ -44,7 +44,9 @@ class App extends Component {
       },
       isEdit: false,
       loggedInUser: null,
-      mapUser: []
+      mapUser: [],
+      currentPosition: {lat: 0, lng: 0}
+      // currentPosition: {lat: 40.7397803, lng: -73.9896464}
     }
     this.handleLogin = this.handleLogin.bind(this)
     this.handleChange = this.handleChange.bind(this)
@@ -59,14 +61,14 @@ class App extends Component {
   }
 
  grabLocationData(data){
-   if(data.user.id === this.state.currentUser.id) {
+   if(data.user.id === this.state.loggedInUser.id) {
      this.setState({
        currentPosition:{
          lat: data.lat,
          lng: data.lng
        }
      })
-   } else{
+   } else {
      this.setState(prevState => ({
        mapUser: {
          ...prevState.mapUser,
@@ -283,7 +285,8 @@ class App extends Component {
         <Route exact path = '/map'
             component = {() =>
            <MapContainer
-           currentUser={this.state.loggedInUser}/>
+           currentUser={this.state.loggedInUser}
+           currentPosition={this.state.currentPosition}/>
           }/>
 
           </div>

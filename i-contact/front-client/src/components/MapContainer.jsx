@@ -7,18 +7,18 @@ const GOOGLE_API_KEY= process.env.REACT_APP_GOOGLE_API_KEY;
 const styles = require('./mapStyle.json')
 
 export class MapContainer extends Component {
-  constructor(){
-    super();
+  constructor(props){
+    super(props);
     this.state = {
       //currentuser.id
-      currentPosition: {
-        lat: '',
-        lng: '',
-      },
-      location:{
-        location:{},
-        users:[]
-      },
+      // currentPosition: {
+      //   lat: '',
+      //   lng: '',
+      // },
+      // location:{
+      //   location:{},
+      //   users:[]
+      // },
       usersMarkers:[{}],
       showingInfoWindow: false,
       activeMarker: {},
@@ -28,15 +28,15 @@ export class MapContainer extends Component {
   }
 
   // Callback function to setState in App from Line Action Cable
-  updateAppStateLocation = (newLocation) => {
-    console.log('updateAppStateLocation: ', this.state.location)
-    this.setState({
-      location: {
-        location: newLocation.location,
-        users: newLocation.users
-      }
-    })
-  }
+  // updateAppStateLocation = (newLocation) => {
+  //   console.log('updateAppStateLocation: ', this.state.location)
+  //   this.setState({
+  //     location: {
+  //       location: newLocation.location,
+  //       users: newLocation.users
+  //     }
+  //   })
+  // }
 
   onMarkerClick = (props, marker, e) =>
   this.setState({
@@ -54,31 +54,40 @@ export class MapContainer extends Component {
   }
 };
 
-async componentWillMount(){
-  const usersMarkers = await getLocations();
-  this.setState({
-    usersMarkers
-  })
-}
+// async componentWillMount(){
+//   const usersMarkers = await getLocations();
+//   this.setState({
+//     usersMarkers
+//   })
+// }
 
 //updating location every 10 sec
-componentDidMount() {
-    const geoUpload = setTimeout(() => {
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          const data = userLocation({
-            lat: position.coords.latitude,
-            lng: position.coords.longitude
-           }, this.props.currentUser.id)
-        },
-        error => console.log(error)
-      );
+  componentDidMount() {
+      const interval = setInterval(() => {
+        navigator.geolocation.getCurrentPosition(
+          position => {
+            //sending my geo to the backend
+            const data = userLocation({
+              lat: position.coords.latitude,
+              lng: position.coords.longitude},
+              this.props.currentUser.id)
+          },
+          error => console.log(error)
+        );
+      }, 10000)
+      this.setState({
+        geoInterval: interval,
+        // currentPosition: data
+    })
+  }
 
-    }, 10000);
+  componentWillUnmount() {
+    clearInterval(this.state.geoInterval);
   }
 
   render() {
-    const usersOnline = this.state.usersMarkers.filter(userMarker => userMarker.user_id);
+    // const usersOnline = this.state.usersMarkers.filter(
+    //   userMarker => userMarker.user_id == this.props.currentUser.id);
     let icon = {
         url: "https://i.imgur.com/Wt5NZiA.png",
         scaledSize: new this.props.google.maps.Size(80, 80), // scaled size
@@ -87,13 +96,14 @@ componentDidMount() {
       <div>
       <Map className='map' google={this.props.google}
       //i need to check how to add a bounds to center multi positions
-          center={this.state.currentPosition}
+          initialCenter={this.props.currentPosition}
           zoom={16}
           styles={styles}
           onClick={this.onMapClicked}>
 
         <Marker
-          position={this.state.currentPosition}
+          // position={this.usersOnline}
+          position={this.props.currentPosition}
           onClick={this.onMarkerClick}
       //change here to the name of the user later + location
           name={'User name and user ratings'}
