@@ -1,16 +1,9 @@
-import React, {
-  Component
-} from 'react';
+import React, { Component } from 'react';
 import './App.css';
 import axios from 'axios';
 import ActionCable from 'action-cable-react-jwt';
-import {
-  Link,
-  Route
-} from 'react-router-dom';
-import {
-  withRouter
-} from 'react-router';
+import { Link, Route } from 'react-router-dom';
+import { withRouter } from 'react-router';
 import decode from 'jwt-decode';
 import {
   loginUser,
@@ -46,7 +39,6 @@ class App extends Component {
       isLogin: false,
       loggedInUser: null,
       mapUser: [],
-      // currentPosition: {lat: 0, lng: 0}
       currentPosition: {lat: 40.7397803, lng: -73.9896464}
     }
     this.handleLogin = this.handleLogin.bind(this)
@@ -236,6 +228,21 @@ class App extends Component {
         received: (data) => {
           this.grabLocationData(data)
             console.log("cable received: ", data);
+          }
+      })
+
+      const meetingSubscription = App.cable.subscriptions.create({
+        channel: 'MeetingsChannel'
+      },
+      {
+        connected: () => {
+          console.log("meeting cable: connected")
+        },
+        disconnected: () => {
+          console.log("meeting cable: disconnected")
+        },
+        received: (data) => {
+            console.log("start meeting!: ", data);
           }
       })
     }

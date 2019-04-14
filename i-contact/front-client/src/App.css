@@ -213,16 +213,16 @@ label{
 .triggerBtn {
   background-color: #feaeb0;
   border: 1px solid #feaeb0;
-  margin-left: 10%;
+  margin-left: 8%;
   /* margin-top: -5%; */
 }
 
 .lookfor{
   font-family: 'Muli', sans-serif;
   color: white;
-  font-size: 42px;
-  margin-left: 10%;
-  margin-top: -5%;
+  font-size: 32px;
+  margin-left: 20%;
+  margin-top: 8%;
   margin-right: auto;
 
 }

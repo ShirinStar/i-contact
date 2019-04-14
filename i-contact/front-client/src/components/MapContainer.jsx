@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
 import { Link, Route} from 'react-router-dom';
-import { userLocation, getLocations } from '../services/api-helper';
-// import LocationShowPage from './LocationShowPage';
+import { userLocation, getLocations, createMeeting } from '../services/api-helper';
+import geolib from 'geolib';
 const GOOGLE_API_KEY= process.env.REACT_APP_GOOGLE_API_KEY;
 const styles = require('./mapStyle.json')
 
@@ -10,21 +10,13 @@ export class MapContainer extends Component {
   constructor(props){
     super(props);
     this.state = {
-      //currentuser.id
-      // currentPosition: {
-      //   lat: '',
-      //   lng: '',
-      // },
-      // location:{
-      //   location:{},
-      //   users:[]
-      // },
       usersMarkers:[{}],
       showingInfoWindow: false,
       activeMarker: {},
       //selectplaces here function as users
-      selectedPlace: {},
+      selectedPlace: {}
     }
+  this.matchDistance = this.matchDistance.bind(this)
   }
 
   // Callback function to setState in App from Line Action Cable
@@ -38,12 +30,20 @@ export class MapContainer extends Component {
   //   })
   // }
 
-  onMarkerClick = (props, marker, e) =>
-  this.setState({
-    selectedPlace: props,
-    activeMarker: marker,
-    showingInfoWindow: true
-  });
+  matchDistance(props) {
+
+    console.log(this.props.currentPosition.lat);
+  }
+
+onMarkerClick =  async (props, marker, e) => {
+    console.log('markerclicked!');
+    const newMeeting = await createMeeting();
+  }
+  // this.setState({
+  //   selectedPlace: props,
+  //   activeMarker: marker,
+  //   showingInfoWindow: true
+  // });
 
   onMapClicked = (props) => {
   if (this.state.showingInfoWindow) {
@@ -53,13 +53,6 @@ export class MapContainer extends Component {
     })
   }
 };
-
-// async componentWillMount(){
-//   const usersMarkers = await getLocations();
-//   this.setState({
-//     usersMarkers
-//   })
-// }
 
 //updating location every 10 sec
   componentDidMount() {
@@ -76,8 +69,7 @@ export class MapContainer extends Component {
         );
       }, 10000)
       this.setState({
-        geoInterval: interval,
-        // currentPosition: data
+        geoInterval: interval
     })
   }
 
@@ -86,8 +78,6 @@ export class MapContainer extends Component {
   }
 
   render() {
-    // const usersOnline = this.state.usersMarkers.filter(
-    //   userMarker => userMarker.user_id == this.props.currentUser.id);
     let icon = {
         url: "https://i.imgur.com/Wt5NZiA.png",
         scaledSize: new this.props.google.maps.Size(80, 80), // scaled size
@@ -95,10 +85,11 @@ export class MapContainer extends Component {
     return (
       <div>
       <Map className='map' google={this.props.google}
-      //i need to check how to add a bounds to center multi positions
+          centerAroundCurrentLocation={true}
           initialCenter={this.props.currentPosition}
           zoom={16}
           styles={styles}
+          // style={{width: '90wh', height: '90vh', marginTop: '5px'}}
           onClick={this.onMapClicked}>
         {
           Object.keys(this.props.mapUser).map(eye => (
@@ -110,7 +101,6 @@ export class MapContainer extends Component {
               icon={icon}/>
           ))
         }
-
 
         <InfoWindow
           marker={this.state.activeMarker}
