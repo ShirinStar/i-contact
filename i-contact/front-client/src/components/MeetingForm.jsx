@@ -3,31 +3,22 @@ import React from 'react';
 const MeetingForm = (props) => {
   return(
     <div>
-    <p>{currentUser.name}</p>
-    //here i need to add location info.... ?
-    <p>are you meeting?</p>
+    <h2>hey there, {props.currentUser.name}</h2>
+    <p>you have been invited for a human eye contact!</p>
+    <p>would you come to the new near by marked spot?</p>
 
-      <form onSubmit={props.onSubmit}>
        <div>
-         <input
-         type="radio"
-         onChange={props.handleChange}
-         id="yes"
-         name="name"
-         value="yes" />
-         <label for="yes"> yes</label>
+       <button
+         onClick={props.handleYes}
+         type="submit">
+         yes!
+       </button>
+       <button
+         onClick={props.handleNo}
+         type="submit">
+         no
+       </button>
        </div>
-
-      <div>
-       <input
-       type="radio"
-       onChange={props.handleChange}
-       id="no"
-       name="name"
-       value="no" />
-       <label for="no"> no</label>
-     </div>
-      </form>
     </div>
   )
 };

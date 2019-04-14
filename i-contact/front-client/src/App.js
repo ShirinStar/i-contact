@@ -18,6 +18,7 @@ import LoginForm from './components/LoginForm';
 import UpdateForm from './components/UpdateForm';
 import RegisterForm from './components/RegisterForm';
 import MapContainer from './components/MapContainer';
+import MeetingForm from './components/MeetingForm';
 
 class App extends Component {
   constructor() {
@@ -35,6 +36,7 @@ class App extends Component {
         id: '',
         token: ''
       },
+      isMeeting:false,
       isEdit: false,
       isLogin: false,
       loggedInUser: null,
@@ -242,6 +244,9 @@ class App extends Component {
           console.log("meeting cable: disconnected")
         },
         received: (data) => {
+          this.setState({
+            isMeeting: true
+          })
             console.log("start meeting!: ", data);
           }
       })
@@ -296,6 +301,13 @@ class App extends Component {
             />
           )}
         />
+
+        {this.state.isMeeting ? <MeetingForm
+        currentUser={this.state.currentUser}
+        handleYes={this.handleYes}
+        handleNo={this.handleNo}
+        /> : ''}
+
         <Route exact path = '/trigger'
         component = {() =>
           <TriggerMap triggerMap = {this.triggerMap}/>}
@@ -308,6 +320,8 @@ class App extends Component {
            mapUser={this.state.mapUser}
            />
           }/>
+
+
 
           </div>
         </div>

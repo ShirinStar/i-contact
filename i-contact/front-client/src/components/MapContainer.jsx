@@ -89,7 +89,7 @@ onMarkerClick =  async (props, marker, e) => {
           initialCenter={this.props.currentPosition}
           zoom={16}
           styles={styles}
-          // style={{width: '90wh', height: '90vh', marginTop: '5px'}}
+          style={{width: '50wh', height: '50vh', marginTop: '5px'}}
           onClick={this.onMapClicked}>
         {
           Object.keys(this.props.mapUser).map(eye => (
