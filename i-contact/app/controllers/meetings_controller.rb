@@ -12,10 +12,6 @@ end
      head :ok
  end
 
-    # else
-    #   redirect_to reviews_path
-    # end
-
   private
 
     def meeting_params

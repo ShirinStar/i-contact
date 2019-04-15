@@ -75,7 +75,7 @@ const getLocations = async() => {
 }
 
 const createMeeting = async(data) => {
-  console.log('posting meeting');
+  console.log('posting meeting', createMeeting);
   const resp = await api.post(`${BASE_URL}/meetings`, {"meeting": data}, {
     headers: {
       Authorization: `Bearer ${localStorage.getItem('token')}`
@@ -83,6 +83,18 @@ const createMeeting = async(data) => {
   });
   return resp.data;
 }
+
+const cancelMeeting = async(data) => {
+  console.log('posting meeting', cancelMeeting);
+  const resp = await api.post(`${BASE_URL}/meetings`, {"meeting": data}, {
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem('token')}`
+    }
+  });
+  return resp.data;
+}
+
+
 
 export  {
   registerUser,
@@ -92,5 +104,6 @@ export  {
   deleteUser,
   userLocation,
   getLocations,
-  createMeeting
+  createMeeting,
+  cancelMeeting
   }

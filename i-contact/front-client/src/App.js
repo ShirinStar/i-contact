@@ -10,7 +10,9 @@ import {
   registerUser,
   updateUser,
   getUser,
-  deleteUser
+  deleteUser,
+  createMeeting,
+  userLocation
 } from './services/api-helper';
 import TriggerMap from './components/TriggerMap';
 import HomeScreen from './components/HomeScreen';
@@ -19,6 +21,15 @@ import UpdateForm from './components/UpdateForm';
 import RegisterForm from './components/RegisterForm';
 import MapContainer from './components/MapContainer';
 import MeetingForm from './components/MeetingForm';
+import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
+const GOOGLE_URL = 'https://maps.googleapis.com/maps'
+const GOOGLE_API_KEY= process.env.REACT_APP_GOOGLE_API_KEY;
+const BASE_URL = 'http://localhost:3000'
+const api = axios.create({
+  baseURL: BASE_URL
+});
+const sgeo = require('sgeo');
+const Geo = require('geo-nearby');
 
 class App extends Component {
   constructor() {
@@ -37,6 +48,7 @@ class App extends Component {
         token: ''
       },
       isMeeting:false,
+      meetingPlaces:[],
       isEdit: false,
       isLogin: false,
       loggedInUser: null,
@@ -53,6 +65,8 @@ class App extends Component {
     this.handleDelete = this.handleDelete.bind(this)
     this.handleLogout = this.handleLogout.bind(this)
     this.grabLocationData = this.grabLocationData.bind(this)
+    this.handleNo = this.handleNo.bind(this)
+    this.handleYes = this.handleYes.bind(this)
   }
 
  grabLocationData(data){
@@ -75,6 +89,41 @@ class App extends Component {
    }))
  }
 
+ handleNo(){
+   this.setState({
+   isMeeting:false
+   })
+  this.props.history.push(`/`)
+ }
+
+ async handleYes(){
+   const nearPlace = async () => {
+    const resp = await api.get(`https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${this.state.currentPosition.lat},${this.state.currentPosition.lng}&radius=250&key=${GOOGLE_API_KEY}`);
+   return resp.data;
+   console.log(resp.data);
+ }
+ const markNewPlace = await nearPlace();
+   this.setState({
+     meetingPlaces: markNewPlace
+   })
+
+  // const mapUserProp =  this.state.mapUser.filter((user, index)=> {
+  //    const lng = this.state.mapUser.lng
+  //    const lat = this.state.mapUser.lat })
+  //  const p1 = new sgeo.latlon(this.state.currentPosition.lat, this.state.currentPosition.lng);
+  //  const p2 = new sgeo.latlon(mapUserProp.lat, mapUserProp.lng);
+  //  const mp = p1.midpointTo(p2);
+  //  console.log(mp);
+
+  // const data = {lat: this.state.currentPosition.lat,
+  //               lon: this.state.currentPosition.lng}
+  // const nearCurrent = new Geo(data).limit(1)
+  // const newPlace = nearCurrent.nearBy(
+  //   this.state.currentPosition.lat,
+  //   this.state.currentPosition.lng, 250);
+  // console.log(newPlace);
+ }
+
   onEdit(currentUser) {
     this.setState({
       isEdit: !this.state.isEdit,
@@ -89,9 +138,7 @@ class App extends Component {
 
   async handleUpdate(e) {
     e.preventDefault();
-    const {
-      currentUser
-    } = this.state
+    const {currentUser} = this.state
     const data = currentUser
     await updateUser(currentUser.id, data);
     this.setState({
@@ -104,7 +151,8 @@ class App extends Component {
     const {currentUser} = this.state
     await deleteUser(currentUser.id);
     this.setState({
-      isLogin: false
+      isLogin: false,
+      isMeeting:false
     })
     this.props.history.push(`/`)
   }
@@ -118,7 +166,8 @@ class App extends Component {
         id: '',
         token: ''
       },
-      isLogin: false
+      isLogin: false,
+      isMeeting:false
     })
     this.props.history.push(`/`)
   }
@@ -180,7 +229,6 @@ class App extends Component {
     console.log(data)
     // data === '' ? alert('Invalid Email or Password- try again') :
     this.setState(prevState => ({
-      //i need to check why in login i don't see my name
       loggedInUser: data,
       formData: {
         email: '',
@@ -189,7 +237,7 @@ class App extends Component {
       isLogin:true
     }))
     this.setState({
-      loggedInUser: data
+      currentUser: data
     })
     this.props.history.push('/trigger');
     localStorage.setItem('token', token.jwt);
@@ -302,7 +350,8 @@ class App extends Component {
           )}
         />
 
-        {this.state.isMeeting ? <MeetingForm
+        {this.state.isMeeting ?
+          <MeetingForm
         currentUser={this.state.currentUser}
         handleYes={this.handleYes}
         handleNo={this.handleNo}
@@ -318,11 +367,9 @@ class App extends Component {
            currentUser={this.state.loggedInUser}
            currentPosition={this.state.currentPosition}
            mapUser={this.state.mapUser}
+           meetingPlaces={this.state.meetingPlaces}
            />
           }/>
-
-
-
           </div>
         </div>
       );

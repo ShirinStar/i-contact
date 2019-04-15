@@ -12,6 +12,7 @@ export class MapContainer extends Component {
     this.state = {
       usersMarkers:[{}],
       showingInfoWindow: false,
+      wantToMeet: false,
       activeMarker: {},
       //selectplaces here function as users
       selectedPlace: {}
@@ -38,12 +39,12 @@ export class MapContainer extends Component {
 onMarkerClick =  async (props, marker, e) => {
     console.log('markerclicked!');
     const newMeeting = await createMeeting();
-  }
   // this.setState({
   //   selectedPlace: props,
   //   activeMarker: marker,
   //   showingInfoWindow: true
   // });
+}
 
   onMapClicked = (props) => {
   if (this.state.showingInfoWindow) {
@@ -85,7 +86,7 @@ onMarkerClick =  async (props, marker, e) => {
     return (
       <div>
       <Map className='map' google={this.props.google}
-          centerAroundCurrentLocation={true}
+          // centerAroundCurrentLocation={true}
           initialCenter={this.props.currentPosition}
           zoom={16}
           styles={styles}
@@ -96,11 +97,14 @@ onMarkerClick =  async (props, marker, e) => {
             <Marker
               position={this.props.mapUser[eye]}
               onClick={this.onMarkerClick}
-          //change here to the name of the user later + location
-              name={'User name and user ratings'}
+          // //change here to the name of the user later + location
+          //     name={'User name and user ratings'}
               icon={icon}/>
           ))
         }
+
+        {<Marker
+          position={this.props.meetingPlaces.results[2].geometry.location}/>}
 
         <InfoWindow
           marker={this.state.activeMarker}
@@ -123,16 +127,3 @@ onMarkerClick =  async (props, marker, e) => {
   export default GoogleApiWrapper({
     apiKey: (GOOGLE_API_KEY)
   })(MapContainer)
-
-
-  // <Route path="/locations" render={(props)=>(
-  // <LocationShowPage
-  // {...props}
-  // data-cableApp={this.props.cableApp}
-  // data-updateApp={this.updateAppStateLine}
-  // data-locationData={this.state.locationData}
-  // data-getLocationData={this.getLocationData}
-  // getLocationData={this.getLocationData}
-  // locationData={this.state.location}
-  // />
-  // )}/>

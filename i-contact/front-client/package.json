@@ -7,14 +7,17 @@
     "actioncable": "^5.2.3",
     "axios": "^0.18.0",
     "geo-lib": "^0.3.1",
+    "geo-nearby": "^2.0.1",
     "geolib": "^2.0.24",
+    "geolocation-utils": "^1.2.1",
     "google-maps-react": "^2.0.2",
     "jwt-decode": "^2.2.0",
     "react": "^16.8.6",
     "react-actioncable-provider": "^2.0.0",
     "react-dom": "^16.8.6",
     "react-router-dom": "^5.0.0",
-    "react-scripts": "2.1.8"
+    "react-scripts": "2.1.8",
+    "sgeo": "0.0.5"
   },
   "scripts": {
     "start": "react-scripts start",
