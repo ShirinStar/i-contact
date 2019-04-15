@@ -98,13 +98,14 @@ class App extends Component {
 
  async handleYes(){
    const nearPlace = async () => {
-    const resp = await api.get(`https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${this.state.currentPosition.lat},${this.state.currentPosition.lng}&radius=250&key=${GOOGLE_API_KEY}`);
+    const resp = await api.get(`https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${this.state.currentPosition.lat},${this.state.currentPosition.lng}&radius=450&key=${GOOGLE_API_KEY}`);
    return resp.data;
    console.log(resp.data);
  }
- const markNewPlace = await nearPlace();
+ const newPlaces = await nearPlace();
+ const markOneplace = newPlaces[newPlaces.length -1]
    this.setState({
-     meetingPlaces: markNewPlace
+     meetingPlaces: markOneplace
    })
 
   // const mapUserProp =  this.state.mapUser.filter((user, index)=> {

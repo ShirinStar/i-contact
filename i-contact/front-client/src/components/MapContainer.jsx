@@ -104,7 +104,7 @@ onMarkerClick =  async (props, marker, e) => {
         }
 
         {<Marker
-          position={this.props.meetingPlaces.results[2].geometry.location}/>}
+          position={this.props.meetingPlaces}/>}
 
         <InfoWindow
           marker={this.state.activeMarker}
