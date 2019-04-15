@@ -38,7 +38,7 @@ export class MapContainer extends Component {
 
 onMarkerClick =  async (props, marker, e) => {
     console.log('markerclicked!');
-    const newMeeting = await createMeeting();
+    const newMeeting = await createMeeting({is_occur: true});
   // this.setState({
   //   selectedPlace: props,
   //   activeMarker: marker,
@@ -103,8 +103,10 @@ onMarkerClick =  async (props, marker, e) => {
           ))
         }
 
-        {<Marker
-          position={this.props.meetingPlaces}/>}
+        {this.props.meetingPlace && <Marker
+          position={this.props.meetingPlace}
+          // icon={/*different icon*/}
+          />}
 
         <InfoWindow
           marker={this.state.activeMarker}

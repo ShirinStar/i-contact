@@ -84,6 +84,15 @@ const createMeeting = async(data) => {
   return resp.data;
 }
 
+const updateMeeting = async(data) => {
+  const resp = await api.put(`/meetings/${data.id}`, {"meeting": data}, {
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem('token')}`
+    }
+  });
+  return resp.data;
+}
+
 const cancelMeeting = async(data) => {
   console.log('posting meeting', cancelMeeting);
   const resp = await api.post(`${BASE_URL}/meetings`, {"meeting": data}, {
@@ -105,5 +114,6 @@ export  {
   userLocation,
   getLocations,
   createMeeting,
-  cancelMeeting
+  cancelMeeting,
+  updateMeeting
   }
