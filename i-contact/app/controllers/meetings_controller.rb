@@ -12,6 +12,10 @@ end
      head :ok
  end
 
+ def update
+
+ end
+
   private
 
     def meeting_params

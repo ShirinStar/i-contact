@@ -163,7 +163,7 @@ label{
   font-family: 'Cute Font', cursive;
   font-size: 150px;
   color: #fe1f20;
-  margin-left: 38%;
+  margin-left: 40%;
   margin-top: 2%;
   margin-bottom: 0;
   padding-bottom: 0;
@@ -175,8 +175,8 @@ label{
   border-radius: 0.2em;
   padding: 4px;
   margin-right: 5px;
-  margin-left: 35%;
-  margin-top: -4%;
+  margin-left: 38%;
+  margin-top: -3%;
   margin-bottom: 1%;
   font-family: 'Nunito', sans-serif;
   font-size: 14px;
@@ -189,7 +189,7 @@ label{
   padding: 4px;
   margin-right: 5px;
   margin-left: 5%;
-  margin-top: -5%;
+  margin-top: -3%;
   margin-bottom: 1%;
   font-family: 'Nunito', sans-serif;
   font-size: 14px;
@@ -202,14 +202,15 @@ label{
   padding: 4px;
   margin-right: 5px;
   margin-left: 5%;
-  margin-top: -5%;
+  margin-top: -3%;
   margin-bottom: 1%;
   font-family: 'Nunito', sans-serif;
   font-size: 14px;
 }
 
 .edit-page{
-  margin-top: 4%;
+  /* display: flex; */
+  margin-top: 3%;
 }
 
 .updateBtn{
@@ -219,27 +220,44 @@ label{
   padding: 2px;
   margin-right: 5px;
   margin-bottom: 4%;
-  margin-left: 45%;
-  /* margin-top: -25%; */
+  margin-left: 30%;
+  margin-top: -10%;
   font-family: 'Nunito', sans-serif;
   font-size: 14px;
+}
+
+.edit-form{
+margin-left: 30%;
+padding: 2px;
+}
+.input-edit{
+  border: none;
+  max-width:150px;
+  margin-left:2%;
+  margin-bottom: 1%;
+  appearance: none;
+  font-size: 18px;
+  color: black;
+  font-family: ‘Open Sans’, sans-serif;
+  border-color: #e7e7e7;
+  border-bottom: 5px solid white;
 }
 
 .triggerBtn {
   background-color: #feaeb0;
   border: 1px solid #feaeb0;
-  margin-left: 35%;
+  margin-left: 38%;
   max-width: 400px;
   max-height: 400px;
-  /* margin-top: -5%; */
+  margin-top: -1%;
 }
 
 .lookfor{
   font-family: 'Muli', sans-serif;
   color: white;
   font-size: 32px;
-  margin-left: 35%;
-  margin-top: 3%;
+  margin-left: 38%;
+  margin-top: 2%;
   margin-right: auto;
 }
 .bigEye{
@@ -392,7 +410,7 @@ label{
     font-family: 'Muli', sans-serif;
     color: white;
     font-size: 20px;
-    margin-left: 20%;
+    margin-left: 15%;
     margin-top: 15%;
     margin-right: auto;
   }
@@ -401,4 +419,34 @@ label{
     max-height: 330px;
   }
 
+  .updateBtn{
+    border: 1px solid white;
+    background-color: #feaeb0;
+    border-radius: 0.2em;
+    padding: 2px;
+    margin-right: 5px;
+    margin-bottom: 4%;
+    margin-left: 75%;
+    margin-top: -10%;
+    font-family: 'Nunito', sans-serif;
+    font-size: 14px;
+  }
+
+  .edit-form{
+  margin-left: 1%;
+  margin-top: 5%;
+  padding: 2px;
+  }
+  .input-edit{
+    border: none;
+    max-width:150px;
+    margin-left: 3%;
+    margin-bottom: 2%;
+    appearance: none;
+    font-size: 18px;
+    color: black;
+    font-family: ‘Open Sans’, sans-serif;
+    border-color: #e7e7e7;
+    border-bottom: 5px solid white;
+  }
 }
