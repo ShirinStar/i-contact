@@ -12,7 +12,8 @@ import {
   getUser,
   deleteUser,
   createMeeting,
-  userLocation
+  userLocation,
+  updateMeeting
 } from './services/api-helper';
 import TriggerMap from './components/TriggerMap';
 import HomeScreen from './components/HomeScreen';
@@ -48,7 +49,8 @@ class App extends Component {
         token: ''
       },
       isMeeting:false,
-      meetingPlaces:[],
+      meetingId: null,
+      meetingPlace:null,
       isEdit: false,
       isLogin: false,
       loggedInUser: null,
@@ -106,19 +108,17 @@ class App extends Component {
  // const markOneplace = newPlaces[newPlaces.length -1]
  //   this.setState({
  //     meetingPlaces: markOneplace
- //   })
+   // })
 
    Object.keys(this.state.mapUser).map(value => {
-     if (this.state.mapUser[value] != this.state.loggedInUser.id)
-   console.log(this.state.mapUser[value]);
-   const p1 = new sgeo.latlon(this.state.currentPosition.lat, this.state.currentPosition.lng);
-   console.log(p1);
-   const p2 = new sgeo.latlon(this.state.mapUser[value].lat, this.state.mapUser[value].lng);
-   console.log(p2);
-   const mp = p1.midpointTo(p2);
-   console.log(mp);
-   //im updating location instead of marking location.... and if i want a new icon how should i treat this...
-   userLocation(mp, this.state.currentUser.id);
+     if (this.state.mapUser[value] !== this.state.loggedInUser.id){
+     const p1 = new sgeo.latlon(this.state.currentPosition.lat, this.state.currentPosition.lng);
+     const p2 = new sgeo.latlon(this.state.mapUser[value].lat, this.state.mapUser[value].lng);
+     const mp = p1.midpointTo(p2);
+     // console.log(mp);
+     //i need to change this to user1 user2 in the rails meeting models. 
+     updateMeeting({...mp, id: this.state.meetingId});
+    }
   })
   this.props.history.push(`/map`)
 
@@ -292,11 +292,18 @@ class App extends Component {
           console.log("meeting cable: disconnected")
         },
         received: (data) => {
-          this.setState({
-            isMeeting: true
-          })
-            console.log("start meeting!: ", data);
+          if(data.lat) {
+            this.setState({
+              meetingPlace: {lat: data.lat, lng: data.lng}
+            })
+          } else {
+            this.setState({
+              isMeeting: true,
+              meetingId: data.id
+            })
+              console.log("start meeting!: ", data);
           }
+        }
       })
     }
   }
@@ -367,7 +374,7 @@ class App extends Component {
            currentUser={this.state.loggedInUser}
            currentPosition={this.state.currentPosition}
            mapUser={this.state.mapUser}
-           meetingPlaces={this.state.meetingPlaces}
+           meetingPlace={this.state.meetingPlace}
            />
           }/>
           </div>
