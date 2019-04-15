@@ -97,32 +97,27 @@ class App extends Component {
  }
 
  async handleYes(){
-   const nearPlace = async () => {
-    const resp = await api.get(`https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${this.state.currentPosition.lat},${this.state.currentPosition.lng}&radius=450&key=${GOOGLE_API_KEY}`);
-   return resp.data;
-   console.log(resp.data);
- }
- const newPlaces = await nearPlace();
- const markOneplace = newPlaces[newPlaces.length -1]
-   this.setState({
-     meetingPlaces: markOneplace
-   })
+ //   const nearPlace = async () => {
+ //    const resp = await api.get(`https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${this.state.currentPosition.lat},${this.state.currentPosition.lng}&radius=450&key=${GOOGLE_API_KEY}`);
+ //   return resp.data;
+ //   console.log(resp.data);
+ // }
+ // const newPlaces = await nearPlace();
+ // const markOneplace = newPlaces[newPlaces.length -1]
+ //   this.setState({
+ //     meetingPlaces: markOneplace
+ //   })
 
-  // const mapUserProp =  this.state.mapUser.filter((user, index)=> {
-  //    const lng = this.state.mapUser.lng
-  //    const lat = this.state.mapUser.lat })
-  //  const p1 = new sgeo.latlon(this.state.currentPosition.lat, this.state.currentPosition.lng);
-  //  const p2 = new sgeo.latlon(mapUserProp.lat, mapUserProp.lng);
-  //  const mp = p1.midpointTo(p2);
-  //  console.log(mp);
-
-  // const data = {lat: this.state.currentPosition.lat,
-  //               lon: this.state.currentPosition.lng}
-  // const nearCurrent = new Geo(data).limit(1)
-  // const newPlace = nearCurrent.nearBy(
-  //   this.state.currentPosition.lat,
-  //   this.state.currentPosition.lng, 250);
-  // console.log(newPlace);
+   Object.keys(this.state.mapUser).map(value => {
+     if (this.state.mapUser[value] != this.state.loggedInUser.id)
+   console.log(this.state.mapUser[value]);
+   const p1 = new sgeo.latlon(this.state.currentPosition.lat, this.state.currentPosition.lng);
+   console.log(p1);
+   const p2 = new sgeo.latlon(this.state.mapUser[value].lat, this.state.mapUser[value].lng);
+   console.log(p2);
+   const mp = p1.midpointTo(p2);
+   console.log(mp);
+  })
  }
 
   onEdit(currentUser) {
