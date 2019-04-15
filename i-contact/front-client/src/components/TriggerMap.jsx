@@ -9,7 +9,7 @@ function TriggerMap(props){
         <h1 className='lookfor'>look for human eye contact</h1>
         <button className='triggerBtn' onClick={props.triggerMap}>
           <div className='triggerEye'>
-            <img src='https://i.imgur.com/yXLZt4q.png' width='480' height='600' alt=''/>
+            <img className='bigEye' src='https://i.imgur.com/yXLZt4q.png' width='480' height='600' alt=''/>
           </div>
         </button>
 

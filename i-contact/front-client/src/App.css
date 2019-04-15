@@ -11,6 +11,8 @@ font-family: 'Nunito', sans-serif;
 
 body {
   background: #feaeb0;
+  margin-top: 0;
+  margin-left: 0;
 }
 
 .firstNav{
@@ -20,20 +22,22 @@ body {
 
 .logo {
   font-family: 'Cute Font', cursive;
-  font-size: 90px;
+  font-size: 150px;
   color: #fe1f20;
-  margin-left: 10%;
+  margin-left: 30%;
   margin-top: 2%;
+  margin-bottom: 0;
+  padding-bottom: 0;
 }
 
 .returningEye {
-  margin-top: 15%;
-  margin-left: -17%;
+  margin-top: 2%;
+  margin-left: -12%;
 }
 
 .newEye {
-  margin-top: 15%;
-  margin-left: -33%;
+  margin-top: 2%;
+  margin-left: -17%;
 }
 
 a {
@@ -52,10 +56,13 @@ a:hover {
 }
 
 .imgPerson {
-  margin-top: -28%;
-  margin-left: 5%;
-  width: 620px;
-  height: 800px;
+  margin-top: -15%;
+  margin-left: 32%;
+  margin-right: 40%;
+  min-width: 520px;
+  max-width: 620px;
+  min-height: 400px;
+  max-height: 800px;
   z-index: -10;
 }
 
@@ -64,28 +71,32 @@ a:hover {
 }
 
 .reg-page {
-  margin: 1em 6.7em;
+  margin-top: 22%;
+  margin-left: 35%;
+  /* margin: 1em 6.7em; */
 }
 
-.register-top{
-  margin-top: 0.4em;
+/* .register-top{
+  margin-top: 2%;
   margin-bottom: 0.1em;
   font-size: 6em;
-}
+} */
 
 .reg-whole {
   display: flex;
   justify-content: space-between;
-  height: 33em;
+  /* height: 33em; */
 }
 
 .register-form{
   border: 2px solid black;
   border-radius: 50%;
   width: 580px;
+  min-width: 330px;
   height: 750px;
-  margin-top: -60%;
-  margin-left: -15%;
+  min-height: 530px;
+  margin-top: -50%;
+  margin-left: -5%;
   background-color:#ffff95;
 }
 
@@ -122,10 +133,11 @@ label{
 }
 
 .button-reg{
-  width: 40%;
-  margin: 6% 0 5% 25%;
+  margin: 10% 0 0 35%;
+  max-width: 220px;
   font-size: 1.5em;
   color: white;
+  padding: 5px;
   border: 1px solid white;
   background-color: black;
   border-radius: 0.2em;
@@ -138,8 +150,8 @@ label{
 
 .blinkingEye {
   width: 100px;
-  margin-left: 70%;
-  margin-top: 2%;
+  margin-left: 40%;
+  margin-top: -70%;
 }
 
 .secondNav{
@@ -149,22 +161,23 @@ label{
 
 .welcomeUser{
   font-family: 'Cute Font', cursive;
-  font-size: 90px;
+  font-size: 150px;
   color: #fe1f20;
-  margin-left: 10%;
+  margin-left: 38%;
   margin-top: 2%;
-  padding: 0;
   margin-bottom: 0;
+  padding-bottom: 0;
 }
 
 .editProfile {
   border: 1px solid white;
   background-color: #feaeb0;;
   border-radius: 0.2em;
-  padding: 2px;
+  padding: 4px;
   margin-right: 5px;
-  margin-left: 5%;
-  margin-top: -5%;
+  margin-left: 35%;
+  margin-top: -4%;
+  margin-bottom: 1%;
   font-family: 'Nunito', sans-serif;
   font-size: 14px;
 }
@@ -173,10 +186,11 @@ label{
   border: 1px solid white;
   background-color: #feaeb0;;
   border-radius: 0.2em;
-  padding: 2px;
+  padding: 4px;
   margin-right: 5px;
   margin-left: 5%;
   margin-top: -5%;
+  margin-bottom: 1%;
   font-family: 'Nunito', sans-serif;
   font-size: 14px;
 }
@@ -185,10 +199,11 @@ label{
   border: 1px solid white;
   background-color: #feaeb0;;
   border-radius: 0.2em;
-  padding: 2px;
+  padding: 4px;
   margin-right: 5px;
   margin-left: 5%;
   margin-top: -5%;
+  margin-bottom: 1%;
   font-family: 'Nunito', sans-serif;
   font-size: 14px;
 }
@@ -213,7 +228,9 @@ label{
 .triggerBtn {
   background-color: #feaeb0;
   border: 1px solid #feaeb0;
-  margin-left: 8%;
+  margin-left: 35%;
+  max-width: 400px;
+  max-height: 400px;
   /* margin-top: -5%; */
 }
 
@@ -221,8 +238,167 @@ label{
   font-family: 'Muli', sans-serif;
   color: white;
   font-size: 32px;
-  margin-left: 20%;
-  margin-top: 8%;
+  margin-left: 35%;
+  margin-top: 3%;
   margin-right: auto;
+}
+.bigEye{
+  max-width: 380px;
+  max-height: 530px;
+}
+
+@media only screen and (max-width: 600px) {
+  .imgPerson {
+    margin-top: -26%;
+    margin-left: 5%;
+    min-width: 300px;
+    max-width: 450px;
+    min-height: 400px;
+    max-height: 480px;
+    z-index: -10;
+  }
+  .logo {
+    font-family: 'Cute Font', cursive;
+    font-size: 80px;
+    color: #fe1f20;
+    margin-left: 15%;
+    margin-top: 10%;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+  .returningEye {
+    margin-top: 5%;
+    margin-left: -35%;
+    font-size: 16px;
+  }
+
+  .newEye {
+    margin-top: 5%;
+    margin-left: -60%;
+    font-size: 16px;
+  }
+
+  .about{
+    font-size: 16px;
+    margin-left: 75%;
+  }
+  .register-form{
+    border: 2px solid black;
+    border-radius: 50%;
+    max-width: 580px;
+    min-width: 300px;
+    max-height: 800px;
+    min-height: 450px;
+    margin-top: -150%;
+    margin-left: -50%;
+    background-color:#ffff95;
+  }
+
+  .button-reg{
+    margin: 10% 0 0 35%;
+    max-width: 220px;
+    font-size: 1.5em;
+    color: white;
+    padding: 5px;
+    border: 1px solid white;
+    background-color: black;
+    border-radius: 0.2em;
+  }
+
+  .button-reg:hover{
+    background-color: #fe1f20;
+    color: black;
+  }
+
+  .blinkingEye {
+    width: 100px;
+    margin-left: 170%;
+    margin-top: 55%;
+  }
+
+  .welcomeUser{
+    font-family: 'Cute Font', cursive;
+    font-size: 80px;
+    color: #fe1f20;
+    margin-left: 20%;
+    margin-top: 5%;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .editProfile {
+    border: 1px solid white;
+    background-color: #feaeb0;;
+    border-radius: 0.2em;
+    padding: 4px;
+    margin-right: 5px;
+    margin-left: 10%;
+    margin-top: -5%;
+    font-family: 'Nunito', sans-serif;
+    font-size: 14px;
+  }
+
+  .deleteProfile {
+    border: 1px solid white;
+    background-color: #feaeb0;;
+    border-radius: 0.2em;
+    padding: 4px;
+    margin-right: 5px;
+    margin-left: 5%;
+    margin-top: -5%;
+    font-family: 'Nunito', sans-serif;
+    font-size: 14px;
+  }
+
+  .logout {
+    border: 1px solid white;
+    background-color: #feaeb0;;
+    border-radius: 0.2em;
+    padding: 4px;
+    margin-right: 5px;
+    margin-left: 5%;
+    margin-top: -5%;
+    font-family: 'Nunito', sans-serif;
+    font-size: 14px;
+  }
+
+  .edit-page{
+    margin-top: 4%;
+  }
+
+  .updateBtn{
+    border: 1px solid white;
+    background-color: #feaeb0;
+    border-radius: 0.2em;
+    padding: 2px;
+    margin-right: 5px;
+    margin-bottom: 4%;
+    margin-left: 45%;
+    /* margin-top: -25%; */
+    font-family: 'Nunito', sans-serif;
+    font-size: 14px;
+  }
+
+  .triggerBtn {
+    background-color: #feaeb0;
+    border: 1px solid #feaeb0;
+    margin-left: 10%;
+    max-width: 400px;
+    max-height: 400px;
+    /* margin-top: -5%; */
+  }
+
+  .lookfor{
+    font-family: 'Muli', sans-serif;
+    color: white;
+    font-size: 20px;
+    margin-left: 20%;
+    margin-top: 15%;
+    margin-right: auto;
+  }
+  .bigEye{
+    max-width: 280px;
+    max-height: 330px;
+  }
 
 }

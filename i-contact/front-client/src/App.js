@@ -96,7 +96,7 @@ class App extends Component {
   this.props.history.push(`/`)
  }
 
- async handleYes(){
+ handleYes(){
  //   const nearPlace = async () => {
  //    const resp = await api.get(`https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${this.state.currentPosition.lat},${this.state.currentPosition.lng}&radius=450&key=${GOOGLE_API_KEY}`);
  //   return resp.data;
@@ -117,7 +117,11 @@ class App extends Component {
    console.log(p2);
    const mp = p1.midpointTo(p2);
    console.log(mp);
+   //im updating location instead of marking location.... and if i want a new icon how should i treat this...
+   userLocation(mp, this.state.currentUser.id);
   })
+  this.props.history.push(`/map`)
+
  }
 
   onEdit(currentUser) {
