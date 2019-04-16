@@ -70,7 +70,7 @@ class App extends Component {
     this.grabLocationData = this.grabLocationData.bind(this)
     this.handleNo = this.handleNo.bind(this)
     this.handleYes = this.handleYes.bind(this)
-    this.handleLooking = this.handleLooking.bind(this)
+    // this.handleLooking = this.handleLooking.bind(this)
   }
 
  grabLocationData(data){
@@ -89,45 +89,47 @@ class App extends Component {
          lat: data.lat,
          lng: data.lng
        }
-     }
+     },
+     isLooking: true
    }))
  }
 
  handleNo(){
    this.setState({
    isMeeting:false,
-   isFinding: false
+   isLooking: true
    })
    this.handleLogout();
  }
 
  handleYes(){
+   console.log('click');
    Object.keys(this.state.mapUser).map(value => {
      if (this.state.mapUser[value] !== this.state.loggedInUser.id){
      const p1 = new sgeo.latlon(this.state.currentPosition.lat, this.state.currentPosition.lng);
      const p2 = new sgeo.latlon(this.state.mapUser[value].lat, this.state.mapUser[value].lng);
      const mp = p1.midpointTo(p2);
-     // console.log(mp);
+     console.log(mp);
      //i need to change this to user1 user2 in the rails meeting models.
      updateMeeting({...mp, id: this.state.meetingId});
     }
   })
-  this.props.history.push(`/map`)
   this.setState({
-  isMeeting:false
+    isMeeting:false,
+    isLooking: true
   })
  }
 
-//this appear only on the second user screen....
-handleLooking(){
-  Object.keys(this.state.mapUser).map(value => {
-    if (this.state.mapUser[value] !== this.state.loggedInUser.id){
-     this.setState({
-       isLooking: false
-     })
-   }
- })
-}
+// this appear only on the second user screen....
+// handleLooking(){
+//   Object.keys(this.state.mapUser).map(value => {
+//     if (this.state.mapUser[value] !== this.state.loggedInUser.lat){
+//      this.setState({
+//        isLooking: true
+//      })
+//    }
+//  })
+// }
 
   onEdit(currentUser) {
     this.setState({
@@ -252,7 +254,9 @@ handleLooking(){
 
   triggerMap(e) {
     e.preventDefault();
-    this.handleLooking();
+    this.setState({
+      isLooking: false,
+    })
     this.props.history.push('/map')
   }
 
@@ -301,7 +305,8 @@ handleLooking(){
         received: (data) => {
           if(data.lat) {
             this.setState({
-              meetingPlace: {lat: data.lat, lng: data.lng}
+              meetingPlace: {lat: data.lat, lng: data.lng},
+              isMeeting: false
             })
           } else {
             this.setState({
