@@ -276,7 +276,7 @@ class App extends Component {
     const socketToken = localStorage.getItem('token')
     if (socketToken) {
       let App = {}
-      App.cable = ActionCable.createConsumer(`ws://localhost:3000/cable`, socketToken);
+      App.cable = ActionCable.createConsumer(`http://fierce-beach-50654.herokuapp.com/`, socketToken);
       const subscription = App.cable.subscriptions.create({
         channel: 'LocationsChannel'
       },
