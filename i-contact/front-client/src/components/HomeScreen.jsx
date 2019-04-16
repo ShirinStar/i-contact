@@ -8,7 +8,10 @@ function HomeScreen(){
     <div className='aroundPerson'>
       <img className='imgPerson' src='https://i.ibb.co/k1Sk81Q/manHome.png' alt='' />
     </div>
-    <Link to='/about' className='about'> about</Link>
+    <div className='footer'>
+      <a className='footer' href='https://shirin.works/'> shirin anlen |</a>
+      <a className='footer' href='https://github.com/ShirinStar/i-contact'> Github repository</a>
+    </div>
     </div>
   )
 }

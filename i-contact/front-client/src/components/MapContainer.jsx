@@ -105,8 +105,10 @@ onMarkerClick =  async (props, marker, e) => {
 
         {this.props.meetingPlace && <Marker
           position={this.props.meetingPlace}
-          // icon={/*different icon*/}
-          />}
+          icon={{
+            url: "https://i.imgur.com/Ewmtc1K.png",
+            scaledSize: new this.props.google.maps.Size(90, 120)
+          }} />}
 
         <InfoWindow
           marker={this.state.activeMarker}
