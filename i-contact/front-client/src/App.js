@@ -90,6 +90,7 @@ class App extends Component {
          lng: data.lng
        }
      },
+     //this still change once i have one user
      isLooking: true
    }))
  }
