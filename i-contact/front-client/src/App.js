@@ -110,7 +110,9 @@ class App extends Component {
     }
   })
   this.props.history.push(`/map`)
-
+  this.setState({
+  isMeeting:false
+  })
  }
 
   onEdit(currentUser) {
@@ -308,9 +310,9 @@ class App extends Component {
         currentUser = {this.state.currentUser}
         handleUpdate = {this.handleUpdate}/> :
         <h2 className='welcomeUser'> hey {this.state.currentUser.name} </h2>}
-        <button className='editProfile' onClick = {() => this.onEdit(this.state.currentUser)}> Edit profile</button>
-        <button className='deleteProfile' onClick = {this.handleDelete}> Delete profile </button>
-        <button className='logout' onClick = {this.handleLogout}> Logout </button>
+            <button className='editProfile' onClick = {() => this.onEdit(this.state.currentUser)}> Edit profile</button>
+            <button className='deleteProfile' onClick = {this.handleDelete}> Delete profile </button>
+            <button className='logout' onClick = {this.handleLogout}> Logout </button>
         </div> :
         <nav className='firstNav'>
           <h3 className='logo'> i.contact</h3>

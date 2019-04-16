@@ -128,6 +128,7 @@ input, button, label {
   font-size: 100px;
   color: #fe1f20;
   margin: 0 auto;
+  margin-left: 10rem;
   padding-bottom: 0;
   text-align: center;
 }
@@ -136,7 +137,7 @@ input, button, label {
   border: 1px solid white;
   background-color: #feaeb0;
   width: 80px;
-  margin: 0 0.25rem;
+  margin-left: 40rem;
   font-size: 1.2rem;
 }
 
@@ -177,12 +178,13 @@ input, button, label {
   background-color: #feaeb0;
   border: 1px solid #feaeb0;
   margin: 0 auto;
-  width: 90%;
+  margin-left: 5rem;
+  width: 100%;
 }
 
 .bigEye {
   width: 100%;
-  max-width: 600px;
+  max-width: 500px;
   margin: 0 auto;
   display: block;
 }
@@ -190,10 +192,67 @@ input, button, label {
 .lookfor {
   font-family: 'Muli', sans-serif;
   color: white;
-  font-size: 1.4rem;
+  font-size: 1.8rem;
   padding-top: 0.5rem;
   margin: 0 auto;
   text-align: center;
+}
+
+.map {
+  position: relative;
+}
+
+.MeetingForm {
+  background-color: white;
+  width: 80%;
+  margin: 2.2rem 1.5rem;
+  padding: 0.75rem;
+  position: absolute;
+  z-index: 5;
+  font-family: 'Muli';
+  border: 2px solid #fe1f20;
+}
+
+.title {
+  font-size: 2rem;
+  text-align: center;
+  color: #cb9ff6;
+  font-weight: 800;
+}
+
+.yesNo {
+  display: flex;
+}
+
+.no {
+  width:80px;
+  text-align: center;
+  margin-top: 0.5rem;
+}
+
+.yes {
+  width: 80px;
+  text-align: center;
+  margin-top: 0.5rem;
+}
+
+
+@media screen and (max-width: 600px) {
+  .editProfile {
+    margin-left: 0.25rem;
+    margin-right: 0.25rem;
+  }
+
+  .welcomeUser {
+    margin: 0 auto;
+    padding-bottom: 0;
+  }
+  .triggerBtn {
+    margin-left: 1.25rem;
+  }
+  .lookfor {
+    font-size: 1.4rem;
+  }
 }
 
 /* .register-form{
