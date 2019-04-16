@@ -3,7 +3,7 @@ import React from 'react';
 const RegisterForm = (props) => {
   return(
     <div className="reg-page">
-    <img className='blinkingEye' src='https://media.giphy.com/media/W3TaltWPDT5NgrVxOq/giphy.gif' alt='' />
+
       <form className="register-form" onSubmit={props.onSubmit}>
        <div className="register">
          <label>Name</label>

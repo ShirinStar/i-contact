@@ -12,7 +12,6 @@ class LoginForm extends Component {
   render() {
     return(
       <div className="reg-page">
-      <img className='blinkingEye' src='https://media.giphy.com/media/W3TaltWPDT5NgrVxOq/giphy.gif' alt='' />
         <form className="register-form" onSubmit={this.props.onSubmit}>
           <input
           autoComplete="off"

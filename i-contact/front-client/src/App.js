@@ -300,6 +300,7 @@ class App extends Component {
   render() {
     return ( <div className = "App">
       <div>
+      <div className='navContainer'>
       {this.state.isLogin ?
       <div className = 'secondNav'>
       {this.state.isEdit ?
@@ -316,6 +317,7 @@ class App extends Component {
           <Link to='/login' className='returningEye'> returning eye </Link>
           <Link to ='/register' className='newEye'> new eye </Link>
           </nav>}
+        </div>
 
         <Route exact path = '/' component = {HomeScreen}/>
 
