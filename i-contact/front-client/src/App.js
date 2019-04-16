@@ -54,6 +54,7 @@ class App extends Component {
       isEdit: false,
       isLogin: false,
       loggedInUser: null,
+      isLooking: true,
       mapUser: [],
       currentPosition: {lat: 40.7397803, lng: -73.9896464}
     }
@@ -69,6 +70,7 @@ class App extends Component {
     this.grabLocationData = this.grabLocationData.bind(this)
     this.handleNo = this.handleNo.bind(this)
     this.handleYes = this.handleYes.bind(this)
+    this.handleLooking = this.handleLooking.bind(this)
   }
 
  grabLocationData(data){
@@ -93,7 +95,8 @@ class App extends Component {
 
  handleNo(){
    this.setState({
-   isMeeting:false
+   isMeeting:false,
+   isFinding: false
    })
    this.handleLogout();
  }
@@ -114,6 +117,17 @@ class App extends Component {
   isMeeting:false
   })
  }
+
+//this appear only on the second user screen....
+handleLooking(){
+  Object.keys(this.state.mapUser).map(value => {
+    if (this.state.mapUser[value] !== this.state.loggedInUser.id){
+     this.setState({
+       isLooking: false
+     })
+   }
+ })
+}
 
   onEdit(currentUser) {
     this.setState({
@@ -158,7 +172,8 @@ class App extends Component {
         token: ''
       },
       isLogin: false,
-      isMeeting:false
+      isMeeting:false,
+      isFinding: false
     })
     this.props.history.push(`/`)
   }
@@ -237,6 +252,7 @@ class App extends Component {
 
   triggerMap(e) {
     e.preventDefault();
+    this.handleLooking();
     this.props.history.push('/map')
   }
 
@@ -349,6 +365,13 @@ class App extends Component {
             />
           )}
         />
+
+        <div className='loadingEyes'>
+        {
+          this.state.isLooking ? '' :
+          <p className='isLoooking'>looking for another eye near you</p>
+        }
+        </div>
 
         {this.state.isMeeting ?
           <MeetingForm
