@@ -95,28 +95,17 @@ class App extends Component {
    this.setState({
    isMeeting:false
    })
-  this.props.history.push(`/`)
+   this.handleLogout();
  }
 
  handleYes(){
- //   const nearPlace = async () => {
- //    const resp = await api.get(`https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${this.state.currentPosition.lat},${this.state.currentPosition.lng}&radius=450&key=${GOOGLE_API_KEY}`);
- //   return resp.data;
- //   console.log(resp.data);
- // }
- // const newPlaces = await nearPlace();
- // const markOneplace = newPlaces[newPlaces.length -1]
- //   this.setState({
- //     meetingPlaces: markOneplace
-   // })
-
    Object.keys(this.state.mapUser).map(value => {
      if (this.state.mapUser[value] !== this.state.loggedInUser.id){
      const p1 = new sgeo.latlon(this.state.currentPosition.lat, this.state.currentPosition.lng);
      const p2 = new sgeo.latlon(this.state.mapUser[value].lat, this.state.mapUser[value].lng);
      const mp = p1.midpointTo(p2);
      // console.log(mp);
-     //i need to change this to user1 user2 in the rails meeting models. 
+     //i need to change this to user1 user2 in the rails meeting models.
      updateMeeting({...mp, id: this.state.meetingId});
     }
   })
