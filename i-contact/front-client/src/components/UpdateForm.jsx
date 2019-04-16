@@ -27,9 +27,10 @@ const UpdateForm = (props) => {
           id="email"
           name="email"
           value={email} />
+          <button className='updateBtn' onClick={props.handleUpdate}>Update</button>
         </div>
 
-        <button className='updateBtn' onClick={props.handleUpdate}>Update</button>
+
        </form>
     </div>
   )

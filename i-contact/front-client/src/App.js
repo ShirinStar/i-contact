@@ -26,6 +26,7 @@ import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
 const GOOGLE_URL = 'https://maps.googleapis.com/maps'
 const GOOGLE_API_KEY= process.env.REACT_APP_GOOGLE_API_KEY;
 const BASE_URL = 'https://fierce-beach-50654.herokuapp.com/'
+
 const api = axios.create({
   baseURL: BASE_URL
 });
@@ -323,24 +324,41 @@ class App extends Component {
 
   render() {
     return ( <div className = "App">
-      <div>
       <div className='navContainer'>
-      {this.state.isLogin ?
-      <div className = 'secondNav'>
-      {this.state.isEdit ?
-        <UpdateForm handleChange = {this.handleUpdateChange}
-        currentUser = {this.state.currentUser}
-        handleUpdate = {this.handleUpdate}/> :
-        <h2 className='welcomeUser'> hey {this.state.currentUser.name} </h2>}
-            <button className='editProfile' onClick = {() => this.onEdit(this.state.currentUser)}> Edit profile</button>
-            <button className='deleteProfile' onClick = {this.handleDelete}> Delete profile </button>
-            <button className='logout' onClick = {this.handleLogout}> Logout </button>
-        </div> :
+      {
+        this.state.isLogin
+        ?
+        <div className = 'secondNav'>
+        {
+          this.state.isEdit
+          ?
+            <UpdateForm handleChange = {this.handleUpdateChange}
+            currentUser = {this.state.currentUser}
+            handleUpdate = {this.handleUpdate}/>
+          :
+            <h2 className='welcomeUser'> hey {this.state.currentUser.name} </h2>
+          }
+
+          <section className="buttons-section">
+            <button
+              className='editProfile'
+              onClick = {() => this.onEdit(this.state.currentUser)}> Edit profile</button>
+            <button
+              className='deleteProfile'
+              onClick = {this.handleDelete}> Delete profile </button>
+            <button
+              className='logout'
+              onClick = {this.handleLogout}> Logout </button>
+          </section>
+
+        </div>
+        :
         <nav className='firstNav'>
           <h3 className='logo'> i.contact</h3>
           <Link to='/login' className='returningEye'> returning eye </Link>
           <Link to ='/register' className='newEye'> new eye </Link>
-          </nav>}
+          </nav>
+        }
         </div>
 
         <Route exact path = '/' component = {HomeScreen}/>
@@ -399,7 +417,6 @@ class App extends Component {
            meetingPlace={this.state.meetingPlace}
            />
           }/>
-          </div>
         </div>
       );
     }

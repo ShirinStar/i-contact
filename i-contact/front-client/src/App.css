@@ -8,12 +8,21 @@ font-family: 'Open Sans', sans-serif;
 font-family: 'Muli', sans-serif;
 font-family: 'Nunito', sans-serif;
 */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
+html {
+  /* height: 100%; */
+  /* overflow: hidden; */
+}
 
 body {
   background: #feaeb0;
   margin: 0;
-  height: 100vh;
+  /* height: 100%; */
 }
 
 .imgPerson {
@@ -26,14 +35,13 @@ body {
 
 .navContainer {
   width: 80%;
-  /* margin: 0 auto; */
-  margin: 1rem 1rem;
+  margin: 0 auto;
+  padding: 0;
 }
 
 .firstNav {
-  width: 50%;
+  width: 100%;
   margin: 0 auto;
-  width: 550px;
 }
 
 .logo {
@@ -41,7 +49,8 @@ body {
   font-size: 100px;
   color: #fe1f20;
   margin: 0 auto;
-  padding-bottom: 0;
+  padding: 0.25rem 0;
+  line-height: 0.7;
 }
 
 .returningEye {
@@ -76,13 +85,13 @@ a:hover {
  flex-direction: column;
  margin: 0 auto;
  width: 300px;
- max-width: 80%;
+ max-width: 90%;
  border-radius: 5px;
 }
 
 .register-form{
   margin: 1.5rem auto;
-  width: 80%;
+  width: 90%;
   border: 2px solid #ffff95;
   /* border-radius: 50%; */
   /* height: 550px; */
@@ -95,11 +104,11 @@ input, button, label {
  font-family: 'Cute Font';
  text-align: left;
  font-size: 1.8rem;
- margin: 0 auto 0.75rem;
+ /* margin: 0 auto 0.75rem; */
  border: none;
  border-radius: 3px;
- width: 100%;
- max-width: 90%;
+ /* width: 100%;
+ max-width: 90%; */
 }
 .input {
   color: black;
@@ -128,16 +137,27 @@ input, button, label {
   font-size: 100px;
   color: #fe1f20;
   margin: 0 auto;
-  margin-left: 10rem;
+  /* margin-left: 10rem; */
   padding-bottom: 0;
   text-align: center;
+}
+
+.edit-form {
+  padding-top: 1rem;
+  text-align: center;
+}
+
+.buttons-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .editProfile {
   border: 1px solid white;
   background-color: #feaeb0;
   width: 80px;
-  margin-left: 40rem;
+  /* margin-left: 40rem; */
   font-size: 1.2rem;
 }
 
@@ -153,18 +173,36 @@ input, button, label {
   border: 1px solid white;
   background-color: #feaeb0;
   width: 50px;
-  margin: 0 0.25rem;
+  /* margin: 0 0.25rem; */
   font-size: 1.2rem;
+}
+
+
+#email {
+  margin-bottom: 0.5rem;
+  margin-right: 0.5rem;
+  /* position: relative; */
+}
+
+#name {
+  margin-right: 5.25rem;
 }
 
 .updateBtn {
   border: 1px solid white;
   background-color: #feaeb0;
   width: 80px;
-  margin-bottom: 0.75rem;
-  margin-left: 13rem;
   font-size: 1.2rem;
+  text-align: center;
+  /* position: absolute; */
+  /* margin-left: 2rem;
+  margin-top: 0.5rem; */
+  margin-bottom: 1rem;
+  /* top: 0; right: 0; bottom: 0; left: 0;
+  height: 100%;
+  width: 100%; */
 }
+
 
 .input-edit {
   border: none;
@@ -178,7 +216,7 @@ input, button, label {
   background-color: #feaeb0;
   border: 1px solid #feaeb0;
   margin: 0 auto;
-  margin-left: 5rem;
+  margin-left: 1rem;
   width: 100%;
 }
 
@@ -209,6 +247,7 @@ input, button, label {
   position: absolute;
   z-index: 10;
   margin-top: 7.5rem;
+  font-size: 1.1rem;
 }
 
 .map {
@@ -264,8 +303,14 @@ input, button, label {
   background-color: #f9c0c1;
   text-align: center;
   padding: 0.25rem;
-  font-size: 0.75rem;
   margin-top: 2px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.footer-link {
+  font-size: 0.75rem;
 }
 
 @media screen and (max-width: 600px) {
@@ -279,7 +324,7 @@ input, button, label {
     padding-bottom: 0;
   }
   .triggerBtn {
-    margin-left: 1.25rem;
+    margin-left: 0.25rem;
   }
   .lookfor {
     font-size: 1.4rem;
@@ -290,6 +335,14 @@ input, button, label {
     max-height: 300px;
     margin: 0 auto;
     /* display: block; */
+  }
+  #email {
+    margin-bottom: 0.5rem;
+    /* position: relative; */
+  }
+
+  #name {
+    margin-right: 0;
   }
 
 }
