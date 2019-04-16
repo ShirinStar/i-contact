@@ -25,7 +25,7 @@ import MeetingForm from './components/MeetingForm';
 import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
 const GOOGLE_URL = 'https://maps.googleapis.com/maps'
 const GOOGLE_API_KEY= process.env.REACT_APP_GOOGLE_API_KEY;
-const BASE_URL = 'http://fierce-beach-50654.herokuapp.com/'
+const BASE_URL = 'https://fierce-beach-50654.herokuapp.com/'
 const api = axios.create({
   baseURL: BASE_URL
 });
