@@ -1,8 +1,9 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
   config.web_socket_server_url = "wss://fierce-beach-50654.herokuapp.com/cable"
+  config.action_cable.url = "wss://fierce-beach-50654.herokuapp.com/cable"
 
-  config.action_cable.allowed_request_origins = ['http://fierce-beach-50654.herokuapp.com', 'http://fierce-beach-50654.herokuapp.com']
+  config.action_cable.allowed_request_origins = ['https://fierce-beach-50654.herokuapp.com', 'http://fierce-beach-50654.herokuapp.com','http://i-contact.surge.sh', 'https://i-contact.surge.sh']
   # Code is not reloaded between requests.
   config.cache_classes = true
 
