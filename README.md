@@ -6,6 +6,8 @@ In times, where our communication means changed and affected the way we connect 
 
 ## user story
 Once the users are logged in they can fire a request to locate a near-by "eye" ( => another user that is searching at the same time for eye contact). The app matches between two users based on their location and suggests a direction for a meet point between them. Once they meet, they are invited to share one minute of human eye contact. Each user can "rate" the encounter as a way to encourage a community-growth app and a feeling of security. Other than "rating" and name the users are not required to provide any other personal information about themselves. The registration process will request an email as well but only for identification needs.
+
+
 ![gif](https://i.imgur.com/GFUaAfg.gif)
 
 ## Technologies to be used
