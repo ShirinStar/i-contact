@@ -48,11 +48,6 @@ def create
   head :ok
  end
 
-
-    # else
-    #   redirect_to reviews_path
-    # end
-
   private
 
   def location_params

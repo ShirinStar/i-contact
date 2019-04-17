@@ -59,7 +59,8 @@ class App extends Component {
       loggedInUser: null,
       isLooking: true,
       mapUser: [],
-      currentPosition: {lat: 40.7397803, lng: -73.9896464}
+      currentPosition: {lat: 40.7397803, lng: -73.9896464},
+      distance: null
     }
     this.handleLogin = this.handleLogin.bind(this)
     this.handleChange = this.handleChange.bind(this)
@@ -73,7 +74,7 @@ class App extends Component {
     this.grabLocationData = this.grabLocationData.bind(this)
     this.handleNo = this.handleNo.bind(this)
     this.handleYes = this.handleYes.bind(this)
-    // this.handleLooking = this.handleLooking.bind(this)
+    this.getDistance = this.getDistance.bind(this)
   }
 
  grabLocationData(data){
@@ -129,6 +130,22 @@ class App extends Component {
     isLooking: true
   })
  }
+
+async getDistance() {
+    const newMeeting = await createMeeting({is_occur: true});
+    Object.keys(this.state.mapUser).map(value => {
+     if (this.state.mapUser[value] !== this.state.loggedInUser.id){
+     const p1 = new sgeo.latlon(this.state.currentPosition.lat, this.state.currentPosition.lng);
+     const p2 = new sgeo.latlon(this.state.mapUser[value].lat, this.state.mapUser[value].lng);
+     var distance = p1.distanceTo(p2)
+     console.log(distance);
+     this.setState({
+       distance: distance
+     })
+   }
+ })
+}
+
 
   onEdit(currentUser) {
     this.setState({
@@ -414,7 +431,7 @@ class App extends Component {
         <div className='loadingEyes'>
         {
           this.state.isLooking ? '' :
-          <p className='isLoooking'>looking for another eye near you</p>
+          <p className='isLoooking'>looking for another eye near you...</p>
         }
         </div>
 
@@ -423,6 +440,10 @@ class App extends Component {
         currentUser={this.state.currentUser}
         handleYes={this.handleYes}
         handleNo={this.handleNo}
+        currentPosition={this.state.currentPosition}
+        mapUser={this.state.mapUser}
+        getDistance={this.getDistance}
+        distance={this.state.distance}
         /> : ''}
 
         <Route exact path = '/trigger'
@@ -436,6 +457,7 @@ class App extends Component {
            currentPosition={this.state.currentPosition}
            mapUser={this.state.mapUser}
            meetingPlace={this.state.meetingPlace}
+           getDistance={this.getDistance}
            />
           }/>
         </div>

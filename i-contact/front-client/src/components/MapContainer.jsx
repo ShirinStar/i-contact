@@ -36,7 +36,7 @@ export class MapContainer extends Component {
     console.log(this.props.currentPosition.lat);
   }
 
-onMarkerClick =  async (props, marker, e) => {
+onMarkerClick =  async () => {
     console.log('markerclicked!');
     const newMeeting = await createMeeting({is_occur: true});
   // this.setState({
@@ -96,7 +96,8 @@ onMarkerClick =  async (props, marker, e) => {
           Object.keys(this.props.mapUser).map(eye => (
             <Marker
               position={this.props.mapUser[eye]}
-              onClick={this.onMarkerClick}
+              // onClick={this.onMarkerClick}
+              onClick={this.props.getDistance}
           // //change here to the name of the user later + location
           //     name={'User name and user ratings'}
               icon={icon}/>
