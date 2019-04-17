@@ -13,7 +13,8 @@ import {
   deleteUser,
   createMeeting,
   userLocation,
-  updateMeeting
+  updateMeeting,
+  deleteUserLocation
 } from './services/api-helper';
 import TriggerMap from './components/TriggerMap';
 import HomeScreen from './components/HomeScreen';
@@ -84,17 +85,23 @@ class App extends Component {
        }
      })
    }
-   this.setState(prevState => ({
-     mapUser: {
-       ...prevState.mapUser,
-       [data.user.id]: {
-         lat: data.lat,
-         lng: data.lng
+   if (data.delete) {
+     const temp = this.state.mapUser;
+     delete temp[data.user.id]
+     this.setState({
+       mapUser: temp
+     })
+   } else {
+     this.setState(prevState => ({
+       mapUser: {
+         ...prevState.mapUser,
+         [data.user.id]: {
+           lat: data.lat,
+           lng: data.lng
+         }
        }
-     },
-     //this still change once i have one user
-     // isLooking: true
-   }))
+     }))
+   }
  }
 
  handleNo(){
@@ -122,7 +129,6 @@ class App extends Component {
     isLooking: true
   })
  }
-
 
   onEdit(currentUser) {
     this.setState({
@@ -170,6 +176,7 @@ class App extends Component {
       isMeeting:false,
       isFinding: false
     })
+    await deleteUserLocation(this.state.currentUser.id);
     this.props.history.push(`/`)
   }
 
@@ -278,7 +285,11 @@ class App extends Component {
          this.setState({
            isLooking: true
          })
-       }
+       } else if (Object.keys(this.state.mapUser).length < 1) {
+          this.setState({
+            isLooking: false
+        })
+      }
     }
   }
 

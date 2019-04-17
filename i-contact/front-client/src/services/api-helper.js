@@ -106,6 +106,10 @@ const cancelMeeting = async(data) => {
   return resp.data;
 }
 
+const deleteUserLocation = async(id) => {
+  const resp = await api.delete(`/users/${id}/locations/1`);
+  return resp.data
+}
 
 
 export  {
@@ -118,5 +122,6 @@ export  {
   getLocations,
   createMeeting,
   cancelMeeting,
-  updateMeeting
+  updateMeeting,
+  deleteUserLocation
   }

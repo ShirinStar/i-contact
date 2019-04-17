@@ -17,5 +17,7 @@ def speak(data)
  end
 
   def unsubscribed
+    # LocationsChannel.broadcast_to('locations_channel', socket)
+    # stream_from 'locations_channel'
  end
 end
