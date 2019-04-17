@@ -6,8 +6,8 @@ const UpdateForm = (props) => {
     <div className="edit-page">
       <form className="edit-form" onSubmit={props.onSubmit}>
        <div className="edit">
-         <label>Name</label>
          <input
+         placeholder="Name"
          className="input-edit"
          autoComplete="off"
          type="text"
@@ -18,8 +18,8 @@ const UpdateForm = (props) => {
        </div>
 
        <div className="edit">
-          <label>Email</label>
           <input
+          placeholder="Email"
           className="input-edit"
           autoComplete="off"
           type="text"

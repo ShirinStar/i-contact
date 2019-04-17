@@ -112,6 +112,7 @@ input, button, label {
 }
 .input {
   color: black;
+  max-width: 100%;
 }
 
 .button-reg {
@@ -342,7 +343,7 @@ input, button, label {
   }
 
   #name {
-    margin-right: 0;
+    margin-right: 5.3rem;
   }
 
 }
