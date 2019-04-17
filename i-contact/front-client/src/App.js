@@ -26,8 +26,8 @@ import MeetingForm from './components/MeetingForm';
 import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
 const GOOGLE_URL = 'https://maps.googleapis.com/maps'
 const GOOGLE_API_KEY= process.env.REACT_APP_GOOGLE_API_KEY;
-// const BASE_URL = 'https://fierce-beach-50654.herokuapp.com/'
-const BASE_URL = 'http://localhost:3000/'
+const BASE_URL = 'https://fierce-beach-50654.herokuapp.com/'
+// const BASE_URL = 'http://localhost:3000/'
 
 const api = axios.create({
   baseURL: BASE_URL
@@ -314,8 +314,8 @@ async getDistance() {
     const socketToken = localStorage.getItem('token')
     if (socketToken) {
       let App = {}
-      // App.cable = ActionCable.createConsumer(`wss://fierce-beach-50654.herokuapp.com/cable`, socketToken);
-      App.cable = ActionCable.createConsumer(`ws://localhost:3000/cable`, socketToken);
+      App.cable = ActionCable.createConsumer(`wss://fierce-beach-50654.herokuapp.com/cable`, socketToken);
+      // App.cable = ActionCable.createConsumer(`ws://localhost:3000/cable`, socketToken);
       const subscription = App.cable.subscriptions.create({
         channel: 'LocationsChannel'
       },
