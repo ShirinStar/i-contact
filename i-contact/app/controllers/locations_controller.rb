@@ -43,7 +43,7 @@ def create
    user = User.find(params[:user_id])
    ActionCable.server.broadcast 'locations_channel',
     delete: true,
-    user: location.user
+    user: user
     render json: @location, status: :ok
   head :ok
  end
