@@ -2,7 +2,8 @@ import axios from 'axios';
 const GOOGLE_URL = 'https://maps.googleapis.com/maps'
 const GOOGLE_API_KEY= process.env.REACT_APP_GOOGLE_API_KEY;
 
-const BASE_URL = 'https://fierce-beach-50654.herokuapp.com/'
+// const BASE_URL = 'https://fierce-beach-50654.herokuapp.com/'
+const BASE_URL = 'http://localhost:3000/'
 
 const api = axios.create({
   baseURL: BASE_URL
@@ -24,6 +25,7 @@ const registerUser = async (data) => {
     return formData.data
   } catch (e) {
     console.log(e);
+    return false
   }
 }
 
@@ -33,6 +35,7 @@ const loginUser = async (data) => {
     return formData.data;
   } catch (e) {
     console.log(e);
+    return false
   }
 }
 

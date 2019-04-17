@@ -346,6 +346,11 @@ input, button, label {
     margin-right: 5.3rem;
   }
 
+  .input {
+    color: black;
+    max-width: 70%;
+  }
+
 }
 
 /* .register-form{

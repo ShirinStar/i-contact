@@ -25,7 +25,8 @@ import MeetingForm from './components/MeetingForm';
 import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
 const GOOGLE_URL = 'https://maps.googleapis.com/maps'
 const GOOGLE_API_KEY= process.env.REACT_APP_GOOGLE_API_KEY;
-const BASE_URL = 'https://fierce-beach-50654.herokuapp.com/'
+// const BASE_URL = 'https://fierce-beach-50654.herokuapp.com/'
+const BASE_URL = 'http://localhost:3000/'
 
 const api = axios.create({
   baseURL: BASE_URL
@@ -92,7 +93,7 @@ class App extends Component {
        }
      },
      //this still change once i have one user
-     isLooking: true
+     // isLooking: true
    }))
  }
 
@@ -122,16 +123,6 @@ class App extends Component {
   })
  }
 
-// this appear only on the second user screen....
-// handleLooking(){
-//   Object.keys(this.state.mapUser).map(value => {
-//     if (this.state.mapUser[value] !== this.state.loggedInUser.lat){
-//      this.setState({
-//        isLooking: true
-//      })
-//    }
-//  })
-// }
 
   onEdit(currentUser) {
     this.setState({
@@ -212,6 +203,7 @@ class App extends Component {
     e.preventDefault();
     await registerUser(this.state.formData);
     const token = await loginUser(this.state.formData);
+    if (token) {
     const data = decode(token.jwt);
     this.setState({
       loggedInUser: data,
@@ -230,29 +222,36 @@ class App extends Component {
     this.props.history.push('/trigger');
     localStorage.setItem('token', token.jwt);
     this.createSocket();
-  };
+  } else {
+    console.log( 'something went wrong in register');
+  }
+};
 
   async handleLogin(e) {
     e.preventDefault();
     const token = await loginUser(this.state.formData);
-    const data = decode(token.jwt);
-    console.log(data)
-    // data === '' ? alert('Invalid Email or Password- try again') :
-    this.setState(prevState => ({
-      loggedInUser: data,
-      formData: {
-        email: '',
-        password: ''
-      },
-      isLogin:true
-    }))
-    this.setState({
-      currentUser: data
-    })
-    this.props.history.push('/trigger');
-    localStorage.setItem('token', token.jwt);
-    this.createSocket();
+    if (token) {
+      const data = decode(token.jwt);
+      console.log(data)
+      // data === '' ? alert('Invalid Email or Password- try again') :
+      this.setState(prevState => ({
+        loggedInUser: data,
+        formData: {
+          email: '',
+          password: ''
+        },
+        isLogin:true
+      }))
+      this.setState({
+        currentUser: data
+      })
+      this.props.history.push('/trigger');
+      localStorage.setItem('token', token.jwt);
+      this.createSocket();
+  } else {
+    console.log('something went wrong in loging');
   }
+}
 
   triggerMap(e) {
     e.preventDefault();
@@ -273,11 +272,22 @@ class App extends Component {
     }
   }
 
+  componentDidUpdate(prevProps, prevState){
+    if(prevState.mapUser !== this.state.mapUser){
+      if (Object.keys(this.state.mapUser).length > 1) {
+         this.setState({
+           isLooking: true
+         })
+       }
+    }
+  }
+
   async createSocket() {
     const socketToken = localStorage.getItem('token')
     if (socketToken) {
       let App = {}
-      App.cable = ActionCable.createConsumer(`wss://fierce-beach-50654.herokuapp.com/cable`, socketToken);
+      // App.cable = ActionCable.createConsumer(`wss://fierce-beach-50654.herokuapp.com/cable`, socketToken);
+      App.cable = ActionCable.createConsumer(`ws://localhost:3000/cable`, socketToken);
       const subscription = App.cable.subscriptions.create({
         channel: 'LocationsChannel'
       },
