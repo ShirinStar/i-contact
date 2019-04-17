@@ -112,7 +112,7 @@ input, button, label {
 }
 .input {
   color: black;
-  max-width: 100%;
+  max-width: 90%;
 }
 
 .button-reg {
@@ -207,7 +207,7 @@ input, button, label {
 
 .input-edit {
   border: none;
-  max-width:130px;
+  max-width:100%;
   margin-top:0.25rem;
   margin-bottom: 0;
   margin-left: 1rem;
@@ -243,12 +243,17 @@ input, button, label {
 }
 
 .isLoooking {
-  background-color: #e7e7e7;
+  background-color: #feaeb0;
   font-family: 'Nunito', sans-serif;
   position: absolute;
   z-index: 10;
   margin-top: 7.5rem;
+  margin-left: -0.5rem;
   font-size: 1.1rem;
+  padding: 0.35rem;
+  color: white;
+  border: 1px solid white;
+  box-shadow: 2px 5px #cb9ff6;
 }
 
 .map {
@@ -339,23 +344,18 @@ input, button, label {
   }
   #email {
     margin-bottom: 0.5rem;
+    /* max-width: 70%; */
     /* position: relative; */
   }
 
   #name {
     margin-right: 5.3rem;
+    /* max-width: 70%; */
   }
 
+  .input {
+    color: black;
+    max-width:70%;
+    /* max-width: 70%; */
+  }
 }
-
-/* .register-form{
-  border: 2px solid black;
-  border-radius: 50%;
-  width: 580px;
-  min-width: 330px;
-  height: 750px;
-  min-height: 530px;
-  margin-top: -50%;
-  margin-left: -5%;
-  background-color:#ffff95;
-} */

@@ -13,7 +13,8 @@ import {
   deleteUser,
   createMeeting,
   userLocation,
-  updateMeeting
+  updateMeeting,
+  deleteUserLocation
 } from './services/api-helper';
 import TriggerMap from './components/TriggerMap';
 import HomeScreen from './components/HomeScreen';
@@ -25,7 +26,8 @@ import MeetingForm from './components/MeetingForm';
 import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
 const GOOGLE_URL = 'https://maps.googleapis.com/maps'
 const GOOGLE_API_KEY= process.env.REACT_APP_GOOGLE_API_KEY;
-const BASE_URL = 'https://fierce-beach-50654.herokuapp.com/'
+// const BASE_URL = 'https://fierce-beach-50654.herokuapp.com/'
+const BASE_URL = 'http://localhost:3000/'
 
 const api = axios.create({
   baseURL: BASE_URL
@@ -57,7 +59,8 @@ class App extends Component {
       loggedInUser: null,
       isLooking: true,
       mapUser: [],
-      currentPosition: {lat: 40.7397803, lng: -73.9896464}
+      currentPosition: {lat: 40.7397803, lng: -73.9896464},
+      distance: null
     }
     this.handleLogin = this.handleLogin.bind(this)
     this.handleChange = this.handleChange.bind(this)
@@ -71,7 +74,7 @@ class App extends Component {
     this.grabLocationData = this.grabLocationData.bind(this)
     this.handleNo = this.handleNo.bind(this)
     this.handleYes = this.handleYes.bind(this)
-    // this.handleLooking = this.handleLooking.bind(this)
+    this.getDistance = this.getDistance.bind(this)
   }
 
  grabLocationData(data){
@@ -83,17 +86,23 @@ class App extends Component {
        }
      })
    }
-   this.setState(prevState => ({
-     mapUser: {
-       ...prevState.mapUser,
-       [data.user.id]: {
-         lat: data.lat,
-         lng: data.lng
+   if (data.delete) {
+     const temp = this.state.mapUser;
+     delete temp[data.user.id]
+     this.setState({
+       mapUser: temp
+     })
+   } else {
+     this.setState(prevState => ({
+       mapUser: {
+         ...prevState.mapUser,
+         [data.user.id]: {
+           lat: data.lat,
+           lng: data.lng
+         }
        }
-     },
-     //this still change once i have one user
-     isLooking: true
-   }))
+     }))
+   }
  }
 
  handleNo(){
@@ -122,16 +131,21 @@ class App extends Component {
   })
  }
 
-// this appear only on the second user screen....
-// handleLooking(){
-//   Object.keys(this.state.mapUser).map(value => {
-//     if (this.state.mapUser[value] !== this.state.loggedInUser.lat){
-//      this.setState({
-//        isLooking: true
-//      })
-//    }
-//  })
-// }
+async getDistance() {
+    const newMeeting = await createMeeting({is_occur: true});
+    Object.keys(this.state.mapUser).map(value => {
+     if (this.state.mapUser[value] !== this.state.loggedInUser.id){
+     const p1 = new sgeo.latlon(this.state.currentPosition.lat, this.state.currentPosition.lng);
+     const p2 = new sgeo.latlon(this.state.mapUser[value].lat, this.state.mapUser[value].lng);
+     var distance = p1.distanceTo(p2)
+     console.log(distance);
+     this.setState({
+       distance: distance
+     })
+   }
+ })
+}
+
 
   onEdit(currentUser) {
     this.setState({
@@ -179,6 +193,7 @@ class App extends Component {
       isMeeting:false,
       isFinding: false
     })
+    await deleteUserLocation(this.state.currentUser.id);
     this.props.history.push(`/`)
   }
 
@@ -212,6 +227,7 @@ class App extends Component {
     e.preventDefault();
     await registerUser(this.state.formData);
     const token = await loginUser(this.state.formData);
+    if (token) {
     const data = decode(token.jwt);
     this.setState({
       loggedInUser: data,
@@ -230,29 +246,36 @@ class App extends Component {
     this.props.history.push('/trigger');
     localStorage.setItem('token', token.jwt);
     this.createSocket();
-  };
+  } else {
+    console.log( 'something went wrong in register');
+  }
+};
 
   async handleLogin(e) {
     e.preventDefault();
     const token = await loginUser(this.state.formData);
-    const data = decode(token.jwt);
-    console.log(data)
-    // data === '' ? alert('Invalid Email or Password- try again') :
-    this.setState(prevState => ({
-      loggedInUser: data,
-      formData: {
-        email: '',
-        password: ''
-      },
-      isLogin:true
-    }))
-    this.setState({
-      currentUser: data
-    })
-    this.props.history.push('/trigger');
-    localStorage.setItem('token', token.jwt);
-    this.createSocket();
+    if (token) {
+      const data = decode(token.jwt);
+      console.log(data)
+      // data === '' ? alert('Invalid Email or Password- try again') :
+      this.setState(prevState => ({
+        loggedInUser: data,
+        formData: {
+          email: '',
+          password: ''
+        },
+        isLogin:true
+      }))
+      this.setState({
+        currentUser: data
+      })
+      this.props.history.push('/trigger');
+      localStorage.setItem('token', token.jwt);
+      this.createSocket();
+  } else {
+    console.log('something went wrong in loging');
   }
+}
 
   triggerMap(e) {
     e.preventDefault();
@@ -273,11 +296,26 @@ class App extends Component {
     }
   }
 
+  componentDidUpdate(prevProps, prevState){
+    if(prevState.mapUser !== this.state.mapUser){
+      if (Object.keys(this.state.mapUser).length > 1) {
+         this.setState({
+           isLooking: true
+         })
+       } else if (Object.keys(this.state.mapUser).length < 1) {
+          this.setState({
+            isLooking: false
+        })
+      }
+    }
+  }
+
   async createSocket() {
     const socketToken = localStorage.getItem('token')
     if (socketToken) {
       let App = {}
-      App.cable = ActionCable.createConsumer(`wss://fierce-beach-50654.herokuapp.com/cable`, socketToken);
+      // App.cable = ActionCable.createConsumer(`wss://fierce-beach-50654.herokuapp.com/cable`, socketToken);
+      App.cable = ActionCable.createConsumer(`ws://localhost:3000/cable`, socketToken);
       const subscription = App.cable.subscriptions.create({
         channel: 'LocationsChannel'
       },
@@ -393,7 +431,7 @@ class App extends Component {
         <div className='loadingEyes'>
         {
           this.state.isLooking ? '' :
-          <p className='isLoooking'>looking for another eye near you</p>
+          <p className='isLoooking'>looking for another eye near you...</p>
         }
         </div>
 
@@ -402,6 +440,10 @@ class App extends Component {
         currentUser={this.state.currentUser}
         handleYes={this.handleYes}
         handleNo={this.handleNo}
+        currentPosition={this.state.currentPosition}
+        mapUser={this.state.mapUser}
+        getDistance={this.getDistance}
+        distance={this.state.distance}
         /> : ''}
 
         <Route exact path = '/trigger'
@@ -415,6 +457,7 @@ class App extends Component {
            currentPosition={this.state.currentPosition}
            mapUser={this.state.mapUser}
            meetingPlace={this.state.meetingPlace}
+           getDistance={this.getDistance}
            />
           }/>
         </div>

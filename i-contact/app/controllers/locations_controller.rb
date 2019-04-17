@@ -39,9 +39,14 @@ def create
    end
  end
 
-    # else
-    #   redirect_to reviews_path
-    # end
+ def destroy
+   user = User.find(params[:user_id])
+   ActionCable.server.broadcast 'locations_channel',
+    delete: true,
+    user: user
+    render json: @location, status: :ok
+  head :ok
+ end
 
   private
 
