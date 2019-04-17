@@ -171,13 +171,27 @@ async getDistance() {
 
   async handleDelete(e) {
     e.preventDefault();
-    const {currentUser} = this.state
-    await deleteUser(currentUser.id);
+    localStorage.removeItem('token');
     this.setState({
+      currentUser: {
+        email: '',
+        name: '',
+        id: '',
+        token: ''
+      },
       isLogin: false,
-      isMeeting:false
+      isMeeting:false,
+      isFinding: false
     })
+    await deleteUserLocation(this.state.currentUser.id);
     this.props.history.push(`/`)
+    // const {currentUser} = this.state
+    // await deleteUser(currentUser.id);
+    // this.setState({
+    //   isLogin: false,
+    //   isMeeting:false
+    // })
+    // this.props.history.push(`/`)
   }
 
   async handleLogout() {
@@ -257,7 +271,6 @@ async getDistance() {
     if (token) {
       const data = decode(token.jwt);
       console.log(data)
-      // data === '' ? alert('Invalid Email or Password- try again') :
       this.setState(prevState => ({
         loggedInUser: data,
         formData: {
