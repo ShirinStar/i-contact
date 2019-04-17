@@ -11,15 +11,15 @@ Once the users are logged in they can fire a request to locate a near-by "eye" (
 React with ruby on Rails, Google maps API, Websocket, Actioncable
 
 ## ERD
-![has_many](https://i.imgur.com/XSSSPnV.jpg)
+![has_many](https://i.imgur.com/l74vldb.jpg)
 
 ## Wireframes
-![all_wireframes](https://i.imgur.com/l74vldb.jpg)
+![all_wireframes](https://i.imgur.com/rh17kgX.jpg)
 
 ## M.V.P
-- mobile responsive
-- multi-user platform.
-- matching users together and calculating the distance between them
+- connecting at leat two users together (broadcasting).
+- calculating the distance between them
+- suggesting it as a meeting place.
 
 ## post M.V.P
 - timing one-minute encounter- aiming to have a unique screen color to each match- so they can identify themselves.
@@ -28,3 +28,51 @@ React with ruby on Rails, Google maps API, Websocket, Actioncable
 - more interactions. 
 
 ## Code Snippet
+Inside my map component I'm pulling the geolocation using 'google-maps-react' npm package, within my componenttDidMount. This I'm setting inside an anonymous setIntervak function to update user location every 10 sec, which i'm sending to my location_controller using axios call.  
+```
+  componentDidMount() {
+      const interval = setInterval(() => {
+        navigator.geolocation.getCurrentPosition(
+          position => {
+            //sending my geo to the backend
+            const data = userLocation({
+              lat: position.coords.latitude,
+              lng: position.coords.longitude},
+              this.props.currentUser.id)
+          },
+          error => console.log(error)
+        );
+      }, 10000)
+      this.setState({
+        geoInterval: interval
+    })
+  }
+```
+in the location controller I'm checking whether the location I'm receiving is from a new user, in that case I'm creating a new location, or either from an existing user, which in that case I'm updating their location. 
+```
+def create
+  user = User.find(params[:user_id])
+  location = Location.where(user_id: user)
+  if location.length > 0
+    Location.update(location.last.id, location_params)
+      ActionCable.server.broadcast 'locations_channel',
+       lat: location.last.lat,
+       lng: location.last.lng,
+       user: location.last.user
+       render json: @location, status: :ok
+     head :ok
+ else
+   location = Location.new(location_params)
+   user.locations << location
+      ActionCable.server.broadcast 'locations_channel',
+       lat: location.lat,
+       lng: location.lng,
+       user: location.user
+       render json: @location, status: :ok
+     head :ok
+   end
+ end
+```
+
+## thank you
+Huge thanks to Drake Talley, David Whitlatch, Brian Flynn, Jason Karlin and whole my wonderful friends from General Assembly! ❤️ 
