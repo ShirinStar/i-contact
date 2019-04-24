@@ -78,4 +78,4 @@ def create
 ```
 
 ## thank you
-Huge thanks to Drake Talley, David Whitlatch, Brian Flynn, Jason Karlin and whole my wonderful friends from General Assembly! ❤️ 
+Huge thanks to Drake Talley, David Whitlatch, Brian Flynn, Jason Karlin and my wonderful friends from General Assembly! ❤️ 
